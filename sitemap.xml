@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+    
+    <!-- Main homepage -->
+    <url>
+        <loc>https://stellarsion.pages.dev/</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        
+        <!-- XHTML links for single-page app sections -->
+        <xhtml:link rel="alternate" href="https://stellarsion.com/#automations" hreflang="en" />
+        <xhtml:link rel="alternate" href="https://stellarsion.com/#features" hreflang="en" />
+        <xhtml:link rel="alternate" href="https://stellarsion.com/#pricing" hreflang="en" />
+        <xhtml:link rel="alternate" href="https://stellarsion.com/#testimonials" hreflang="en" />
+        
+        <!-- Image references (if you want to index images) -->
+        <!-- Add your logo and key images here if needed -->
+        <!--
+        <image:image>
+            <image:loc>https://stellarsion.com/images/logo.png</image:loc>
+            <image:title>Stellarsion Logo</image:title>
+            <image:caption>Stellarsion - Automating Businesses</image:caption>
+        </image:image>
+        -->
+    </url>
+
+</urlset>
