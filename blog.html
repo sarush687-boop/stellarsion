@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Stellarsion - Automation Insights & Tips</title>
+    <meta name="description" content="Learn about business automation, n8n workflows, and productivity tips from Stellarsion. Expert insights on automating your workflow.">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        .glow { animation: glow 3s ease-in-out infinite; }
+        .gradient-text {
+            background: linear-gradient(135deg, #8398f8 0%, #670dc1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+        }
+        .nav-scrolled {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        .blog-card {
+            transition: all 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.3);
+        }
+        .blog-content {
+            display: none;
+        }
+        .blog-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-950 via-purple-800 to-slate-900 text-white">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-purple-300 to-pink-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold">Stellarsion</span>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#automations" class="hover:text-purple-400 transition">Automations</a>
+                    <a href="blog.html" class="hover:text-purple-400 transition">Blog</a>
+                    <a href="index.html#features" class="hover:text-purple-400 transition">Features</a>
+                    <a href="contact.html" class="btn-primary px-6 py-2 rounded-full font-semibold">
+                        Contact Us
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden glass">
+            <div class="px-4 pt-2 pb-4 space-y-3">
+                <a href="index.html#automations" class="block py-2 hover:text-purple-400">Automations</a>
+                <a href="blog.html" class="block py-2 hover:text-purple-400">Blog</a>
+                <a href="index.html#features" class="block py-2 hover:text-purple-400">Features</a>
+                <a href="contact.html" class="btn-primary w-full px-6 py-2 rounded-full font-semibold mt-2 text-center block">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-12 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full filter blur-3xl glow"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-pink-200 rounded-full filter blur-3xl glow"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                Automation <span class="gradient-text">Insights</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                Expert guides, tutorials, and insights on business automation, n8n workflows, and productivity optimization
+            </p>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Blog Post 1 -->
+                <article class="glass rounded-2xl overflow-hidden blog-card cursor-pointer" onclick="openBlog('blog1')">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                        <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300">Getting Started</span>
+                            <span class="text-gray-400 text-sm">5 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Getting Started with n8n: A Complete Beginner's Guide</h3>
+                        <p class="text-gray-400 text-sm mb-4">Learn how to set up n8n and create your first automation workflow in minutes. Perfect for beginners looking to automate their business processes.</p>
+                        <div class="flex items-center text-purple-400 text-sm font-semibold">
+                            Read More →
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="glass rounded-2xl overflow-hidden blog-card cursor-pointer" onclick="openBlog('blog2')">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
+                        <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-blue-500/20 rounded-full text-xs text-blue-300">Content Automation</span>
+                            <span class="text-gray-400 text-sm">7 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Automate Your Blog: From Research to Publishing</h3>
+                        <p class="text-gray-400 text-sm mb-4">Discover how to build a complete blogging automation that handles research, writing, thumbnail creation, and publishing—all on autopilot.</p>
+                        <div class="flex items-center text-purple-400 text-sm font-semibold">
+                            Read More →
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="glass rounded-2xl overflow-hidden blog-card cursor-pointer" onclick="openBlog('blog3')">
+                    <div class="h-48 bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center">
+                        <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-pink-500/20 rounded-full text-xs text-pink-300">Productivity</span>
+                            <span class="text-gray-400 text-sm">6 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">5 Automations That Save 10+ Hours Per Week</h3>
+                        <p class="text-gray-400 text-sm mb-4">The most impactful automation workflows that entrepreneurs and small businesses use to reclaim their time and focus on growth.</p>
+                        <div class="flex items-center text-purple-400 text-sm font-semibold">
+                            Read More →
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="glass rounded-2xl overflow-hidden blog-card cursor-pointer" onclick="openBlog('blog4')">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center">
+                        <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-green-500/20 rounded-full text-xs text-green-300">Advanced</span>
+                            <span class="text-gray-400 text-sm">10 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Advanced n8n Techniques: Error Handling & Optimization</h3>
+                        <p class="text-gray-400 text-sm mb-4">Master error handling, workflow optimization, and best practices to build robust, production-ready automation workflows.</p>
+                        <div class="flex items-center text-purple-400 text-sm font-semibold">
+                            Read More →
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="glass rounded-2xl overflow-hidden blog-card cursor-pointer" onclick="openBlog('blog5')">
+                    <div class="h-48 bg-gradient-to-br from-yellow-500 to-red-500 flex items-center justify-center">
+                        <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-yellow-500/20 rounded-full text-xs text-yellow-300">AI Integration</span>
+                            <span class="text-gray-400 text-sm">8 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Integrating AI into Your Automation Workflows</h3>
+                        <p class="text-gray-400 text-sm mb-4">Learn how to supercharge your automations with AI capabilities using ChatGPT, Claude, and other AI services within n8n.</p>
+                        <div class="flex items-center text-purple-400 text-sm font-semibold">
+                            Read More →
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="glass rounded-2xl overflow-hidden blog-card cursor-pointer" onclick="openBlog('blog6')">
+                    <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
+                        <svg class="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-indigo-500/20 rounded-full text-xs text-indigo-300">Cost Saving</span>
+                            <span class="text-gray-400 text-sm">5 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Zero-Cost Automations: How We Keep Costs Near Zero</h3>
+                        <p class="text-gray-400 text-sm mb-4">Our strategies for building powerful automations without breaking the bank. Learn how to minimize running costs while maximizing value.</p>
+                        <div class="flex items-center text-purple-400 text-sm font-semibold">
+                            Read More →
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Modal -->
+    <div id="blogModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden overflow-y-auto">
+        <div class="min-h-screen px-4 py-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="glass rounded-3xl p-8 md:p-12 relative">
+                    <button onclick="closeBlog()" class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center glass rounded-full hover:bg-white/10 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+
+                    <!-- Blog 1 Content -->
+                    <div id="blog1" class="blog-content">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Getting Started with n8n: A Complete Beginner's Guide</h2>
+                        <div class="flex items-center gap-4 mb-6 text-gray-400 text-sm">
+                            <span>5 min read</span>
+                            <span>•</span>
+                            <span>Getting Started</span>
+                        </div>
+                        <div class="prose prose-invert max-w-none">
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                n8n is a powerful, self-hosted workflow automation tool that's taking the automation world by storm. Unlike many other automation platforms, n8n is open-source, highly customizable, and gives you complete control over your data.
+                            </p>
+                            
+                            <h3 class="text-2xl font-bold mb-3 mt-6">What is n8n?</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                n8n (pronounced "n-eight-n") stands for "nodemation" - node-based automation. It's a workflow automation tool that connects different apps and services together, allowing you to automate repetitive tasks without writing complex code.
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Why Choose n8n?</h3>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
+                                <li><strong>Open Source:</strong> Free to use and modify according to your needs</li>
+                                <li><strong>Self-Hosted:</strong> Keep your data secure on your own servers</li>
+                                <li><strong>Fair Pricing:</strong> Even the cloud version has transparent, usage-based pricing</li>
+                                <li><strong>300+ Integrations:</strong> Connect with almost any service you use</li>
+                                <li><strong>Visual Interface:</strong> Build workflows with an intuitive drag-and-drop interface</li>
+                            </ul>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Getting Started: Your First Workflow</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Let's walk through creating a simple workflow that sends you a daily email summary. This example will help you understand the basics of n8n:
+                            </p>
+
+                            <ol class="list-decimal list-inside text-gray-300 space-y-3 mb-4">
+                                <li><strong>Install n8n:</strong> Use Docker, npm, or sign up for n8n cloud</li>
+                                <li><strong>Create a new workflow:</strong> Click the "+" button in the n8n interface</li>
+                                <li><strong>Add a trigger:</strong> Start with a "Schedule" node to run daily</li>
+                                <li><strong>Add actions:</strong> Connect nodes to fetch data and format it</li>
+                                <li><strong>Send results:</strong> Use an email node to receive your summary</li>
+                                <li><strong>Test and activate:</strong> Run your workflow and turn it on</li>
+                            </ol>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Pro Tips for Beginners</h3>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
+                                <li>Start small and gradually add complexity</li>
+                                <li>Use the "Execute Node" button to test individual steps</li>
+                                <li>Check the n8n community forum for workflow templates</li>
+                                <li>Document your workflows with notes and proper naming</li>
+                                <li>Set up error notifications to catch issues early</li>
+                            </ul>
+
+                            <p class="text-gray-300 leading-relaxed mt-6">
+                                Ready to start automating? Download n8n today and join the thousands of users who are reclaiming their time through smart automation!
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Blog 2 Content -->
+                    <div id="blog2" class="blog-content">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Automate Your Blog: From Research to Publishing</h2>
+                        <div class="flex items-center gap-4 mb-6 text-gray-400 text-sm">
+                            <span>7 min read</span>
+                            <span>•</span>
+                            <span>Content Automation</span>
+                        </div>
+                        <div class="prose prose-invert max-w-none">
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Content creation is one of the most time-consuming aspects of running a blog or business. What if you could automate 80% of the process while maintaining quality? With the right automation setup, you can.
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">The Complete Blog Automation Pipeline</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Our blog automation system handles everything from topic research to final publishing. Here's how it works:
+                            </p>
+
+                            <h4 class="text-xl font-semibold mb-3 mt-4">1. Topic Research & Trending Analysis</h4>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                The automation starts by analyzing trending topics in your niche using APIs from Google Trends, Reddit, and Twitter. It identifies high-potential topics based on search volume, engagement, and relevance to your audience.
+                            </p>
+
+                            <h4 class="text-xl font-semibold mb-3 mt-4">2. AI-Powered Content Generation</h4>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Once a topic is selected, the system uses AI (like ChatGPT or Claude) to generate comprehensive, SEO-optimized content. The AI is prompted with your brand voice, style guidelines, and target keywords to ensure consistency.
+                            </p>
+
+                            <h4 class="text-xl font-semibold mb-3 mt-4">3. Thumbnail Creation</h4>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Eye-catching thumbnails are automatically generated using DALL-E or Midjourney, with your brand colors and typography overlaid using automated image processing.
+                            </p>
+
+                            <h4 class="text-xl font-semibold mb-3 mt-4">4. SEO Optimization</h4>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                The content is automatically optimized with meta descriptions, alt tags, internal links, and structured data markup. Keywords are naturally integrated for better search engine visibility.
+                            </p>
+
+                            <h4 class="text-xl font-semibold mb-3 mt-4">5. Publishing & Distribution</h4>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                The finished post is automatically published to your WordPress, Ghost, or custom blog platform. Simultaneously, social media summaries are generated and posted to Twitter, LinkedIn, and Facebook.
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Cost-Effective Implementation</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                The beauty of this automation is that it runs at near-zero cost. Using free tiers of various APIs and open-source tools, you can generate dozens of blog posts monthly for less than the cost of a single freelance article.
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Results You Can Expect</h3>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
+                                <li>Save 6-12 hours per blog post</li>
+                                <li>Publish 10-20x more content consistently</li>
+                                <li>Maintain quality and brand voice</li>
+                                <li>Reduce content costs by 90%+</li>
+                                <li>Focus your time on strategy, not execution</li>
+                            </ul>
+
+                            <p class="text-gray-300 leading-relaxed mt-6">
+                                Ready to automate your content pipeline? Check out our Complete Blogging Automation package that sets all of this up for you in minutes!
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Blog 3 Content -->
+                    <div id="blog3" class="blog-content">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">5 Automations That Save 10+ Hours Per Week</h2>
+                        <div class="flex items-center gap-4 mb-6 text-gray-400 text-sm">
+                            <span>6 min read</span>
+                            <span>•</span>
+                            <span>Productivity</span>
+                        </div>
+                        <div class="prose prose-invert max-w-none">
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Time is the most valuable resource for entrepreneurs and small business owners. Here are five powerful automations that our users consistently report save them 10+ hours every week.
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">1. Email Management & Auto-Responses</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                <strong>Time Saved: 3-5 hours/week</strong>
+                            </p>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Automatically categorize incoming emails, draft responses to common inquiries, and route urgent messages to the right team members. Set up auto-responders that handle FAQs and schedule follow-ups without manual intervention.
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">2. Social Media Content Scheduler</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                <strong>Time Saved: 2-3 hours/week</strong>
+                            </p>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Create a content calendar once and let automation handle the rest. This system pulls content from your blog, generates platform-specific captions, adds relevant hashtags, and posts at optimal times across all your social channels.
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">3. Lead Qualification & CRM Updates</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                <strong>Time Saved: 2-4 hours/week</strong>
+                            </p>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Automatically score and qualify leads based on their behavior, company size, and engagement. Update your CRM with enriched data, trigger follow-up sequences, and alert sales team members about hot prospects—all without manual data entry.
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">4. Invoice & Payment Processing</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                <strong>Time Saved: 1-2 hours/week</strong>
+                            </p>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Generate and send invoices automatically based on completed work or subscriptions. Track payments, send reminders for overdue invoices, and update accounting software—all happening in the background while you focus on revenue-generating activities.
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">5. Data Backup & Report Generation</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                <strong>Time Saved: 1-2 hours/week</strong>
+                            </p>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Automatically backup critical data, generate weekly/monthly reports, and distribute them to stakeholders. Pull metrics from multiple sources, create visualizations, and compile everything into professional reports—delivered right to your inbox.
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">The Compound Effect</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                These five automations alone can save you 10-16 hours per week. That's equivalent to having an extra two workdays every week! Instead of spending time on repetitive tasks, you can focus on strategy, growth, and the work that truly moves the needle for your business.
+                            </p>
+
+                            <p class="text-gray-300 leading-relaxed mt-6">
+                                The best part? Once set up, these automations run 24/7 without supervision. They don't take breaks, don't make mistakes, and they scale effortlessly as your business grows.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Blog 4 Content -->
+                    <div id="blog4" class="blog-content">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Advanced n8n Techniques: Error Handling & Optimization</h2>
+                        <div class="flex items-center gap-4 mb-6 text-gray-400 text-sm">
+                            <span>10 min read</span>
+                            <span>•</span>
+                            <span>Advanced</span>
+                        </div>
+                        <div class="prose prose-invert max-w-none">
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Once you've mastered the basics of n8n, it's time to level up your workflows with advanced techniques. This guide covers error handling, optimization strategies, and best practices for production-ready automations.
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Robust Error Handling</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Errors are inevitable in automation. The key is handling them gracefully so your workflows don't break when something goes wrong.
+                            </p>
+
+                            <h4 class="text-xl font-semibold mb-3 mt-4">Try-Catch Patterns</h4>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Use the "Error Trigger" node to catch failures and route them to recovery workflows. This allows you to log errors, send notifications, and even attempt automatic recovery without manual intervention.
+                            </p>
+
+                            <h4 class="text-xl font-semibold mb-3 mt-4">Retry Logic</h4>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Implement exponential backoff for API calls. When a request fails, wait a few seconds and try again. If it fails again, wait longer. This handles temporary outages gracefully without hammering the API.
+                            </p>
+
+                            <h4 class="text-xl font-semibold mb-3 mt-4">Fallback Strategies</h4>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Always have a Plan B. If your primary data source fails, switch to a backup. If an AI service is down, queue the request for later or use an alternative service.
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Performance Optimization</h3>
+                            
+                            <h4 class="text-xl font-semibold mb-3 mt-4">Batch Processing</h4>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Instead of processing items one at a time, batch them together. This reduces API calls, improves speed, and often reduces costs. Most APIs support batch operations—use them!
+                            </p>
+
+                            <h4 class="text-xl font-semibold mb-3 mt-4">Caching</h4>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Store frequently accessed data in variables or a database. If you're making the same API call multiple times in a workflow, cache the result and reuse it. This dramatically speeds up execution.
+                            </p>
+
+                            <h4 class="text-xl font-semibold mb-3 mt-4">Parallel Processing</h4>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                When possible, run independent operations in parallel using the "Split In Batches" node. This can cut execution time by 50% or more for data-heavy workflows.
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Production Best Practices</h3>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
+                                <li><strong>Environment Variables:</strong> Never hardcode credentials or API keys</li>
+                                <li><strong>Version Control:</strong> Export and backup your workflows regularly</li>
+                                <li><strong>Monitoring:</strong> Set up health checks and uptime monitoring</li>
+                                <li><strong>Documentation:</strong> Add notes to complex nodes explaining the logic</li>
+                                <li><strong>Testing:</strong> Use separate test workflows before deploying to production</li>
+                                <li><strong>Logging:</strong> Log important events for debugging and analytics</li>
+                            </ul>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Security Considerations</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Always validate and sanitize input data. Use webhook authentication. Limit access to sensitive workflows. Regularly audit your automation permissions and credentials. Security isn't optional—it's essential.
+                            </p>
+
+                            <p class="text-gray-300 leading-relaxed mt-6">
+                                Mastering these advanced techniques transforms your automations from "working" to "production-grade." Your workflows will be more reliable, faster, and easier to maintain as your automation needs grow.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Blog 5 Content -->
+                    <div id="blog5" class="blog-content">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Integrating AI into Your Automation Workflows</h2>
+                        <div class="flex items-center gap-4 mb-6 text-gray-400 text-sm">
+                            <span>8 min read</span>
+                            <span>•</span>
+                            <span>AI Integration</span>
+                        </div>
+                        <div class="prose prose-invert max-w-none">
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                AI is revolutionizing automation. By combining n8n with powerful AI services like ChatGPT, Claude, and others, you can create intelligent workflows that understand context, make decisions, and handle complex tasks.
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Why Add AI to Your Automations?</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Traditional automations follow rigid rules: if this happens, do that. AI-powered automations can understand intent, generate creative content, analyze sentiment, and adapt to different situations—all automatically.
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Popular AI Integration Use Cases</h3>
+
+                            <h4 class="text-xl font-semibold mb-3 mt-4">1. Intelligent Email Responses</h4>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Instead of basic auto-responders, use AI to understand the email's context and generate personalized responses. The AI can detect urgency, sentiment, and intent, then craft appropriate replies or route to the right team member.
+                            </p>
+
+                            <h4 class="text-xl font-semibold mb-3 mt-4">2. Content Generation at Scale</h4>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Generate blog posts, social media content, product descriptions, and marketing copy automatically. Feed the AI your brand guidelines and examples, and it will produce content that matches your voice and style.
+                            </p>
+
+                            <h4 class="text-xl font-semibold mb-3 mt-4">3. Data Analysis & Insights</h4>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Feed your business data to AI and get actionable insights. Identify trends, anomalies, and opportunities without spending hours in spreadsheets. The AI can even generate recommendations and predictions.
+                            </p>
+
+                            <h4 class="text-xl font-semibold mb-3 mt-4">4. Customer Support Automation</h4>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Create AI-powered support bots that can handle complex queries, not just FAQs. The AI understands context from previous conversations and can pull information from your knowledge base to provide accurate answers.
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Setting Up AI in n8n</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                n8n has native integrations with major AI providers. Here's how to get started:
+                            </p>
+
+                            <ol class="list-decimal list-inside text-gray-300 space-y-3 mb-4">
+                                <li>Get API keys from OpenAI, Anthropic, or your preferred AI service</li>
+                                <li>Add the AI node to your workflow (e.g., "OpenAI" or "Anthropic Claude")</li>
+                                <li>Configure your prompt template with variables from previous nodes</li>
+                                <li>Set temperature and other parameters to control output</li>
+                                <li>Parse and use the AI's response in subsequent nodes</li>
+                            </ol>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Prompt Engineering Tips</h3>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
+                                <li>Be specific and clear about what you want</li>
+                                <li>Provide examples of desired output format</li>
+                                <li>Use system prompts to set behavior and constraints</li>
+                                <li>Include relevant context from your workflow data</li>
+                                <li>Test different temperatures for creativity vs. consistency</li>
+                            </ul>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Cost Management</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                AI API calls cost money, but with smart implementation, costs stay minimal. Use caching for repeated queries, choose the right model for the task (you don't always need the most powerful model), and implement rate limiting to prevent runaway costs.
+                            </p>
+
+                            <p class="text-gray-300 leading-relaxed mt-6">
+                                AI-powered automation is the future. Start small, experiment, and gradually expand. The possibilities are limitless when you combine n8n's automation power with AI's intelligence.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Blog 6 Content -->
+                    <div id="blog6" class="blog-content">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Zero-Cost Automations: How We Keep Costs Near Zero</h2>
+                        <div class="flex items-center gap-4 mb-6 text-gray-400 text-sm">
+                            <span>5 min read</span>
+                            <span>•</span>
+                            <span>Cost Saving</span>
+                        </div>
+                        <div class="prose prose-invert max-w-none">
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                One of our core principles at Stellarsion is making automation accessible and affordable. Here's exactly how we build powerful automations that run at near-zero cost.
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Strategy 1: Free Tier Stacking</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Most SaaS services offer generous free tiers. The key is intelligently combining them. For example:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
+                                <li>n8n: Self-host for free or use cloud free tier (200 executions/month)</li>
+                                <li>OpenAI: $5 free credit for new accounts</li>
+                                <li>Cloudflare: Free CDN, Workers, and Pages hosting</li>
+                                <li>Supabase: Free PostgreSQL database with 500MB storage</li>
+                                <li>Resend: 100 emails/day free</li>
+                            </ul>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Strategy 2: Open Source Tools</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Why pay for proprietary software when open source alternatives exist? We use:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
+                                <li>n8n instead of Zapier (save $20-300/month)</li>
+                                <li>Ghost or WordPress instead of Medium</li>
+                                <li>Ollama for local AI inference (completely free)</li>
+                                <li>MinIO for S3-compatible object storage</li>
+                            </ul>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Strategy 3: Smart Caching</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Every API call costs money. Reduce calls by 70-90% through aggressive caching:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
+                                <li>Cache AI responses for common queries</li>
+                                <li>Store API results in a simple database</li>
+                                <li>Use CDN caching for static content</li>
+                                <li>Implement time-based cache invalidation</li>
+                            </ul>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Strategy 4: Efficient AI Usage</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                AI costs can spiral out of control. Keep them minimal by:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
+                                <li>Using smaller models (GPT-3.5 instead of GPT-4 when possible)</li>
+                                <li>Optimizing prompts to reduce token usage</li>
+                                <li>Batching requests when feasible</li>
+                                <li>Using local models (Ollama) for simple tasks</li>
+                                <li>Implementing rate limits to prevent accidents</li>
+                            </ul>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Strategy 5: Self-Hosting When Possible</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                A $5/month VPS can replace hundreds of dollars in SaaS subscriptions. Host your own:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
+                                <li>n8n instance</li>
+                                <li>Database (PostgreSQL, MongoDB)</li>
+                                <li>Redis for caching</li>
+                                <li>Static site generator for blogs</li>
+                            </ul>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">Real-World Example</h3>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Our complete blog automation costs breakdown:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 mb-4">
+                                <li>Hosting: $5/month (VPS)</li>
+                                <li>AI API: $2-3/month (with caching and optimization)</li>
+                                <li>Image generation: $0 (free Stable Diffusion)</li>
+                                <li>Email delivery: $0 (free tier)</li>
+                                <li><strong>Total: ~$7-8/month to generate unlimited content</strong></li>
+                            </ul>
+
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Compare this to hiring a content writer ($50-200 per article) or using premium automation tools like Zapier ($30-100+/month).
+                            </p>
+
+                            <h3 class="text-2xl font-bold mb-3 mt-6">The Bottom Line</h3>
+                            <p class="text-gray-300 leading-relaxed mt-6">
+                                Zero-cost automation isn't about being cheap—it's about being smart. By leveraging free tiers, open source tools, and efficient architecture, you can build enterprise-grade automations on a shoestring budget. This democratizes automation and makes it accessible to solopreneurs and small businesses.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black/40 py-12 px-4 mt-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold">Stellarsion</span>
+                    </div>
+                    <p class="text-gray-400">Automate everything, achieve anything.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="https://www.linkedin.com/in/arush-sharma-327349396/" class="hover:text-purple-400 transition">Our Linkedin</a></li>
+                        <li><a href="blog.html" class="hover:text-purple-400 transition">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html#testimonials" class="hover:text-purple-400 transition">About</a></li>
+                        <li><a href="contact.html" class="hover:text-purple-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="privacy.html" class="hover:text-purple-400 transition">Privacy</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition">Terms</a></li>
+                        <li><a href="#" class="hover:text-purple-400 transition">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>© 2025 Stellarsion Automations. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Blog modal functions
+        function openBlog(blogId) {
+            const modal = document.getElementById('blogModal');
+            const allBlogs = document.querySelectorAll('.blog-content');
+            
+            // Hide all blog contents
+            allBlogs.forEach(blog => blog.classList.remove('active'));
+            
+            // Show selected blog
+            document.getElementById(blogId).classList.add('active');
+            
+            // Show modal
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            // Scroll to top of modal
+            modal.scrollTop = 0;
+        }
+
+        function closeBlog() {
+            const modal = document.getElementById('blogModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeBlog();
+            }
+        });
+
+        // Close modal on background click
+        document.getElementById('blogModal').addEventListener('click', (e) => {
+            if (e.target.id === 'blogModal') {
+                closeBlog();
+            }
+        });
+    </script>
+</body>
+</html>
