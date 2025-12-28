@@ -490,6 +490,319 @@
         </div>
     </section>
     <!-- CTA Section -->
+
+    <!-- FAQ Section -->
+<section id="faq" class="py-20 px-4">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
+            <p class="text-xl text-gray-400">Everything you need to know about our automation solutions</p>
+        </div>
+
+        <div class="space-y-4">
+            <!-- FAQ Item 1 -->
+            <div class="glass rounded-2xl overflow-hidden">
+                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
+                    <span class="text-lg font-semibold pr-8">What exactly is n8n and how does it work?</span>
+                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                    <div class="px-6 pb-5 text-gray-300">
+                        <p class="leading-relaxed">
+                            n8n is an open-source workflow automation platform that connects different apps and services together. Think of it as a smart assistant that can move data between your tools, trigger actions based on events, and automate repetitive tasks—all without you needing to write complex code. It's like Zapier but more powerful, customizable, and cost-effective.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="glass rounded-2xl overflow-hidden">
+                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
+                    <span class="text-lg font-semibold pr-8">Do I need technical knowledge to use your automations?</span>
+                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                    <div class="px-6 pb-5 text-gray-300">
+                        <p class="leading-relaxed mb-3">
+                            Not at all! Our automations are ready-to-use with minimal setup. We provide:
+                        </p>
+                        <ul class="list-disc list-inside space-y-1 ml-4">
+                            <li>Step-by-step setup guides with screenshots</li>
+                            <li>Video tutorials walking you through the process</li>
+                            <li>Pre-configured workflows that just need your API keys</li>
+                            <li>Direct support if you get stuck</li>
+                        </ul>
+                        <p class="leading-relaxed mt-3">
+                            Most customers have their automations running within 10-15 minutes, even with no prior technical experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="glass rounded-2xl overflow-hidden">
+                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
+                    <span class="text-lg font-semibold pr-8">How much do your automations actually cost to run?</span>
+                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                    <div class="px-6 pb-5 text-gray-300">
+                        <p class="leading-relaxed mb-3">
+                            Our automations are designed to run at near-zero cost. Here's a typical breakdown:
+                        </p>
+                        <ul class="list-disc list-inside space-y-1 ml-4">
+                            <li><strong>n8n hosting:</strong> $0-5/month (free tier or cheap VPS)</li>
+                            <li><strong>AI API costs:</strong> $2-5/month with our optimizations</li>
+                            <li><strong>Other services:</strong> Mostly free tiers</li>
+                        </ul>
+                        <p class="leading-relaxed mt-3">
+                            <strong>Total: Usually under $10/month</strong> to run automations that would cost $50-300/month with traditional SaaS tools. That's a one-time purchase with minimal ongoing costs!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="glass rounded-2xl overflow-hidden">
+                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
+                    <span class="text-lg font-semibold pr-8">What if the automation stops working or breaks?</span>
+                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                    <div class="px-6 pb-5 text-gray-300">
+                        <p class="leading-relaxed mb-3">
+                            We've got you covered! Our automations include:
+                        </p>
+                        <ul class="list-disc list-inside space-y-1 ml-4">
+                            <li><strong>Built-in error handling:</strong> Automations recover from temporary failures automatically</li>
+                            <li><strong>Error notifications:</strong> You'll be alerted if something needs attention</li>
+                            <li><strong>Detailed documentation:</strong> Troubleshooting guides for common issues</li>
+                            <li><strong>Community support:</strong> Access to our Discord/Slack community</li>
+                            <li><strong>Direct support:</strong> Email us and we'll help fix it</li>
+                        </ul>
+                        <p class="leading-relaxed mt-3">
+                            Plus, we design workflows to be robust and handle edge cases, so breakages are rare.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="glass rounded-2xl overflow-hidden">
+                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
+                    <span class="text-lg font-semibold pr-8">Can I customize the automation to fit my specific needs?</span>
+                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                    <div class="px-6 pb-5 text-gray-300">
+                        <p class="leading-relaxed mb-3">
+                            Absolutely! That's the beauty of n8n workflows:
+                        </p>
+                        <ul class="list-disc list-inside space-y-1 ml-4">
+                            <li><strong>Fully customizable:</strong> You own the workflow and can modify it however you want</li>
+                            <li><strong>Visual editor:</strong> Easy drag-and-drop interface to add or remove steps</li>
+                            <li><strong>Documentation included:</strong> We explain how everything works so you can tweak it</li>
+                            <li><strong>Custom solutions available:</strong> Need major changes? We offer custom development services</li>
+                        </ul>
+                        <p class="leading-relaxed mt-3">
+                            Think of our automations as a solid foundation you can build upon, not a locked black box.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 6 -->
+            <div class="glass rounded-2xl overflow-hidden">
+                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
+                    <span class="text-lg font-semibold pr-8">How long does it take to set up an automation?</span>
+                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                    <div class="px-6 pb-5 text-gray-300">
+                        <p class="leading-relaxed mb-3">
+                            Setup time varies by automation complexity, but typically:
+                        </p>
+                        <ul class="list-disc list-inside space-y-1 ml-4">
+                            <li><strong>Simple automations:</strong> 5-10 minutes (just add your API keys)</li>
+                            <li><strong>Medium complexity:</strong> 10-20 minutes (some configuration needed)</li>
+                            <li><strong>Complex workflows:</strong> 20-30 minutes (multiple services to connect)</li>
+                        </ul>
+                        <p class="leading-relaxed mt-3">
+                            Our blog automation, for example, typically takes 10-15 minutes to set up and then runs completely on autopilot. Compare that to hours of manual work every single week!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 7 -->
+            <div class="glass rounded-2xl overflow-hidden">
+                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
+                    <span class="text-lg font-semibold pr-8">Is my data safe? Where is it stored?</span>
+                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                    <div class="px-6 pb-5 text-gray-300">
+                        <p class="leading-relaxed mb-3">
+                            Your data security is a top priority:
+                        </p>
+                        <ul class="list-disc list-inside space-y-1 ml-4">
+                            <li><strong>Self-hosted option:</strong> Run n8n on your own server—you control all data</li>
+                            <li><strong>No data collection:</strong> We don't collect or store your business data</li>
+                            <li><strong>Encrypted connections:</strong> All API calls use secure HTTPS</li>
+                            <li><strong>Your credentials stay with you:</strong> API keys are stored in your n8n instance only</li>
+                        </ul>
+                        <p class="leading-relaxed mt-3">
+                            Unlike cloud-only services, with n8n you have complete control over where your data lives and who can access it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 8 -->
+            <div class="glass rounded-2xl overflow-hidden">
+                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
+                    <span class="text-lg font-semibold pr-8">Do you offer refunds if I'm not satisfied?</span>
+                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                    <div class="px-6 pb-5 text-gray-300">
+                        <p class="leading-relaxed mb-3">
+                            Yes! We offer a <strong>14-day money-back guarantee</strong>. If the automation doesn't work as described or you're not satisfied with it, just reach out within 14 days of purchase for a full refund—no questions asked.
+                        </p>
+                        <p class="leading-relaxed mt-3">
+                            We're confident in the quality of our automations, but we understand that sometimes things don't fit your exact needs. We'd rather make it right or give you your money back than have an unhappy customer.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 9 -->
+            <div class="glass rounded-2xl overflow-hidden">
+                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
+                    <span class="text-lg font-semibold pr-8">Can I get help if I get stuck during setup?</span>
+                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                    <div class="px-6 pb-5 text-gray-300">
+                        <p class="leading-relaxed mb-3">
+                            Of course! We provide multiple support channels:
+                        </p>
+                        <ul class="list-disc list-inside space-y-1 ml-4">
+                            <li><strong>Email support:</strong> arush2022pro@gmail.com (typically respond within 24 hours)</li>
+                            <li><strong>Setup assistance:</strong> We can guide you through the process step-by-step</li>
+                            <li><strong>Video calls:</strong> For complex setups, we offer screen-sharing sessions</li>
+                            <li><strong>Documentation:</strong> Detailed guides and FAQs for common issues</li>
+                        </ul>
+                        <p class="leading-relaxed mt-3">
+                            You're never alone in this. We want you to succeed, so we're here to help every step of the way!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 10 -->
+            <div class="glass rounded-2xl overflow-hidden">
+                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
+                    <span class="text-lg font-semibold pr-8">What's the difference between your pre-built automations and custom solutions?</span>
+                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+                    <div class="px-6 pb-5 text-gray-300">
+                        <p class="leading-relaxed mb-3">
+                            Great question! Here's the breakdown:
+                        </p>
+                        <p class="leading-relaxed mb-3">
+                            <strong>Pre-built Automations:</strong>
+                        </p>
+                        <ul class="list-disc list-inside space-y-1 ml-4 mb-3">
+                            <li>Ready-to-use workflows for common tasks</li>
+                            <li>Lower cost, instant delivery</li>
+                            <li>Designed to work for most use cases</li>
+                            <li>Perfect if the automation matches your needs</li>
+                        </ul>
+                        <p class="leading-relaxed mb-3">
+                            <strong>Custom Solutions:</strong>
+                        </p>
+                        <ul class="list-disc list-inside space-y-1 ml-4">
+                            <li>Built specifically for your unique workflow</li>
+                            <li>Connects to your specific tools and services</li>
+                            <li>Handles your exact requirements and edge cases</li>
+                            <li>Higher cost but perfectly tailored to you</li>
+                        </ul>
+                        <p class="leading-relaxed mt-3">
+                            Start with pre-built if it fits your needs. Go custom if you need something more specialized or have unique requirements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Still Have Questions CTA -->
+        <div class="mt-12 text-center glass rounded-2xl p-8">
+            <h3 class="text-2xl font-bold mb-3">Still have questions?</h3>
+            <p class="text-gray-400 mb-6">We're here to help! Reach out and we'll answer any questions you have.</p>
+            <a href="contact.html" class="btn-primary px-8 py-3 rounded-full font-semibold inline-flex items-center gap-2 group">
+                Contact Us
+                <svg class="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+// FAQ Toggle Function
+function toggleFAQ(button) {
+    const faqItem = button.parentElement;
+    const answer = faqItem.querySelector('.faq-answer');
+    const icon = button.querySelector('.faq-icon');
+    const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+    
+    // Close all other FAQs
+    document.querySelectorAll('.faq-answer').forEach(item => {
+        if (item !== answer) {
+            item.style.maxHeight = '0px';
+        }
+    });
+    
+    document.querySelectorAll('.faq-icon').forEach(item => {
+        if (item !== icon) {
+            item.style.transform = 'rotate(0deg)';
+        }
+    });
+    
+    // Toggle current FAQ
+    if (isOpen) {
+        answer.style.maxHeight = '0px';
+        icon.style.transform = 'rotate(0deg)';
+    } else {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.style.transform = 'rotate(180deg)';
+    }
+}
+</script>
     <section class="py-20 px-4">
         <div class="max-w-4xl mx-auto text-center">
             <div class="glass rounded-3xl p-12">
@@ -604,6 +917,7 @@
                 </div>
 
                 
+
 
 
 
