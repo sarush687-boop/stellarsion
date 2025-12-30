@@ -101,6 +101,131 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
+        .floating-cta {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.floating-cta:hover {
+    transform: scale(1.05);
+}
+
+.floating-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.floating-btn:hover {
+    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.6);
+    transform: translateY(-3px);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+    }
+    50% {
+        box-shadow: 0 8px 40px rgba(102, 126, 234, 0.7);
+    }
+}
+
+.floating-text-bubble {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    color: #1e293b;
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    animation: slideIn 0.5s ease-out;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.floating-text-bubble.show {
+    opacity: 1;
+    animation: slideIn 0.5s ease-out, float-bubble 3s ease-in-out infinite;
+}
+
+.floating-text-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid rgba(255, 255, 255, 0.95);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float-bubble {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .floating-cta {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .floating-btn {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .floating-text-bubble {
+        bottom: 70px;
+        font-size: 12px;
+        padding: 10px 16px;
+        max-width: 200px;
+        white-space: normal;
+        text-align: center;
+    }
+}
+
+/* Gradient text for the bubble */
+.gradient-bubble-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
     </style>
 </head>
     <!-- Google tag (gtag.js) -->
@@ -912,6 +1037,70 @@ function toggleFAQ(button) {
             });
         });
     </script>
+           <!-- Add this HTML before the closing </body> tag in index.html -->
+<div class="floating-cta">
+    <div class="floating-text-bubble" id="floatingText">
+        <span class="gradient-bubble-text">Get Your Custom Automation! 🚀</span>
+    </div>
+    <a href="custom-automation.html" class="floating-btn" title="Get Custom Automation">
+        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        </svg>
+    </a>
+</div>
+
+<!-- Add this JavaScript before the closing </body> tag -->
+<script>
+// Dynamic text messages for the floating bubble
+const messages = [
+    "Get Your Custom Automation! 🚀",
+    "Build Your AI System Today! 🤖",
+    "Save 10+ Hours Weekly! ⏰",
+    "Automate Everything Now! ⚡",
+    "Transform Your Workflow! 💡",
+    "Zero Cost Operations! 💰",
+    "Start Automating Free! 🎯",
+    "Custom n8n Workflows! 🔧"
+];
+
+let currentMessageIndex = 0;
+const floatingText = document.getElementById('floatingText');
+
+// Show the bubble initially
+setTimeout(() => {
+    floatingText.classList.add('show');
+}, 1000);
+
+// Change text every 4 seconds
+setInterval(() => {
+    // Fade out
+    floatingText.classList.remove('show');
+    
+    // Change text after fade out
+    setTimeout(() => {
+        currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+        floatingText.innerHTML = `<span class="gradient-bubble-text">${messages[currentMessageIndex]}</span>`;
+        
+        // Fade in
+        setTimeout(() => {
+            floatingText.classList.add('show');
+        }, 100);
+    }, 300);
+}, 4000);
+
+// Hide bubble when hovering over the button, show again when not hovering
+const floatingBtn = document.querySelector('.floating-btn');
+
+floatingBtn.addEventListener('mouseenter', () => {
+    floatingText.classList.remove('show');
+});
+
+floatingBtn.addEventListener('mouseleave', () => {
+    setTimeout(() => {
+        floatingText.classList.add('show');
+    }, 500);
+});
+</script>
 </body>
 </html>
                           
@@ -919,6 +1108,7 @@ function toggleFAQ(button) {
                 </div>
 
                 
+
 
 
 
