@@ -521,6 +521,216 @@
     </section>
 
     <!-- Pricing Section -->
+
+    <!-- ROI Calculator Section -->
+<!-- Add this section in index.html - Good placement: after Features section, before Testimonials -->
+
+<section class="py-20 px-4 bg-black/20">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Calculate Your ROI</h2>
+            <p class="text-xl text-gray-400">See how much time and money you could save with automation</p>
+        </div>
+
+        <div class="glass rounded-3xl p-8 md:p-12">
+            <div class="space-y-8">
+                <!-- Hours Input -->
+                <div>
+                    <label class="block text-lg font-semibold mb-3">
+                        Hours spent on repetitive tasks per week:
+                    </label>
+                    <div class="flex items-center gap-4">
+                        <input 
+                            type="range" 
+                            min="1" 
+                            max="40" 
+                            value="10" 
+                            id="hoursSlider"
+                            class="flex-1 h-3 bg-white/10 rounded-lg appearance-none cursor-pointer slider"
+                        >
+                        <span id="hoursDisplay" class="text-2xl font-bold gradient-text min-w-[100px] text-right">10 hours</span>
+                    </div>
+                </div>
+
+                <!-- Hourly Rate Input -->
+                <div>
+                    <label class="block text-lg font-semibold mb-3">
+                        Your hourly rate:
+                    </label>
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl font-bold">$</span>
+                        <input 
+                            type="number" 
+                            value="50" 
+                            min="1"
+                            max="500"
+                            id="rateInput"
+                            class="flex-1 px-6 py-4 text-2xl font-bold bg-white/10 border border-white/20 rounded-xl focus:border-purple-500 focus:outline-none transition"
+                        >
+                        <span class="text-gray-400">/hour</span>
+                    </div>
+                    <p class="text-sm text-gray-400 mt-2">Enter your hourly value (salary/wage or what you charge clients)</p>
+                </div>
+
+                <!-- Results Section -->
+                <div class="pt-8 border-t border-white/10">
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <!-- Weekly Savings -->
+                        <div class="glass rounded-2xl p-6 text-center">
+                            <p class="text-gray-400 text-sm mb-2">Weekly Savings</p>
+                            <p id="weeklySavings" class="text-3xl font-bold gradient-text">$500</p>
+                        </div>
+
+                        <!-- Monthly Savings -->
+                        <div class="glass rounded-2xl p-6 text-center transform scale-105 border-2 border-purple-500/50">
+                            <p class="text-gray-400 text-sm mb-2">Monthly Savings</p>
+                            <p id="monthlySavings" class="text-3xl font-bold gradient-text">$2,000</p>
+                        </div>
+
+                        <!-- Yearly Savings -->
+                        <div class="glass rounded-2xl p-6 text-center">
+                            <p class="text-gray-400 text-sm mb-2">Yearly Savings</p>
+                            <p id="yearlySavings" class="text-3xl font-bold gradient-text">$24,000</p>
+                        </div>
+                    </div>
+
+                    <!-- Additional Insights -->
+                    <div class="glass rounded-2xl p-6">
+                        <h3 class="text-xl font-bold mb-4">💡 What This Means:</h3>
+                        <div class="space-y-3 text-gray-300">
+                            <p id="insightText1">• You're spending <strong id="hoursPerYear">520 hours</strong> per year on repetitive tasks</p>
+                            <p id="insightText2">• That's equivalent to <strong id="workWeeks">13 work weeks</strong> of wasted time</p>
+                            <p id="insightText3">• Our automation costs <strong class="text-green-400">$5-10/month</strong> to run</p>
+                            <p class="text-purple-400 font-bold text-lg mt-4">
+                                ⚡ ROI: <span id="roiPercent">20,000%</span> in the first year!
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="text-center mt-8">
+                        <a href="custom-automation.html" class="btn-primary px-12 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-2 group">
+                            Start Saving Now
+                            <svg class="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </a>
+                        <p class="text-sm text-gray-400 mt-4">One-time payment. Zero monthly subscriptions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Add this CSS to your existing <style> section -->
+<style>
+/* Slider styling */
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
+    transition: all 0.3s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.7);
+}
+
+.slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
+    transition: all 0.3s ease;
+}
+
+.slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.7);
+}
+
+/* Number input styling */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    opacity: 1;
+}
+</style>
+
+<!-- Add this JavaScript before the closing </body> tag -->
+<script>
+// ROI Calculator Logic
+const hoursSlider = document.getElementById('hoursSlider');
+const hoursDisplay = document.getElementById('hoursDisplay');
+const rateInput = document.getElementById('rateInput');
+const weeklySavings = document.getElementById('weeklySavings');
+const monthlySavings = document.getElementById('monthlySavings');
+const yearlySavings = document.getElementById('yearlySavings');
+const hoursPerYear = document.getElementById('hoursPerYear');
+const workWeeks = document.getElementById('workWeeks');
+const roiPercent = document.getElementById('roiPercent');
+
+function calculateSavings() {
+    const hours = parseInt(hoursSlider.value);
+    const rate = parseFloat(rateInput.value) || 0;
+    
+    // Update hours display
+    hoursDisplay.textContent = `${hours} hour${hours > 1 ? 's' : ''}`;
+    
+    // Calculate savings
+    const weekly = hours * rate;
+    const monthly = weekly * 4.33; // Average weeks per month
+    const yearly = weekly * 52;
+    
+    // Update savings displays with animation
+    weeklySavings.textContent = `$${weekly.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+    monthlySavings.textContent = `$${monthly.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+    yearlySavings.textContent = `$${yearly.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+    
+    // Calculate additional insights
+    const totalHoursPerYear = hours * 52;
+    const weeksWasted = (totalHoursPerYear / 40).toFixed(1);
+    
+    hoursPerYear.textContent = `${totalHoursPerYear.toLocaleString()} hours`;
+    workWeeks.textContent = `${weeksWasted} work weeks`;
+    
+    // Calculate ROI (assuming $120/year for automation cost)
+    const automationCost = 120; // $10/month average
+    const roi = ((yearly - automationCost) / automationCost * 100).toFixed(0);
+    roiPercent.textContent = `${roi.toLocaleString()}%`;
+}
+
+// Event listeners
+hoursSlider.addEventListener('input', calculateSavings);
+rateInput.addEventListener('input', calculateSavings);
+
+// Initialize calculation
+calculateSavings();
+
+// Add smooth animations when values change
+function animateValue(element, start, end, duration) {
+    const range = end - start;
+    const increment = range / (duration / 16);
+    let current = start;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+            current = end;
+            clearInterval(timer);
+        }
+        element.textContent = `$${Math.round(current).toLocaleString()}`;
+    }, 16);
+}
+</script>
   
 
     <!-- Testimonials Section -->
@@ -1108,6 +1318,7 @@ floatingBtn.addEventListener('mouseleave', () => {
                 </div>
 
                 
+
 
 
 
