@@ -1,0 +1,26 @@
+{
+    "short_name": "Agenbase AI",
+    "name": "Agenbase AI",
+    "icons": [
+      {
+        "src": "stellarsionlogo.jpeg",
+        "sizes": "64x64",
+        "type": "image/jpeg"
+      },
+      {
+        "src": "stellarsionlogo.jpeg",
+        "type": "image/jpeg",
+        "sizes": "192x192"
+      },
+      {
+        "src": "stellarsionlogo.jpeg",
+        "type": "image/jpeg",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#1976d2",
+    "background_color": "#ffffff",
+    "orientation": "portrait"
+  } 
