@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agents Directory - AgenBase AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Modern Animated Background */
+        .animated-bg {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            position: relative;
+        }
+        
+        .animated-bg::before {
+            content: '';
+            position: fixed;
+            width: 200%;
+            height: 200%;
+            top: 0;
+            left: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(156, 39, 176, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(103, 58, 183, 0.3) 0%, transparent 50%);
+            animation: bgMove 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        @keyframes bgMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(5%, 5%) rotate(120deg); }
+            66% { transform: translate(-5%, 5%) rotate(240deg); }
+        }
+        
+        /* Floating orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            top: -10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+        
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            bottom: -10%;
+            right: -10%;
+            animation-delay: 5s;
+        }
+        
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            top: 50%;
+            left: 50%;
+            animation-delay: 10s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -50px) scale(1.1); }
+            50% { transform: translate(-30px, 30px) scale(0.9); }
+            75% { transform: translate(40px, 20px) scale(1.05); }
+        }
+        
+        /* Enhanced Glass Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(102, 126, 234, 0.2);
+        }
+        
+        /* Modern Button */
+        .btn-modern {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-modern:hover::before {
+            left: 100%;
+        }
+        
+        .btn-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.5);
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
+            background-size: 200% auto;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Scroll Reveal Animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Navigation */
+        .nav-blur {
+            background: rgba(15, 12, 41, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Pulse Effect */
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(102, 126, 234, 0.8);
+            }
+        }
+
+        /* Agent Card Specific Styles */
+        .agent-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .agent-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .agent-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Filter Button Active State */
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.5);
+            color: #fff;
+        }
+
+        /* Card Grid Animation */
+        .agents-grid > * {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .agents-grid > *:nth-child(1) { animation-delay: 0.05s; }
+        .agents-grid > *:nth-child(2) { animation-delay: 0.1s; }
+        .agents-grid > *:nth-child(3) { animation-delay: 0.15s; }
+        .agents-grid > *:nth-child(4) { animation-delay: 0.2s; }
+        .agents-grid > *:nth-child(5) { animation-delay: 0.25s; }
+        .agents-grid > *:nth-child(6) { animation-delay: 0.3s; }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hidden state for filtered items */
+        .hidden-agent {
+            display: none;
+        }
+
+        /* Loading animation */
+        .loading-spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            border-top-color: #667eea;
+            animation: spin 1s ease-in-out infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* No results message */
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+            color: #999;
+            grid-column: 1 / -1;
+        }
+    </style>
+</head>
+<body class="animated-bg text-white min-h-screen">
+    <!-- Floating Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="nav-blur fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl flex items-center justify-center pulse-glow">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold">AgenBase AI</span>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="hover:text-purple-400 transition-colors duration-300">Home</a>
+                    <a href="#" class="text-purple-400 transition-colors duration-300">Agents</a>
+                    <a href="#" class="hover:text-purple-400 transition-colors duration-300">Docs</a>
+                    <a href="#pricing" class="hover:text-purple-400 transition-colors duration-300">Pricing</a>
+                    <a href="custom-automation.html" class="btn-modern px-6 py-2 rounded-full font-semibold">
+                        Get Started
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden fixed inset-0 z-40 bg-black/90 backdrop-blur-lg hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="index.html" class="text-2xl hover:text-purple-400 transition-colors duration-300">Home</a>
+            <a href="#" class="text-2xl text-purple-400 transition-colors duration-300">Agents</a>
+            <a href="#" class="text-2xl hover:text-purple-400 transition-colors duration-300">Docs</a>
+            <a href="#pricing" class="text-2xl hover:text-purple-400 transition-colors duration-300">Pricing</a>
+            <a href="custom-automation.html" class="btn-modern px-8 py-3 rounded-full font-semibold text-lg">
+                Get Started
+            </a>
+            <button id="mobile-menu-close" class="absolute top-6 right-6">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-12 px-4" style="position: relative; z-index: 10;">
+        <div class="max-w-7xl mx-auto" style="position: relative; z-index: 10;">
+            <div class="text-center space-y-4 mb-12">
+                <h1 class="text-5xl md:text-7xl font-black leading-tight" style="position: relative; z-index: 10;">
+                    AI Agents <span class="gradient-text">Directory</span>
+                </h1>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto" style="position: relative; z-index: 10;">
+                    Browse 500+ pre-built AI agents ready to automate your workflows
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="relative px-4 pb-8" style="position: relative; z-index: 10;">
+        <div class="max-w-7xl mx-auto" style="position: relative; z-index: 10;">
+            <div class="glass-card rounded-3xl p-6 mb-8" style="position: relative; z-index: 10;">
+                <div class="flex flex-col lg:flex-row gap-4 items-stretch lg:items-center">
+                    <!-- Search Bar -->
+                    <div class="flex-1">
+                        <div class="relative">
+                            <input 
+                                type="text" 
+                                id="searchInput" 
+                                placeholder="Search agents by name or description..."
+                                class="w-full px-6 py-3 pl-12 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition"
+                            >
+                            <svg class="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                            <div class="loading-spinner absolute right-4 top-1/2 transform -translate-y-1/2"></div>
+                        </div>
+                    </div>
+
+                    <!-- Filter Buttons -->
+                    <div class="flex flex-wrap gap-2">
+                        <button class="filter-btn active px-4 py-2 rounded-xl font-semibold text-sm bg-white/5 border border-white/20 hover:bg-white/10 transition" data-filter="all">
+                            All
+                        </button>
+                        <button class="filter-btn px-4 py-2 rounded-xl font-semibold text-sm bg-white/5 border border-white/20 hover:bg-white/10 transition" data-filter="analytics">
+                            Analytics
+                        </button>
+                        <button class="filter-btn px-4 py-2 rounded-xl font-semibold text-sm bg-white/5 border border-white/20 hover:bg-white/10 transition" data-filter="marketing">
+                            Marketing
+                        </button>
+                        <button class="filter-btn px-4 py-2 rounded-xl font-semibold text-sm bg-white/5 border border-white/20 hover:bg-white/10 transition" data-filter="support">
+                            Support
+                        </button>
+                        <button class="filter-btn px-4 py-2 rounded-xl font-semibold text-sm bg-white/5 border border-white/20 hover:bg-white/10 transition" data-filter="development">
+                            Development
+                        </button>
+                        <button class="filter-btn px-4 py-2 rounded-xl font-semibold text-sm bg-white/5 border border-white/20 hover:bg-white/10 transition" data-filter="productivity">
+                            Productivity
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats Bar -->
+                <div class="flex flex-col sm:flex-row justify-between items-center mt-6 pt-6 border-t border-white/10 text-sm text-gray-400 gap-2">
+                    <span id="resultsCount">Showing <span id="visibleCount">24</span> of <span id="totalCount">500+</span> agents</span>
+                    <div class="flex items-center gap-2">
+                        <span>Sort by:</span>
+                        <select id="sortSelect" class="bg-transparent border-none text-white focus:outline-none">
+                            <option value="popular">Most Popular</option>
+                            <option value="rating">Highest Rating</option>
+                            <option value="newest">Newest First</option>
+                            <option value="name">Name A-Z</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agents Grid -->
+    <section class="relative px-4 pb-20" style="position: relative; z-index: 10;">
+        <div class="max-w-7xl mx-auto" style="position: relative; z-index: 10;">
+            <div id="agentsContainer" class="agents-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Data Analyst -->
+                <div class="agent-card glass-card rounded-3xl p-6" data-category="analytics" data-rating="4.9" data-users="12500" data-speed="fast">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl">
+                            📊
+                        </div>
+                        <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
+                            <span class="text-yellow-400">★★★★★</span>
+                            <span class="ml-1">4.9</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Data Analyst Pro</h3>
+                    <span class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Analytics</span>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Automatically analyze datasets, generate insights, create visualizations, and produce comprehensive reports.
+                    </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <div class="flex items-center gap-3 text-xs text-gray-400">
+                            <span>👥 12.5K</span>
+                            <span>⚡ Fast</span>
+                        </div>
+                        <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm try-now-btn">
+                            Try Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Content Creator -->
+                <div class="agent-card glass-card rounded-3xl p-6" data-category="marketing" data-rating="4.8" data-users="18200" data-speed="fast">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl">
+                            ✍️
+                        </div>
+                        <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
+                            <span class="text-yellow-400">★★★★★</span>
+                            <span class="ml-1">4.8</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Content Creator AI</h3>
+                    <span class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Marketing</span>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Generate high-quality blog posts, social media content, and marketing copy tailored to your brand voice.
+                    </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <div class="flex items-center gap-3 text-xs text-gray-400">
+                            <span>👥 18.2K</span>
+                            <span>⚡ Fast</span>
+                        </div>
+                        <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm try-now-btn">
+                            Try Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Customer Support -->
+                <div class="agent-card glass-card rounded-3xl p-6" data-category="support" data-rating="4.9" data-users="25800" data-speed="realtime">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl">
+                            💬
+                        </div>
+                        <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
+                            <span class="text-yellow-400">★★★★★</span>
+                            <span class="ml-1">4.9</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Support Bot Elite</h3>
+                    <span class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Support</span>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Intelligent chatbot that handles customer inquiries with natural conversation and empathetic responses.
+                    </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <div class="flex items-center gap-3 text-xs text-gray-400">
+                            <span>👥 25.8K</span>
+                            <span>⚡ Real-time</span>
+                        </div>
+                        <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm try-now-btn">
+                            Try Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Research Assistant -->
+                <div class="agent-card glass-card rounded-3xl p-6" data-category="productivity" data-rating="4.7" data-users="8400" data-speed="medium">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl">
+                            🔍
+                        </div>
+                        <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
+                            <span class="text-yellow-400">★★★★☆</span>
+                            <span class="ml-1">4.7</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Research Assistant</h3>
+                    <span class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Productivity</span>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Gather information from multiple sources, summarize findings, and compile comprehensive research reports.
+                    </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <div class="flex items-center gap-3 text-xs text-gray-400">
+                            <span>👥 8.4K</span>
+                            <span>⚡ Medium</span>
+                        </div>
+                        <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm try-now-btn">
+                            Try Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Code Reviewer -->
+                <div class="agent-card glass-card rounded-3xl p-6" data-category="development" data-rating="4.8" data-users="15300" data-speed="fast">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl">
+                            💻
+                        </div>
+                        <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
+                            <span class="text-yellow-400">★★★★★</span>
+                            <span class="ml-1">4.8</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Code Reviewer Pro</h3>
+                    <span class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Development</span>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Automated code review with best practice suggestions, security vulnerability detection, and optimization tips.
+                    </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <div class="flex items-center gap-3 text-xs text-gray-400">
+                            <span>👥 15.3K</span>
+                            <span>⚡ Fast</span>
+                        </div>
+                        <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm try-now-btn">
+                            Try Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Email Assistant -->
+                <div class="agent-card glass-card rounded-3xl p-6" data-category="productivity" data-rating="4.9" data-users="22100" data-speed="realtime">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl">
+                            📧
+                        </div>
+                        <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
+                            <span class="text-yellow-400">★★★★★</span>
+                            <span class="ml-1">4.9</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Email Assistant</h3>
+                    <span class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Productivity</span>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Smart email management, automated response drafting, inbox organization, and priority detection.
+                    </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <div class="flex items-center gap-3 text-xs text-gray-400">
+                            <span>👥 22.1K</span>
+                            <span>⚡ Real-time</span>
+                        </div>
+                        <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm try-now-btn">
+                            Try Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SEO Optimizer -->
+                <div class="agent-card glass-card rounded-3xl p-6" data-category="marketing" data-rating="4.6" data-users="9700" data-speed="fast">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl">
+                            🎯
+                        </div>
+                        <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
+                            <span class="text-yellow-400">★★★★☆</span>
+                            <span class="ml-1">4.6</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">SEO Optimizer</h3>
+                    <span class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Marketing</span>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Analyze content for SEO, suggest keywords, optimize meta tags, and improve search engine rankings.
+                    </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <div class="flex items-center gap-3 text-xs text-gray-400">
+                            <span>👥 9.7K</span>
+                            <span>⚡ Fast</span>
+                        </div>
+                        <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm try-now-btn">
+                            Try Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sales Assistant -->
+                <div class="agent-card glass-card rounded-3xl p-6" data-category="marketing" data-rating="4.8" data-users="11200" data-speed="realtime">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl">
+                            💼
+                        </div>
+                        <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
+                            <span class="text-yellow-400">★★★★★</span>
+                            <span class="ml-1">4.8</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Sales Assistant AI</h3>
+                    <span class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Marketing</span>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Qualify leads, schedule meetings, send follow-ups, and maintain CRM records automatically.
+                    </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <div class="flex items-center gap-3 text-xs text-gray-400">
+                            <span>👥 11.2K</span>
+                            <span>⚡ Real-time</span>
+                        </div>
+                        <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm try-now-btn">
+                            Try Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Document Parser -->
+                <div class="agent-card glass-card rounded-3xl p-6" data-category="productivity" data-rating="4.7" data-users="7600" data-speed="fast">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl">
+                            📄
+                        </div>
+                        <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
+                            <span class="text-yellow-400">★★★★☆</span>
+                            <span class="ml-1">4.7</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Document Parser Pro</h3>
+                    <span class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Productivity</span>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Extract text, tables, and data from PDFs, images, and documents with high accuracy and formatting.
+                    </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <div class="flex items-center gap-3 text-xs text-gray-400">
+                            <span>👥 7.6K</span>
+                            <span>⚡ Fast</span>
+                        </div>
+                        <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm try-now-btn">
+                            Try Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Social Media Manager -->
+                <div class="agent-card glass-card rounded-3xl p-6" data-category="marketing" data-rating="4.8" data-users="14300" data-speed="realtime">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl">
+                            📱
+                        </div>
+                        <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
+                            <span class="text-yellow-400">★★★★★</span>
+                            <span class="ml-1">4.8</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Social Media Manager</h3>
+                    <span class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Marketing</span>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Schedule posts, analyze engagement, respond to comments, and grow your social media presence.
+                    </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <div class="flex items-center gap-3 text-xs text-gray-400">
+                            <span>👥 14.3K</span>
+                            <span>⚡ Real-time</span>
+                        </div>
+                        <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm try-now-btn">
+                            Try Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Financial Analyst -->
+                <div class="agent-card glass-card rounded-3xl p-6" data-category="analytics" data-rating="4.9" data-users="8900" data-speed="fast">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl">
+                            💰
+                        </div>
+                        <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
+                            <span class="text-yellow-400">★★★★★</span>
+                            <span class="ml-1">4.9</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Financial Analyst</h3>
+                    <span class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Analytics</span>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Analyze financial data, forecast trends, generate reports, and provide investment insights.
+                    </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <div class="flex items-center gap-3 text-xs text-gray-400">
+                            <span>👥 8.9K</span>
+                            <span>⚡ Fast</span>
+                        </div>
+                        <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm try-now-btn">
+                            Try Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bug Detector -->
+                <div class="agent-card glass-card rounded-3xl p-6" data-category="development" data-rating="4.6" data-users="10300" data-speed="fast">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl">
+                            🐛
+                        </div>
+                        <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
+                            <span class="text-yellow-400">★★★★☆</span>
+                            <span class="ml-1">4.6</span>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Bug Detector AI</h3>
+                    <span class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Development</span>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Automatically detect and diagnose bugs in code with detailed explanations and suggested fixes.
+                    </p>
+                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                        <div class="flex items-center gap-3 text-xs text-gray-400">
+                            <span>👥 10.3K</span>
+                            <span>⚡ Fast</span>
+                        </div>
+                        <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm try-now-btn">
+                            Try Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- No Results Message -->
+            <div id="noResults" class="no-results glass-card rounded-3xl">
+                <div class="text-5xl mb-4">🔍</div>
+                <h3 class="text-2xl font-bold mb-2">No agents found</h3>
+                <p class="text-gray-400">Try adjusting your search or filter to find what you're looking for.</p>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="loading-spinner mt-12"></div>
+
+            <!-- Load More Button -->
+            <div id="loadMoreContainer" class="text-center mt-12">
+                <button id="loadMoreBtn" class="btn-modern px-8 py-3 rounded-full font-semibold text-lg">
+                    Load More Agents
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative px-4 py-8 border-t border-white/10" style="position: relative; z-index: 10;">
+        <div class="max-w-7xl mx-auto text-center text-gray-400">
+            <p>© 2024 AgenBase AI. All rights reserved.</p>
+            <p class="mt-2 text-sm">Browse 500+ AI agents to automate your workflows and boost productivity.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Initialize variables
+        let currentFilter = 'all';
+        let currentSearch = '';
+        let currentSort = 'popular';
+        let visibleCount = 12;
+        const totalAgents = document.querySelectorAll('.agent-card').length;
+        const agents = Array.from(document.querySelectorAll('.agent-card'));
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        const noResults = document.getElementById('noResults');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const searchLoadingSpinner = document.querySelector('.loading-spinner');
+
+        // Initialize counts
+        document.getElementById('totalCount').textContent = `${totalAgents}+`;
+        updateResultsCount();
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                currentFilter = button.dataset.filter;
+                applyFiltersAndSort();
+            });
+        });
+
+        // Search functionality with debounce
+        const searchInput = document.getElementById('searchInput');
+        let searchTimeout;
+        
+        searchInput.addEventListener('input', (e) => {
+            currentSearch = e.target.value.toLowerCase().trim();
+            
+            // Show loading spinner
+            searchLoadingSpinner.style.display = 'block';
+            
+            // Clear previous timeout
+            clearTimeout(searchTimeout);
+            
+            // Set new timeout for debounce
+            searchTimeout = setTimeout(() => {
+                applyFiltersAndSort();
+                searchLoadingSpinner.style.display = 'none';
+            }, 300);
+        });
+
+        // Sort functionality
+        const sortSelect = document.getElementById('sortSelect');
+        sortSelect.addEventListener('change', (e) => {
+            currentSort = e.target.value;
+            applyFiltersAndSort();
+        });
+
+        // Try Now button functionality
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('try-now-btn')) {
+                const agentName = e.target.closest('.agent-card').querySelector('h3').textContent;
+                alert(`Launching ${agentName}...\nThis would normally open the agent interface.`);
+            }
+        });
+
+        // Load More functionality
+        loadMoreBtn.addEventListener('click', () => {
+            visibleCount += 6;
+            applyFiltersAndSort();
+            
+            // Smooth scroll to newly loaded items
+            setTimeout(() => {
+                const lastVisibleCard = document.querySelector('.agent-card:not(.hidden-agent)');
+                lastVisibleCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        });
+
+        // Main filter and sort function
+        function applyFiltersAndSort() {
+            let filteredAgents = agents;
+            
+            // Apply search filter
+            if (currentSearch) {
+                filteredAgents = filteredAgents.filter(agent => {
+                    const title = agent.querySelector('h3').textContent.toLowerCase();
+                    const description = agent.querySelector('p').textContent.toLowerCase();
+                    const category = agent.querySelector('span').textContent.toLowerCase();
+                    
+                    return title.includes(currentSearch) || 
+                           description.includes(currentSearch) ||
+                           category.includes(currentSearch);
+                });
+            }
+            
+            // Apply category filter
+            if (currentFilter !== 'all') {
+                filteredAgents = filteredAgents.filter(agent => 
+                    agent.dataset.category === currentFilter
+                );
+            }
+            
+            // Apply sorting
+            filteredAgents.sort((a, b) => {
+                switch (currentSort) {
+                    case 'rating':
+                        return parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating);
+                    case 'users':
+                        return parseInt(b.dataset.users) - parseInt(a.dataset.users);
+                    case 'name':
+                        return a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent);
+                    case 'newest':
+                        // For demo, we'll use a random order
+                        return Math.random() - 0.5;
+                    case 'popular':
+                    default:
+                        return parseInt(b.dataset.users) - parseInt(a.dataset.users);
+                }
+            });
+            
+            // Update UI
+            updateAgentsDisplay(filteredAgents);
+        }
+
+        function updateAgentsDisplay(filteredAgents) {
+            // Reset all agents to hidden
+            agents.forEach(agent => {
+                agent.classList.add('hidden-agent');
+                agent.style.display = 'none';
+            });
+            
+            // Show filtered agents up to visibleCount
+            const agentsToShow = filteredAgents.slice(0, visibleCount);
+            
+            agentsToShow.forEach((agent, index) => {
+                agent.classList.remove('hidden-agent');
+                agent.style.display = 'block';
+                
+                // Add animation delay for staggered appearance
+                agent.style.animationDelay = `${index * 0.05}s`;
+            });
+            
+            // Show/hide no results message
+            if (agentsToShow.length === 0) {
+                noResults.style.display = 'block';
+                loadMoreBtn.style.display = 'none';
+            } else {
+                noResults.style.display = 'none';
+                
+                // Show/hide load more button
+                if (filteredAgents.length > visibleCount) {
+                    loadMoreBtn.style.display = 'inline-block';
+                } else {
+                    loadMoreBtn.style.display = 'none';
+                }
+            }
+            
+            updateResultsCount();
+        }
+
+        function updateResultsCount() {
+            const visibleAgents = document.querySelectorAll('.agent-card:not(.hidden-agent)').length;
+            document.getElementById('visibleCount').textContent = visibleAgents;
+        }
+
+        // Initialize on load
+        applyFiltersAndSort();
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        // Observe scroll reveal elements
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-blur');
+            } else {
+                navbar.classList.remove('nav-blur');
+            }
+        });
+
+        // Initialize scroll reveal on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                el.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
