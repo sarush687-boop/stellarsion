@@ -2,250 +2,260 @@
 <html lang="en">
 <head>
     <meta name="msvalidate.01" content="430232803DFC8475DB36566DADB9309F" />
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Stellarsion | Business Automation Solutions - Save 6-12 Hours Daily</title>
-    <meta name="description" content="Transform repetitive tasks into powerful automated workflows with Stellarsion. AI-powered business automations that save 6-12 hours daily. Deploy instantly with n8n. We also build custom automations, contact for details.">
-    <meta name="keywords" content="Stellarsion Automations, n8n blog automation, n8n workflows,  custom automation,  blog automation, free content creation blog automation, business automation, AI automation, n8n automations, workflow automation, save time, blog automation, content creation automation, powerful n8n automations, n8n">
-    
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Stellarsion | Automate Your Business, Amplify Your Growth">
-    <meta property="og:description" content="AI-powered business automations that save 10-15 hours daily. Transform repetitive tasks into powerful workflows. Building custom workflows.">
-    <meta property="og:image" content="stellarsion.jpeg">
-    <meta property="og:url" content="https://stellarsion.pages.dev">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Stellarsion">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Stellarsion | Business Automation Solutions">
-    <meta name="twitter:description" content="AI-powered automations that save 6-12 hours daily. Deploy instantly with n8n.">
-    <meta name="twitter:image" content="https://yourdomain.com/images/twitter-image.jpg">
-    <meta name="twitter:site" content="@stellarsion">
-    
-    <!-- Additional SEO Meta Tags -->
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="author" content="Stellarsion">
-    <meta name="copyright" content="Copyright 2025 Stellarsion">
-    <link rel="canonical" href="https://stellarsion.pages.dev">
-    
-    <!-- Structured Data / JSON-LD -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Stellarsion Business Automations",
-        "description": "AI-powered business automation solutions that save 6-12 hours daily",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5",
-            "ratingCount": "3"
-        },
-        "author": {
-            "@type": "Organization",
-            "name": "Stellarsion",
-            "founder": "Arush Sharma"
-        }
-    }
-    </script>
-    
-    <!-- Favicon -->
+    <title>Stellarsion | Business Automation Solutions - Save 6-12 Hours Daily</title>
+    <meta name="description" content="Transform repetitive tasks into powerful automated workflows with Stellarsion. AI-powered business automations that save 6-12 hours daily.">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Modern Animated Background */
+        .animated-bg {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            position: relative;
+        }
+        
+        .animated-bg::before {
+            content: '';
+            position: fixed;
+            width: 200%;
+            height: 200%;
+            top: 0;
+            left: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(156, 39, 176, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(103, 58, 183, 0.3) 0%, transparent 50%);
+            animation: bgMove 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        @keyframes bgMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(5%, 5%) rotate(120deg); }
+            66% { transform: translate(-5%, 5%) rotate(240deg); }
+        }
+        
+        /* Floating orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            top: -10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+        
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            bottom: -10%;
+            right: -10%;
+            animation-delay: 5s;
+        }
+        
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            top: 50%;
+            left: 50%;
+            animation-delay: 10s;
+        }
+        
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -50px) scale(1.1); }
+            50% { transform: translate(-30px, 30px) scale(0.9); }
+            75% { transform: translate(40px, 20px) scale(1.05); }
         }
-        @keyframes glow {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+        
+        /* Enhanced Glass Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        @keyframes slide-up {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(102, 126, 234, 0.2);
         }
-        .float { animation: float 6s ease-in-out infinite; }
-        .glow { animation: glow 3s ease-in-out infinite; }
-        .slide-up { animation: slide-up 0.6s ease-out forwards; }
+        
+        /* Modern Button */
+        .btn-modern {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-modern:hover::before {
+            left: 100%;
+        }
+        
+        .btn-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.5);
+        }
+        
+        /* Gradient Text */
         .gradient-text {
-            background: linear-gradient(135deg, #8398f8 0%, #670dc1 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: gradientShift 3s ease infinite;
+            background-size: 200% auto;
         }
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
-        .btn-primary {
+        
+        /* Scroll Reveal Animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Navigation */
+        .nav-blur {
+            background: rgba(15, 12, 41, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Card Grid Animation */
+        .card-grid > * {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .card-grid > *:nth-child(1) { animation-delay: 0.1s; }
+        .card-grid > *:nth-child(2) { animation-delay: 0.2s; }
+        .card-grid > *:nth-child(3) { animation-delay: 0.3s; }
+        .card-grid > *:nth-child(4) { animation-delay: 0.4s; }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Pulse Effect */
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(102, 126, 234, 0.8);
+            }
+        }
+        
+        /* Slider Styling */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 12px;
+            border-radius: 6px;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
             transition: all 0.3s ease;
         }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+        
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.8);
         }
-        .nav-scrolled {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        
+        input[type="range"]::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
+            transition: all 0.3s ease;
         }
-        .floating-cta {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1000;
-    transition: transform 0.3s ease;
-}
-
-.floating-cta:hover {
-    transform: scale(1.05);
-}
-
-.floating-btn {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border: 3px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-    animation: pulse 2s infinite;
-}
-
-.floating-btn:hover {
-    box-shadow: 0 12px 40px rgba(102, 126, 234, 0.6);
-    transform: translateY(-3px);
-}
-
-@keyframes pulse {
-    0%, 100% {
-        box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
-    }
-    50% {
-        box-shadow: 0 8px 40px rgba(102, 126, 234, 0.7);
-    }
-}
-
-.floating-text-bubble {
-    position: absolute;
-    bottom: 80px;
-    right: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    color: #1e293b;
-    padding: 12px 20px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    white-space: nowrap;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    animation: slideIn 0.5s ease-out;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.floating-text-bubble.show {
-    opacity: 1;
-    animation: slideIn 0.5s ease-out, float-bubble 3s ease-in-out infinite;
-}
-
-.floating-text-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    right: 20px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 8px solid rgba(255, 255, 255, 0.95);
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes float-bubble {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
-}
-
-/* Mobile responsive */
-@media (max-width: 768px) {
-    .floating-cta {
-        bottom: 20px;
-        right: 20px;
-    }
-    
-    .floating-btn {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .floating-text-bubble {
-        bottom: 70px;
-        font-size: 12px;
-        padding: 10px 16px;
-        max-width: 200px;
-        white-space: normal;
-        text-align: center;
-    }
-}
-
-/* Gradient text for the bubble */
-.gradient-bubble-text {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
+        
+        input[type="range"]::-moz-range-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.8);
+        }
     </style>
 </head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-92WRYBXG24"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-92WRYBXG24');
-</script>
-<body class="min-h-screen bg-gradient-to-br from-slate-950 via-purple-800 to-slate-900 text-white">
+<body class="animated-bg text-white min-h-screen">
+    <!-- Floating Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
     
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 glass">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-gradient-to-br from-purple-300 to-pink-100 rounded-lg flex items-center justify-center">
+                    <div class="w-10 h-10 bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl flex items-center justify-center pulse-glow">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                         </svg>
@@ -254,1496 +264,419 @@
                 </div>
 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#automations" class="hover:text-purple-400 transition">Automations</a>
-                    <a href="#features" class="hover:text-purple-400 transition">Features</a>
-                    <a href="#pricing" class="hover:text-purple-400 transition">Pricing</a>
-                    <a href="#testimonials" class="hover:text-purple-400 transition">Testimonials</a>
-                    <button class="btn-primary px-6 py-2 rounded-full font-semibold">
-                       <a href="custom-automation.html" >
-                        Get Yours today!
-                        </a>
-                    </button>
+                    <a href="#automations" class="hover:text-purple-400 transition-colors duration-300">Automations</a>
+                    <a href="#features" class="hover:text-purple-400 transition-colors duration-300">Features</a>
+                    <a href="#pricing" class="hover:text-purple-400 transition-colors duration-300">Pricing</a>
+                    <a href="custom-automation.html" class="btn-modern px-6 py-2 rounded-full font-semibold">
+                        Get Started
+                    </a>
                 </div>
 
                 <button id="mobile-menu-btn" class="md:hidden">
                     <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
-                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <div id="mobile-menu" class="hidden md:hidden glass">
-            <div class="px-4 pt-2 pb-4 space-y-3">
-                <a href="#automations" class="block py-2 hover:text-purple-400">Automations</a>
-                <a href="#features" class="block py-2 hover:text-purple-400">Features</a>
-                <a href="#pricing" class="block py-2 hover:text-purple-400">Pricing</a>
-                <a href="#testimonials" class="block py-2 hover:text-purple-400">Testimonials</a>
-                <button class="btn-primary w-full px-6 py-2 rounded-full font-semibold mt-2">
-                   <a href="custom-automation.html" >
-                        Get Yours today!
-                        </a>
                 </button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-4 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-30">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full filter blur-3xl glow"></div>
-            <div class="absolute bottom-20 right-10 w-96 h-96 bg-pink-200 rounded-full filter blur-3xl glow"></div>
-        </div>
+    <section class="relative pt-32 pb-20 px-4 overflow-hidden">
         <div class="max-w-7xl mx-auto relative z-10">
-            <div class="text-center slide-up">
-                <div class="inline-block glass px-4 py-3 rounded-full mb-6">
-                    <span class="text-sm">🔥HOT PRODUCT: 0 Cost Forever Complete Blog automation !</span>
+            <div class="text-center space-y-6">
+                <div class="inline-block glass-card px-6 py-3 rounded-full mb-6 animate-bounce">
+                    <span class="text-sm font-semibold">🔥 FREE Complete Blog Automation - 50% OFF!</span>
                 </div>
-                <div class="flex justify-center mb-4">
-    <a href="https://fazier.com/launches/stellarsion-automations" target="_blank">
-        <img src="https://fazier.com/api/v1/public/badges/embed_image.svg?launch_id=6489&badge_type=daily&variant=2&theme=neutral" width="180" alt="Fazier badge" class="hover:scale-105 transition-transform" />
-    </a>
-</div>
-
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                   We Build AI Systems<br>
+                
+                <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
+                    Build AI Systems<br>
                     <span class="gradient-text">That Work While You Sleep</span>
                 </h1>
-                <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                    Transform repetitive tasks into powerful automated workflows. Save time, reduce errors, and scale without limits. Automate everything that kills time.
+                
+                <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    Transform repetitive tasks into powerful automated workflows. Save 6-12 hours daily, reduce errors, and scale without limits.
                 </p>
-<a href="custom-automation.html" class="btn-primary px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-2 group">
-   Build My AI system
-    <svg class="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-    </svg>
-</a>
-                    <button class="glass px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition">
-                        <a href="#automations" >
-                        Discover pre built
-                        </a>
-                    </button>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+                    <a href="custom-automation.html" class="btn-modern px-10 py-4 rounded-full font-bold text-lg inline-flex items-center gap-2 group">
+                        Build My AI System
+                        <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                    <a href="#automations" class="glass-card px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-300">
+                        Explore Templates
+                    </a>
                 </div>
-                <p class="text-sm text-gray-400 mt-4"></p>
             </div>
 
-            <div class="mt-16 float">
-                <div class="glass rounded-2xl p-8 max-w-4xl mx-auto">
-                    <div class="grid grid-cols-3 gap-8 text-center">
-                        <div>
-                            <div class="text-4xl font-bold gradient-text">1</div>
-                            <div class="text-gray-400 mt-2">Automations</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-bold gradient-text">7+</div>
-                            <div class="text-gray-400 mt-2">Tasks Automated</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-bold gradient-text">6-12 hours</div>
-                            <div class="text-gray-400 mt-2">Saved daily</div>
-                        </div>
-                    </div>
+            <!-- Stats Cards -->
+            <div class="mt-20 card-grid grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="glass-card rounded-2xl p-8 text-center">
+                    <div class="text-5xl font-black gradient-text mb-2">1+</div>
+                    <div class="text-gray-400 font-medium">Live Automations</div>
+                </div>
+                <div class="glass-card rounded-2xl p-8 text-center">
+                    <div class="text-5xl font-black gradient-text mb-2">7+</div>
+                    <div class="text-gray-400 font-medium">Tasks Automated</div>
+                </div>
+                <div class="glass-card rounded-2xl p-8 text-center">
+                    <div class="text-5xl font-black gradient-text mb-2">6-12h</div>
+                    <div class="text-gray-400 font-medium">Saved Daily</div>
                 </div>
             </div>
         </div>
     </section>
-<!-- Our Services Section -->
-<!-- Add this section in index.html - Good placement: after Hero section, before Automations Showcase -->
 
-<section id="services" class="py-20 px-4">
-    <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <div class="inline-block glass px-4 py-2 rounded-full mb-4">
-                <span class="text-sm text-purple-400">🚀 What We Do</span>
-            </div>
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">Our Services</h2>
-            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-                We specialize in building powerful n8n automation workflows that save time, reduce costs, and scale your business effortlessly.
-            </p>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-8 mb-12">
-            <!-- Service 1: Pre-Built Automations -->
-            <div class="glass rounded-3xl p-8 md:p-10 hover:scale-[1.02] transition-all duration-300 border-2 border-transparent hover:border-purple-500/50">
-                <div class="flex items-start gap-4 mb-6">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center flex-shrink-0">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-2">Pre-Built Automation Workflows</h3>
-                        <p class="text-purple-400 font-semibold">Ready to Deploy in Minutes</p>
-                    </div>
-                </div>
-                
-                <p class="text-gray-300 mb-6 leading-relaxed">
-                    Get production-ready n8n automation workflows that you can deploy instantly. No coding required, just simple setup and you're running.
-                </p>
-
-                <div class="space-y-3 mb-6">
-                    <h4 class="font-semibold text-lg mb-3">What We Build:</h4>
-                    <div class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                        </svg>
-                        <div>
-                            <p class="font-semibold">Complete Blog Automation</p>
-                            <p class="text-sm text-gray-400">Research → Writing → Thumbnails → Publishing → Social sharing</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                        </svg>
-                        <div>
-                            <p class="font-semibold">Social Media Automation</p>
-                            <p class="text-sm text-gray-400">Content scheduling, cross-posting, analytics tracking</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                        </svg>
-                        <div>
-                            <p class="font-semibold">Email Marketing Workflows</p>
-                            <p class="text-sm text-gray-400">Automated campaigns, segmentation, follow-ups</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                        </svg>
-                        <div>
-                            <p class="font-semibold">Lead Generation & CRM</p>
-                            <p class="text-sm text-gray-400">Lead capture, qualification, nurturing, scoring</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass rounded-xl p-4 mb-6">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <p class="text-sm text-gray-400">Starting from</p>
-                            <p class="text-2xl font-bold gradient-text">One-time payment</p>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-sm text-gray-400">Running cost</p>
-                            <p class="text-lg font-bold text-green-400">$0-10/month</p>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="#automations" class="btn-primary w-full px-6 py-3 rounded-full font-semibold flex items-center justify-center gap-2 group">
-                    Browse Pre-Built Automations
-                    <svg class="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                    </svg>
-                </a>
-            </div>
-
-            <!-- Service 2: Custom Automation Solutions -->
-            <div class="glass rounded-3xl p-8 md:p-10 hover:scale-[1.02] transition-all duration-300 border-2 border-purple-500/50 relative overflow-hidden">
-                <!-- Popular badge -->
-                <div class="absolute top-4 right-4 bg-gradient-to-r from-orange-500 to-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                    MOST POPULAR
-                </div>
-
-                <div class="flex items-start gap-4 mb-6">
-                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center flex-shrink-0">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-2">Custom Automation Solutions</h3>
-                        <p class="text-orange-400 font-semibold">Built Specifically for You</p>
-                    </div>
-                </div>
-                
-                <p class="text-gray-300 mb-6 leading-relaxed">
-                    Need something unique? We build custom n8n workflows tailored to your exact business needs, processes, and tools. No limitations.
-                </p>
-
-                <div class="space-y-3 mb-6">
-                    <h4 class="font-semibold text-lg mb-3">What We Build:</h4>
-                    <div class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                        </svg>
-                        <div>
-                            <p class="font-semibold">Custom CRM Integrations</p>
-                            <p class="text-sm text-gray-400">Salesforce, HubSpot, Pipedrive, or custom CRMs</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                        </svg>
-                        <div>
-                            <p class="font-semibold">E-commerce Automation</p>
-                            <p class="text-sm text-gray-400">Order processing, inventory sync, customer communication</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                        </svg>
-                        <div>
-                            <p class="font-semibold">Data Processing Pipelines</p>
-                            <p class="text-sm text-gray-400">Extract, transform, load data from any source</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                        </svg>
-                        <div>
-                            <p class="font-semibold">AI-Powered Workflows</p>
-                            <p class="text-sm text-gray-400">ChatGPT, Claude, custom AI model integrations</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                        </svg>
-                        <div>
-                            <p class="font-semibold">Multi-Platform Syncing</p>
-                            <p class="text-sm text-gray-400">Keep data synced across all your business tools</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass rounded-xl p-4 mb-6">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <p class="text-sm text-gray-400">Pricing</p>
-                            <p class="text-2xl font-bold gradient-text">Custom quote</p>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-sm text-gray-400">Turnaround</p>
-                            <p class="text-lg font-bold text-blue-400">1-2 weeks</p>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="custom-automation.html" class="btn-primary w-full px-6 py-3 rounded-full font-semibold flex items-center justify-center gap-2 group">
-                    Request Custom Solution
-                    <svg class="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-
-        <!-- What Makes Us Different -->
-        <div class="glass rounded-3xl p-8 md:p-12">
-            <h3 class="text-3xl font-bold mb-8 text-center">Why Choose Stellarsion?</h3>
-            <div class="grid md:grid-cols-4 gap-6">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <h4 class="font-bold mb-2">Near-Zero Cost</h4>
-                    <p class="text-sm text-gray-400">Run automations for $0-10/month instead of $300+</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                        </svg>
-                    </div>
-                    <h4 class="font-bold mb-2">Production-Ready</h4>
-                    <p class="text-sm text-gray-400">Battle-tested workflows with error handling built-in</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
-                        </svg>
-                    </div>
-                    <h4 class="font-bold mb-2">Full Customization</h4>
-                    <p class="text-sm text-gray-400">You own the code. Modify however you want</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
-                        </svg>
-                    </div>
-                    <h4 class="font-bold mb-2">Expert Support</h4>
-                    <p class="text-sm text-gray-400">We help you set up and troubleshoot any issues</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Technologies We Use -->
-        <div class="mt-12 text-center">
-            <p class="text-gray-400 mb-6">Technologies & Integrations We Work With:</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <span class="glass px-4 py-2 rounded-full text-sm">n8n</span>
-                <span class="glass px-4 py-2 rounded-full text-sm">ChatGPT</span>
-                <span class="glass px-4 py-2 rounded-full text-sm">Claude AI</span>
-                <span class="glass px-4 py-2 rounded-full text-sm">WordPress</span>
-                <span class="glass px-4 py-2 rounded-full text-sm">Shopify</span>
-                <span class="glass px-4 py-2 rounded-full text-sm">Airtable</span>
-                <span class="glass px-4 py-2 rounded-full text-sm">Google Workspace</span>
-                <span class="glass px-4 py-2 rounded-full text-sm">Slack</span>
-                <span class="glass px-4 py-2 rounded-full text-sm">Notion</span>
-                <span class="glass px-4 py-2 rounded-full text-sm">Stripe</span>
-                <span class="glass px-4 py-2 rounded-full text-sm">300+ more</span>
-            </div>
-        </div>
-    </div>
-</section>
-    <!-- Automations Showcase Section -->
-    <section id="automations" class="py-20 px-4 bg-black/20">
+    <!-- Features Grid -->
+    <section id="features" class="relative py-20 px-4">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">You still didn't have these automations?</h2>
-                <p class="text-xl text-gray-400">Get powerful n8n automations instantly with just one click</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- Make the whole card a link -->
-                <a href="https://betanodeautomations.gumroad.com/l/contentpilotblog" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   class="block glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 cursor-pointer group hover:shadow-2xl hover:shadow-purple-500/30">
-              
-                  <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🔥</div>
-                  <div class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">
-                    Special NEW YEAR OFFER! 50% OFF
-                  </div>
-                  <h3 class="text-lg font-bold mb-2 group-hover:text-purple-400 transition">
-                    Complete Blogging and Content automation ⚡
-                  </h3>
-                  <p class="text-sm text-gray-400 mb-4">
-                     From Research to thumbnail, to Posting and saving of Blog along with generating summaries that can be used in social media platforms like X or threads. No need to even press a button, works on autopilot after 10-15 min of small setup
-                  </p>
-                  <button class="text-sm text-purple-400 flex items-center gap-1">
-                    Learn More →
-                  </button>
-                </a>
-              </div>
-
-                <!-- <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 cursor-pointer group hover:shadow-2xl hover:shadow-purple-500/30">
-                    <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">💬</div>
-                    <div class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Marketing</div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-purple-400 transition">Social Media Manager</h3>
-                    <p class="text-sm text-gray-400 mb-4">Schedule, post, and analyze across all platforms</p>
-                    <button class="text-sm text-purple-400 flex items-center gap-1">Learn More →</button>
-                </div>
-
-                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 cursor-pointer group hover:shadow-2xl hover:shadow-purple-500/30">
-                    <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">📊</div>
-                    <div class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Operations</div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-purple-400 transition">Data Entry Bot</h3>
-                    <p class="text-sm text-gray-400 mb-4">Extract, transform, and load data automatically</p>
-                    <button class="text-sm text-purple-400 flex items-center gap-1">Learn More →</button>
-                </div>
-
-                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 cursor-pointer group hover:shadow-2xl hover:shadow-purple-500/30">
-                    <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🤖</div>
-                    <div class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Customer Service</div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-purple-400 transition">Customer Support AI</h3>
-                    <p class="text-sm text-gray-400 mb-4">24/7 intelligent chatbot for customer queries</p>
-                    <button class="text-sm text-purple-400 flex items-center gap-1">Learn More →</button>
-                </div>
-
-                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 cursor-pointer group hover:shadow-2xl hover:shadow-purple-500/30">
-                    <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">📈</div>
-                    <div class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Sales</div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-purple-400 transition">Sales Pipeline</h3>
-                    <p class="text-sm text-gray-400 mb-4">Auto-qualify leads and update CRM systems</p>
-                    <button class="text-sm text-purple-400 flex items-center gap-1">Learn More →</button>
-                </div>
-
-                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 cursor-pointer group hover:shadow-2xl hover:shadow-purple-500/30">
-                    <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">💰</div>
-                    <div class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Finance</div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-purple-400 transition">Invoice Processing</h3>
-                    <p class="text-sm text-gray-400 mb-4">Generate, send, and track invoices automatically</p>
-                    <button class="text-sm text-purple-400 flex items-center gap-1">Learn More →</button>
-                </div>
-
-                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 cursor-pointer group hover:shadow-2xl hover:shadow-purple-500/30">
-                    <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">📅</div>
-                    <div class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Productivity</div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-purple-400 transition">Meeting Scheduler</h3>
-                    <p class="text-sm text-gray-400 mb-4">Smart calendar management and booking</p>
-                    <button class="text-sm text-purple-400 flex items-center gap-1">Learn More →</button>
-                </div>
-
-                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 cursor-pointer group hover:shadow-2xl hover:shadow-purple-500/30">
-                    <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🔔</div>
-                    <div class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Operations</div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-purple-400 transition">Alert System</h3>
-                    <p class="text-sm text-gray-400 mb-4">Real-time notifications for critical events</p>
-                    <button class="text-sm text-purple-400 flex items-center gap-1">Learn More →</button>
-                </div>
-
-                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 cursor-pointer group hover:shadow-2xl hover:shadow-purple-500/30">
-                    <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">📝</div>
-                    <div class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Analytics</div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-purple-400 transition">Report Generator</h3>
-                    <p class="text-sm text-gray-400 mb-4">Automated daily/weekly/monthly reports</p>
-                    <button class="text-sm text-purple-400 flex items-center gap-1">Learn More →</button>
-                </div>
-
-                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 cursor-pointer group hover:shadow-2xl hover:shadow-purple-500/30">
-                    <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🔄</div>
-                    <div class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Integration</div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-purple-400 transition">Workflow Sync</h3>
-                    <p class="text-sm text-gray-400 mb-4">Connect and sync data between 1000+ apps</p>
-                    <button class="text-sm text-purple-400 flex items-center gap-1">Learn More →</button>
-                </div>
-
-                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 cursor-pointer group hover:shadow-2xl hover:shadow-purple-500/30">
-                    <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">🎯</div>
-                    <div class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Sales</div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-purple-400 transition">Lead Scoring</h3>
-                    <p class="text-sm text-gray-400 mb-4">AI-powered lead qualification and routing</p>
-                    <button class="text-sm text-purple-400 flex items-center gap-1">Learn More →</button>
-                </div>
-
-                <div class="glass rounded-2xl p-6 hover:scale-105 transition-all duration-300 cursor-pointer group hover:shadow-2xl hover:shadow-purple-500/30">
-                    <div class="text-5xl mb-4 group-hover:scale-110 transition-transform">📦</div>
-                    <div class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Operations</div>
-                    <h3 class="text-lg font-bold mb-2 group-hover:text-purple-400 transition">Inventory Tracker</h3>
-                    <p class="text-sm text-gray-400 mb-4">Real-time stock monitoring and reordering</p>
-                    <button class="text-sm text-purple-400 flex items-center gap-1">Learn More →</button>
-                </div>
-            </div> -->
-
-            <div class="text-center mt-12">
-                  <a href="custom-automation.html" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                
-                      <button class="glass px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition">
-                    
-                   Get custom n8n Automation
-                </button>
-                  </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="py-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">You are doing things manually, Your competitors aren't 👀</h2>
-                <p class="text-xl text-gray-400">Time is money, Automation is the key.</p>
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-5xl md:text-6xl font-black mb-4">
+                    Why Choose <span class="gradient-text">Stellarsion</span>
+                </h2>
+                <p class="text-xl text-gray-400">Automation that actually works</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass rounded-2xl p-8 hover:scale-105 transition-all duration-300">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">AI-Powered Intelligence</h3>
-                    <p class="text-gray-400">AI powered automations with no or low running costs</p>
-                </div>
-
-                <div class="glass rounded-2xl p-8 hover:scale-105 transition-all duration-300">
+                <div class="glass-card rounded-3xl p-8 scroll-reveal">
                     <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                         </svg>
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Lightning Fast</h3>
-                    <p class="text-gray-400">Deploy automations in seconds, not hours</p>
+                    <p class="text-gray-400 leading-relaxed">Deploy powerful automations in minutes, not days. Pre-built workflows ready to use.</p>
                 </div>
 
-                <div class="glass rounded-2xl p-8 hover:scale-105 transition-all duration-300">
+                <div class="glass-card rounded-3xl p-8 scroll-reveal">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Near-Zero Cost</h3>
+                    <p class="text-gray-400 leading-relaxed">Run automations for $0-10/month instead of $300+. One-time payment model.</p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 scroll-reveal">
                     <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Save hours</h3>
-                    <p class="text-gray-400">Do the work that took hours in minutes</p>
+                    <h3 class="text-2xl font-bold mb-4">Production Ready</h3>
+                    <p class="text-gray-400 leading-relaxed">Battle-tested workflows with error handling. Works reliably from day one.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- Pre-Built Automations Section -->
+    <section id="automations" class="relative py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="text-5xl md:text-6xl font-black mb-4">
+                    Pre-Built <span class="gradient-text">Automations</span>
+                </h2>
+                <p class="text-xl text-gray-400">Deploy powerful workflows in one click</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Blog Automation Card -->
+                <a href="https://betanodeautomations.gumroad.com/l/contentpilotblog" target="_blank" rel="noopener noreferrer" class="glass-card rounded-3xl p-8 hover:scale-105 transition-all duration-300 group">
+                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform">🔥</div>
+                    <div class="inline-block px-3 py-1 bg-gradient-to-r from-orange-500 to-red-500 rounded-full text-xs font-bold mb-4">
+                        50% OFF - NEW YEAR SALE
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-purple-400 transition">
+                        Complete Blog Automation ⚡
+                    </h3>
+                    <p class="text-sm text-gray-400 mb-4 leading-relaxed">
+                        Research → Writing → Thumbnails → Publishing → Social sharing. Runs on autopilot after 10-15 min setup.
+                    </p>
+                    <div class="flex items-center gap-2 text-purple-400 font-semibold">
+                        Learn More
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Placeholder Cards -->
+                <div class="glass-card rounded-3xl p-8 hover:scale-105 transition-all duration-300 opacity-50">
+                    <div class="text-6xl mb-4">💬</div>
+                    <div class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-4">
+                        Coming Soon
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Social Media Manager</h3>
+                    <p class="text-sm text-gray-400 mb-4">Schedule, post, and analyze across all platforms automatically.</p>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 hover:scale-105 transition-all duration-300 opacity-50">
+                    <div class="text-6xl mb-4">📊</div>
+                    <div class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-4">
+                        Coming Soon
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Data Entry Bot</h3>
+                    <p class="text-sm text-gray-400 mb-4">Extract, transform, and load data automatically between systems.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 scroll-reveal">
+                <a href="custom-automation.html" class="glass-card px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all duration-300 inline-block">
+                    Get Custom Automation →
+                </a>
+            </div>
+        </div>
+    </section>
 
     <!-- ROI Calculator Section -->
-<!-- Add this section in index.html - Good placement: after Features section, before Testimonials -->
-
-<section class="py-20 px-4 bg-black/20">
-    <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">Calculate Your ROI</h2>
-            <p class="text-xl text-gray-400">See how much time and money you could save with automation</p>
-        </div>
-
-        <div class="glass rounded-3xl p-8 md:p-12">
-            <div class="space-y-8">
-                <!-- Hours Input -->
-                <div>
-                    <label class="block text-lg font-semibold mb-3">
-                        Hours spent on repetitive tasks per week:
-                    </label>
-                    <div class="flex items-center gap-4">
-                        <input 
-                            type="range" 
-                            min="1" 
-                            max="40" 
-                            value="10" 
-                            id="hoursSlider"
-                            class="flex-1 h-3 bg-white/10 rounded-lg appearance-none cursor-pointer slider"
-                        >
-                        <span id="hoursDisplay" class="text-2xl font-bold gradient-text min-w-[100px] text-right">10 hours</span>
-                    </div>
-                </div>
-
-                <!-- Hourly Rate Input -->
-                <div>
-                    <label class="block text-lg font-semibold mb-3">
-                        Your hourly rate:
-                    </label>
-                    <div class="flex items-center gap-3">
-                        <span class="text-2xl font-bold">$</span>
-                        <input 
-                            type="number" 
-                            value="50" 
-                            min="1"
-                            max="500"
-                            id="rateInput"
-                            class="flex-1 px-6 py-4 text-2xl font-bold bg-white/10 border border-white/20 rounded-xl focus:border-purple-500 focus:outline-none transition"
-                        >
-                        <span class="text-gray-400">/hour</span>
-                    </div>
-                    <p class="text-sm text-gray-400 mt-2">Enter your hourly value (salary/wage or what you charge clients)</p>
-                </div>
-
-                <!-- Results Section -->
-                <div class="pt-8 border-t border-white/10">
-                    <div class="grid md:grid-cols-3 gap-6 mb-8">
-                        <!-- Weekly Savings -->
-                        <div class="glass rounded-2xl p-6 text-center">
-                            <p class="text-gray-400 text-sm mb-2">Weekly Savings</p>
-                            <p id="weeklySavings" class="text-3xl font-bold gradient-text">$500</p>
-                        </div>
-
-                        <!-- Monthly Savings -->
-                        <div class="glass rounded-2xl p-6 text-center transform scale-105 border-2 border-purple-500/50">
-                            <p class="text-gray-400 text-sm mb-2">Monthly Savings</p>
-                            <p id="monthlySavings" class="text-3xl font-bold gradient-text">$2,000</p>
-                        </div>
-
-                        <!-- Yearly Savings -->
-                        <div class="glass rounded-2xl p-6 text-center">
-                            <p class="text-gray-400 text-sm mb-2">Yearly Savings</p>
-                            <p id="yearlySavings" class="text-3xl font-bold gradient-text">$24,000</p>
-                        </div>
-                    </div>
-
-                    <!-- Additional Insights -->
-                    <div class="glass rounded-2xl p-6">
-                        <h3 class="text-xl font-bold mb-4">💡 What This Means:</h3>
-                        <div class="space-y-3 text-gray-300">
-                            <p id="insightText1">• You're spending <strong id="hoursPerYear">520 hours</strong> per year on repetitive tasks</p>
-                            <p id="insightText2">• That's equivalent to <strong id="workWeeks">13 work weeks</strong> of wasted time</p>
-                            <p id="insightText3">• Our automation costs <strong class="text-green-400">$5-10/month</strong> to run</p>
-                            <p class="text-purple-400 font-bold text-lg mt-4">
-                                ⚡ ROI: <span id="roiPercent">20,000%</span> in the first year!
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- CTA Button -->
-                    <div class="text-center mt-8">
-                        <a href="custom-automation.html" class="btn-primary px-12 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-2 group">
-                            Start Saving Now
-                            <svg class="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                            </svg>
-                        </a>
-                        <p class="text-sm text-gray-400 mt-4">One-time payment. Zero monthly subscriptions.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Add this CSS to your existing <style> section -->
-<style>
-/* Slider styling */
-.slider::-webkit-slider-thumb {
-    appearance: none;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
-    transition: all 0.3s ease;
-}
-
-.slider::-webkit-slider-thumb:hover {
-    transform: scale(1.2);
-    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.7);
-}
-
-.slider::-moz-range-thumb {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    cursor: pointer;
-    border: none;
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
-    transition: all 0.3s ease;
-}
-
-.slider::-moz-range-thumb:hover {
-    transform: scale(1.2);
-    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.7);
-}
-
-/* Number input styling */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    opacity: 1;
-}
-</style>
-
-<!-- Add this JavaScript before the closing </body> tag -->
-<script>
-// ROI Calculator Logic
-const hoursSlider = document.getElementById('hoursSlider');
-const hoursDisplay = document.getElementById('hoursDisplay');
-const rateInput = document.getElementById('rateInput');
-const weeklySavings = document.getElementById('weeklySavings');
-const monthlySavings = document.getElementById('monthlySavings');
-const yearlySavings = document.getElementById('yearlySavings');
-const hoursPerYear = document.getElementById('hoursPerYear');
-const workWeeks = document.getElementById('workWeeks');
-const roiPercent = document.getElementById('roiPercent');
-
-function calculateSavings() {
-    const hours = parseInt(hoursSlider.value);
-    const rate = parseFloat(rateInput.value) || 0;
-    
-    // Update hours display
-    hoursDisplay.textContent = `${hours} hour${hours > 1 ? 's' : ''}`;
-    
-    // Calculate savings
-    const weekly = hours * rate;
-    const monthly = weekly * 4.33; // Average weeks per month
-    const yearly = weekly * 52;
-    
-    // Update savings displays with animation
-    weeklySavings.textContent = `$${weekly.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
-    monthlySavings.textContent = `$${monthly.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
-    yearlySavings.textContent = `$${yearly.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
-    
-    // Calculate additional insights
-    const totalHoursPerYear = hours * 52;
-    const weeksWasted = (totalHoursPerYear / 40).toFixed(1);
-    
-    hoursPerYear.textContent = `${totalHoursPerYear.toLocaleString()} hours`;
-    workWeeks.textContent = `${weeksWasted} work weeks`;
-    
-    // Calculate ROI (assuming $120/year for automation cost)
-    const automationCost = 120; // $10/month average
-    const roi = ((yearly - automationCost) / automationCost * 100).toFixed(0);
-    roiPercent.textContent = `${roi.toLocaleString()}%`;
-}
-
-// Event listeners
-hoursSlider.addEventListener('input', calculateSavings);
-rateInput.addEventListener('input', calculateSavings);
-
-// Initialize calculation
-calculateSavings();
-
-// Add smooth animations when values change
-function animateValue(element, start, end, duration) {
-    const range = end - start;
-    const increment = range / (duration / 16);
-    let current = start;
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
-            current = end;
-            clearInterval(timer);
-        }
-        element.textContent = `$${Math.round(current).toLocaleString()}`;
-    }, 16);
-}
-</script>
-  
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Built by Founders, For All.</h2>
-                <p class="text-xl text-gray-400">Our Vision</p>
-            </div>
-
-            <!-- Enhanced Testimonial Card with Cool Ren's Review -->
-<!-- Replace one of the existing testimonial cards in the Testimonials Section -->
-
-<div class="glass rounded-2xl p-8 relative overflow-hidden">
-    <!-- Decorative elements -->
-    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full filter blur-3xl"></div>
-    
-    <!-- Star Rating -->
-    <div class="flex gap-1 mb-4 relative z-10">
-        <svg class="w-5 h-5 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-        </svg>
-        <svg class="w-5 h-5 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-        </svg>
-        <svg class="w-5 h-5 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-        </svg>
-        <svg class="w-5 h-5 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-        </svg>
-        <svg class="w-5 h-5 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-        </svg>
-    </div>
-    
-    <!-- Verified Badge -->
-    <div class="inline-flex items-center gap-2 px-3 py-1 bg-green-500/20 rounded-full mb-4">
-        <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-        </svg>
-        <span class="text-xs font-semibold text-green-400">Verified Fazier Review</span>
-    </div>
-    
-    <!-- Quote Icon -->
-    <div class="mb-4">
-        <svg class="w-10 h-10 text-purple-400/40" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-        </svg>
-    </div>
-    
-    <!-- Review Content -->
-    <p class="text-gray-300 mb-6 italic leading-relaxed relative z-10">
-        "The complete blog automation workflow is designed to be highly closed-loop. Many tools on the market can only generate text, but Stellarsion integrates trending topic research, AI thumbnail generation, and social media synchronization."
-    </p>
-    
-    <!-- Reviewer Info -->
-    <div class="flex items-center gap-4 relative z-10">
-        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-xl font-bold">
-            C
-        </div>
-        <div>
-            <div class="font-semibold text-lg">Cool Ren</div>
-            <div class="text-sm text-gray-400">Verified Customer • Fazier</div>
-        </div>
-    </div>
-    
-    <!-- Platform Badge -->
-    <div class="absolute bottom-4 right-4">
-        <div class="glass px-3 py-1 rounded-full text-xs text-purple-300 font-semibold">
-            Posted on Fazier
-        </div>
-    </div>
-</div>
-
-<!-- Alternative: Larger Featured Testimonial (use this if you want to make it stand out more) -->
-<!-- Replace the entire testimonials grid with this layout -->
-
-<div class="grid md:grid-cols-2 gap-8 mb-8">
-    <!-- Featured Testimonial - Cool Ren -->
-    <div class="md:col-span-2 glass rounded-3xl p-10 md:p-12 relative overflow-hidden border-2 border-purple-500/30">
-        <!-- Background Decoration -->
-        <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full filter blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-pink-500/20 to-purple-500/20 rounded-full filter blur-3xl"></div>
-        
-        <div class="relative z-10">
-            <!-- Featured Badge -->
-            <div class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full mb-6">
-                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                </svg>
-                <span class="text-sm font-bold gradient-text">Featured Review</span>
-            </div>
-            
-            <!-- Quote -->
-            <div class="mb-6">
-                <svg class="w-12 h-12 text-purple-400/30" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                </svg>
-            </div>
-            
-            <!-- Review Text -->
-            <p class="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed italic font-light">
-                "The complete blog automation workflow is designed to be highly closed-loop. Many tools on the market can only generate text, but Stellarsion integrates trending topic research, AI thumbnail generation, and social media synchronization."
-            </p>
-            
-            <!-- Reviewer Info with Verification -->
-            <div class="flex items-center justify-between flex-wrap gap-4">
-                <div class="flex items-center gap-4">
-                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-2xl font-bold shadow-lg">
-                        C
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-2 mb-1">
-                            <div class="font-bold text-xl">Cool Ren</div>
-                            <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                            </svg>
-                        </div>
-                        <div class="text-sm text-gray-400 flex items-center gap-2">
-                            <span>Verified Customer</span>
-                            <span>•</span>
-                            <span>Fazier Platform</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Star Rating -->
-                <div class="flex gap-1">
-                    <svg class="w-6 h-6 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                    </svg>
-                    <svg class="w-6 h-6 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                    </svg>
-                    <svg class="w-6 h-6 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                    </svg>
-                    <svg class="w-6 h-6 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                    </svg>
-                    <svg class="w-6 h-6 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Keep your other 2 testimonials here in the remaining grid cells -->
-
-                    <p class="text-gray-300 mb-6 italic">"Our Aim is to make operation costs 0 and make everyone use automations in their work where needed.."</p>
-                    <div>
-                        <div class="font-semibold">Arush Sharma</div>
-                        <div class="text-sm text-gray-400">Founder, Stellarsion Automations</div>
-                    </div>
-                </div>
-
-                <div class="glass rounded-2xl p-8">
-                    <div class="flex gap-1 mb-4">
-                        <svg class="w-5 h-5 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                    </div>
-                    <p class="text-gray-300 mb-6 italic">"We want to make ROI immediate. You can now focus on what truly matters."</p>
-                    <div>
-                        <div class="font-semibold">Arush Sharma </div>
-                        <div class="text-sm text-gray-400">Founder</div>
-                    </div>
-                </div>
-
-                <div class="glass rounded-2xl p-8">
-                    <div class="flex gap-1 mb-4">
-                        <svg class="w-5 h-5 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                        <svg class="w-5 h-5 fill-yellow-400 text-yellow-400" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                        </svg>
-                    </div>
-                    <p class="text-gray-300 mb-6 italic">"Not hype, We focus on growth."</p>
-                    <div>
-                        <div class="font-semibold">Arush Sharma</div>
-                        <div class="text-sm text-gray-400">Founder, Stellarsions Automations </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-          <div class="max-w-4xl mx-auto text-center">
-            <div class="glass rounded-3xl p-12">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    About the founder
+    <section class="relative py-20 px-4 bg-black/20">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="text-5xl md:text-6xl font-black mb-4">
+                    Calculate Your <span class="gradient-text">ROI</span>
                 </h2>
-                <p class="text-2xl text-gray-400 mb-8">
-                    Arush Sharma
-                </p>
-                <!-- <button class="btn-primary px-12 py-4 rounded-full font-semibold text-lg flex items-center gap-2 mx-auto group">
-                    Start Your Free Trial
-                    <svg class="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                    </svg>
-                </button> -->
-                <p class="text-md text-gray-400 mt-4">I'm Arush Sharma, An automation enthusiast. I'm from a coding background and also founder of NexNotes AI. We want to build automations that solve real problems ad are accessible to people. We keep the errors and running costs near to zero.</p>
+                <p class="text-xl text-gray-400">See how much time and money you'll save</p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-8 md:p-12 scroll-reveal">
+                <div class="space-y-8">
+                    <!-- Hours Input -->
+                    <div>
+                        <label class="block text-lg font-bold mb-3">
+                            Hours spent on repetitive tasks per week:
+                        </label>
+                        <div class="flex items-center gap-4">
+                            <input 
+                                type="range" 
+                                min="1" 
+                                max="40" 
+                                value="10" 
+                                id="hoursSlider"
+                                class="flex-1 h-3 bg-white/10 rounded-lg appearance-none cursor-pointer"
+                                style="background: linear-gradient(to right, #667eea 0%, #764ba2 50%, rgba(255,255,255,0.1) 50%);"
+                            >
+                            <span id="hoursDisplay" class="text-3xl font-black gradient-text min-w-[120px] text-right">10 hours</span>
+                        </div>
+                    </div>
+
+                    <!-- Hourly Rate Input -->
+                    <div>
+                        <label class="block text-lg font-bold mb-3">
+                            Your hourly rate:
+                        </label>
+                        <div class="flex items-center gap-3">
+                            <span class="text-3xl font-black">$</span>
+                            <input 
+                                type="number" 
+                                value="50" 
+                                min="1"
+                                max="500"
+                                id="rateInput"
+                                class="flex-1 px-6 py-4 text-2xl font-bold bg-white/5 border-2 border-white/20 rounded-2xl focus:border-purple-500 focus:outline-none transition"
+                            >
+                            <span class="text-gray-400 text-lg">/hour</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-2">Enter your hourly value (salary or client rate)</p>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div class="pt-8 border-t border-white/10">
+                        <div class="grid md:grid-cols-3 gap-6 mb-8">
+                            <!-- Weekly Savings -->
+                            <div class="glass-card rounded-2xl p-6 text-center">
+                                <p class="text-gray-400 text-sm mb-2 font-semibold">Weekly Savings</p>
+                                <p id="weeklySavings" class="text-4xl font-black gradient-text">$500</p>
+                            </div>
+
+                            <!-- Monthly Savings -->
+                            <div class="glass-card rounded-2xl p-6 text-center transform scale-105 border-2 border-purple-500/50">
+                                <p class="text-gray-400 text-sm mb-2 font-semibold">Monthly Savings</p>
+                                <p id="monthlySavings" class="text-4xl font-black gradient-text">$2,000</p>
+                            </div>
+
+                            <!-- Yearly Savings -->
+                            <div class="glass-card rounded-2xl p-6 text-center">
+                                <p class="text-gray-400 text-sm mb-2 font-semibold">Yearly Savings</p>
+                                <p id="yearlySavings" class="text-4xl font-black gradient-text">$24,000</p>
+                            </div>
+                        </div>
+
+                        <!-- Additional Insights -->
+                        <div class="glass-card rounded-2xl p-6 bg-purple-500/5">
+                            <h3 class="text-2xl font-bold mb-4">💡 What This Means:</h3>
+                            <div class="space-y-3 text-gray-300">
+                                <p>• You're spending <strong id="hoursPerYear" class="text-white">520 hours</strong> per year on repetitive tasks</p>
+                                <p>• That's equivalent to <strong id="workWeeks" class="text-white">13 work weeks</strong> of wasted time</p>
+                                <p>• Our automation costs <strong class="text-green-400">$5-10/month</strong> to run</p>
+                                <p class="text-purple-400 font-bold text-xl mt-4">
+                                    ⚡ ROI: <span id="roiPercent">20,000%</span> in the first year!
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- CTA Button -->
+                        <div class="text-center mt-8">
+                            <a href="custom-automation.html" class="btn-modern px-12 py-4 rounded-full font-bold text-lg inline-flex items-center gap-2 group">
+                                Start Saving Now
+                                <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                                </svg>
+                            </a>
+                            <p class="text-sm text-gray-400 mt-4">One-time payment. Zero monthly subscriptions.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
     <!-- CTA Section -->
-
-    <!-- FAQ Section -->
-<section id="faq" class="py-20 px-4">
-    <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
-            <p class="text-xl text-gray-400">Everything you need to know about our automation solutions</p>
-        </div>
-
-        <div class="space-y-4">
-            <!-- FAQ Item 1 -->
-            <div class="glass rounded-2xl overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
-                    <span class="text-lg font-semibold pr-8">What exactly is n8n and how does it work?</span>
-                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                    <div class="px-6 pb-5 text-gray-300">
-                        <p class="leading-relaxed">
-                            n8n is an open-source workflow automation platform that connects different apps and services together. Think of it as a smart assistant that can move data between your tools, trigger actions based on events, and automate repetitive tasks—all without you needing to write complex code. It's like Zapier but more powerful, customizable, and cost-effective.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Item 2 -->
-            <div class="glass rounded-2xl overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
-                    <span class="text-lg font-semibold pr-8">Do I need technical knowledge to use your automations?</span>
-                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                    <div class="px-6 pb-5 text-gray-300">
-                        <p class="leading-relaxed mb-3">
-                            Not at all! Our automations are ready-to-use with minimal setup. We provide:
-                        </p>
-                        <ul class="list-disc list-inside space-y-1 ml-4">
-                            <li>Step-by-step setup guides with screenshots</li>
-                            <li>Video tutorials walking you through the process</li>
-                            <li>Pre-configured workflows that just need your API keys</li>
-                            <li>Direct support if you get stuck</li>
-                        </ul>
-                        <p class="leading-relaxed mt-3">
-                            Most customers have their automations running within 10-15 minutes, even with no prior technical experience.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Item 3 -->
-            <div class="glass rounded-2xl overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
-                    <span class="text-lg font-semibold pr-8">How much do your automations actually cost to run?</span>
-                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                    <div class="px-6 pb-5 text-gray-300">
-                        <p class="leading-relaxed mb-3">
-                            Our automations are designed to run at near-zero cost. Here's a typical breakdown:
-                        </p>
-                        <ul class="list-disc list-inside space-y-1 ml-4">
-                            <li><strong>n8n hosting:</strong> $0-5/month (free tier or cheap VPS)</li>
-                            <li><strong>AI API costs:</strong> $2-5/month with our optimizations</li>
-                            <li><strong>Other services:</strong> Mostly free tiers</li>
-                        </ul>
-                        <p class="leading-relaxed mt-3">
-                            <strong>Total: Usually under $10/month</strong> to run automations that would cost $50-300/month with traditional SaaS tools. That's a one-time purchase with minimal ongoing costs!
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Item 4 -->
-            <div class="glass rounded-2xl overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
-                    <span class="text-lg font-semibold pr-8">What if the automation stops working or breaks?</span>
-                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                    <div class="px-6 pb-5 text-gray-300">
-                        <p class="leading-relaxed mb-3">
-                            We've got you covered! Our automations include:
-                        </p>
-                        <ul class="list-disc list-inside space-y-1 ml-4">
-                            <li><strong>Built-in error handling:</strong> Automations recover from temporary failures automatically</li>
-                            <li><strong>Error notifications:</strong> You'll be alerted if something needs attention</li>
-                            <li><strong>Detailed documentation:</strong> Troubleshooting guides for common issues</li>
-                            <li><strong>Community support:</strong> Access to our Discord/Slack community</li>
-                            <li><strong>Direct support:</strong> Email us and we'll help fix it</li>
-                        </ul>
-                        <p class="leading-relaxed mt-3">
-                            Plus, we design workflows to be robust and handle edge cases, so breakages are rare.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Item 5 -->
-            <div class="glass rounded-2xl overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
-                    <span class="text-lg font-semibold pr-8">Can I customize the automation to fit my specific needs?</span>
-                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                    <div class="px-6 pb-5 text-gray-300">
-                        <p class="leading-relaxed mb-3">
-                            Absolutely! That's the beauty of n8n workflows:
-                        </p>
-                        <ul class="list-disc list-inside space-y-1 ml-4">
-                            <li><strong>Fully customizable:</strong> You own the workflow and can modify it however you want</li>
-                            <li><strong>Visual editor:</strong> Easy drag-and-drop interface to add or remove steps</li>
-                            <li><strong>Documentation included:</strong> We explain how everything works so you can tweak it</li>
-                            <li><strong>Custom solutions available:</strong> Need major changes? We offer custom development services</li>
-                        </ul>
-                        <p class="leading-relaxed mt-3">
-                            Think of our automations as a solid foundation you can build upon, not a locked black box.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Item 6 -->
-            <div class="glass rounded-2xl overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
-                    <span class="text-lg font-semibold pr-8">How long does it take to set up an automation?</span>
-                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                    <div class="px-6 pb-5 text-gray-300">
-                        <p class="leading-relaxed mb-3">
-                            Setup time varies by automation complexity, but typically:
-                        </p>
-                        <ul class="list-disc list-inside space-y-1 ml-4">
-                            <li><strong>Simple automations:</strong> 5-10 minutes (just add your API keys)</li>
-                            <li><strong>Medium complexity:</strong> 10-20 minutes (some configuration needed)</li>
-                            <li><strong>Complex workflows:</strong> 20-30 minutes (multiple services to connect)</li>
-                        </ul>
-                        <p class="leading-relaxed mt-3">
-                            Our blog automation, for example, typically takes 10-15 minutes to set up and then runs completely on autopilot. Compare that to hours of manual work every single week!
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Item 7 -->
-            <div class="glass rounded-2xl overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
-                    <span class="text-lg font-semibold pr-8">Is my data safe? Where is it stored?</span>
-                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                    <div class="px-6 pb-5 text-gray-300">
-                        <p class="leading-relaxed mb-3">
-                            Your data security is a top priority:
-                        </p>
-                        <ul class="list-disc list-inside space-y-1 ml-4">
-                            <li><strong>Self-hosted option:</strong> Run n8n on your own server—you control all data</li>
-                            <li><strong>No data collection:</strong> We don't collect or store your business data</li>
-                            <li><strong>Encrypted connections:</strong> All API calls use secure HTTPS</li>
-                            <li><strong>Your credentials stay with you:</strong> API keys are stored in your n8n instance only</li>
-                        </ul>
-                        <p class="leading-relaxed mt-3">
-                            Unlike cloud-only services, with n8n you have complete control over where your data lives and who can access it.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Item 8 -->
-
-
-            <!-- FAQ Item 9 -->
-            <div class="glass rounded-2xl overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
-                    <span class="text-lg font-semibold pr-8">Can I get help if I get stuck during setup?</span>
-                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                    <div class="px-6 pb-5 text-gray-300">
-                        <p class="leading-relaxed mb-3">
-                            Of course! We provide multiple support channels:
-                        </p>
-                        <ul class="list-disc list-inside space-y-1 ml-4">
-                            <li><strong>Email support:</strong> arush2022pro@gmail.com (typically respond within 24 hours)</li>
-                            <li><strong>Setup assistance:</strong> We can guide you through the process step-by-step</li>
-                            <li><strong>Video calls:</strong> For complex setups, we offer screen-sharing sessions</li>
-                            <li><strong>Documentation:</strong> Detailed guides and FAQs for common issues</li>
-                        </ul>
-                        <p class="leading-relaxed mt-3">
-                            You're never alone in this. We want you to succeed, so we're here to help every step of the way!
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FAQ Item 10 -->
-            <div class="glass rounded-2xl overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-white/5 transition" onclick="toggleFAQ(this)">
-                    <span class="text-lg font-semibold pr-8">What's the difference between your pre-built automations and custom solutions?</span>
-                    <svg class="faq-icon w-6 h-6 flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
-                    <div class="px-6 pb-5 text-gray-300">
-                        <p class="leading-relaxed mb-3">
-                            Great question! Here's the breakdown:
-                        </p>
-                        <p class="leading-relaxed mb-3">
-                            <strong>Pre-built Automations:</strong>
-                        </p>
-                        <ul class="list-disc list-inside space-y-1 ml-4 mb-3">
-                            <li>Ready-to-use workflows for common tasks</li>
-                            <li>Lower cost, instant delivery</li>
-                            <li>Designed to work for most use cases</li>
-                            <li>Perfect if the automation matches your needs</li>
-                        </ul>
-                        <p class="leading-relaxed mb-3">
-                            <strong>Custom Solutions:</strong>
-                        </p>
-                        <ul class="list-disc list-inside space-y-1 ml-4">
-                            <li>Built specifically for your unique workflow</li>
-                            <li>Connects to your specific tools and services</li>
-                            <li>Handles your exact requirements and edge cases</li>
-                            <li>Higher cost but perfectly tailored to you</li>
-                        </ul>
-                        <p class="leading-relaxed mt-3">
-                            Start with pre-built if it fits your needs. Go custom if you need something more specialized or have unique requirements.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Still Have Questions CTA -->
-        <div class="mt-12 text-center glass rounded-2xl p-8">
-            <h3 class="text-2xl font-bold mb-3">Still have questions?</h3>
-            <p class="text-gray-400 mb-6">We're here to help! Reach out and we'll answer any questions you have.</p>
-            <a href="contact.html" class="btn-primary px-8 py-3 rounded-full font-semibold inline-flex items-center gap-2 group">
-                Contact Us
-                <svg class="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                </svg>
-            </a>
-        </div>
-    </div>
-</section>
-
-<script>
-// FAQ Toggle Function
-function toggleFAQ(button) {
-    const faqItem = button.parentElement;
-    const answer = faqItem.querySelector('.faq-answer');
-    const icon = button.querySelector('.faq-icon');
-    const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
-    
-    // Close all other FAQs
-    document.querySelectorAll('.faq-answer').forEach(item => {
-        if (item !== answer) {
-            item.style.maxHeight = '0px';
-        }
-    });
-    
-    document.querySelectorAll('.faq-icon').forEach(item => {
-        if (item !== icon) {
-            item.style.transform = 'rotate(0deg)';
-        }
-    });
-    
-    // Toggle current FAQ
-    if (isOpen) {
-        answer.style.maxHeight = '0px';
-        icon.style.transform = 'rotate(0deg)';
-    } else {
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-        icon.style.transform = 'rotate(180deg)';
-    }
-}
-</script>
-    <section class="py-20 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="glass rounded-3xl p-12">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    Ready to Transform Your Workflow?
+    <section class="relative py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass-card rounded-3xl p-12 text-center scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    Ready to <span class="gradient-text">Automate</span>?
                 </h2>
                 <p class="text-xl text-gray-400 mb-8">
-                    Try our automations now!
+                    Stop wasting time on repetitive tasks. Start automating today.
                 </p>
-                <!-- <button class="btn-primary px-12 py-4 rounded-full font-semibold text-lg flex items-center gap-2 mx-auto group">
-                    Start Your Free Trial
-                    <svg class="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <a href="custom-automation.html" class="btn-modern px-12 py-4 rounded-full font-bold text-lg inline-flex items-center gap-2 group">
+                    Get Started Now
+                    <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                     </svg>
-                </button> -->
-                <p class="text-sm text-gray-400 mt-4">Automations to make your life easier.</p>
+                </a>
             </div>
         </div>
     </section>
 
-       <section class="py-20 px-4">
-
-
     <!-- Footer -->
-    <footer class="bg-black/40 py-12 px-4">
+    <footer class="relative py-12 px-4 border-t border-white/10">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                        <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                             </svg>
                         </div>
-                        <span class="text-xl font-bold">Stellarsion Automations</span>
+                        <span class="text-xl font-bold">Stellarsion</span>
                     </div>
                     <p class="text-gray-400">Automate everything, achieve anything.</p>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Product</h4>
+                    <h4 class="font-bold mb-4">Product</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="https://www.linkedin.com/in/arush-sharma-327349396/" class="hover:text-purple-400 transition">Our Linkedin</a></li>
-                        <li><a href="https://www.instagram.com/stellarsion.automations/" class="hover:text-purple-400 transition">Our Instagram</a></li>
-                         <li><a href="about.html" class="hover:text-purple-400 transition">About</a></li>
-                    
- 
+                        <li><a href="#automations" class="hover:text-purple-400 transition">Automations</a></li>
+                        <li><a href="blog.html" class="hover:text-purple-400 transition">Blog</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Company</h4>
+                    <h4 class="font-bold mb-4">Company</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="custom-automation.html" class="hover:text-purple-400 transition">Custom Solutions</a></li>
-                        <li><a href="blog.html" class="hover:text-purple-400 transition">Blog</a></li>
-                        <li><a href="https://nexnotes-ai.pages.dev" class="hover:text-purple-400 transition">NexNotes AI- My other Startup</a></li>
-                    
+                        <li><a href="about.html" class="hover:text-purple-400 transition">About</a></li>
                         <li><a href="contact.html" class="hover:text-purple-400 transition">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <h4 class="font-bold mb-4">Legal</h4>
                     <ul class="space-y-2 text-gray-400">
                         <li><a href="privacy.html" class="hover:text-purple-400 transition">Privacy</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-                <p>© 2025 Stellarsion Automations. All rights reserved.</p>
+            <div class="border-t border-white/10 pt-8 text-center text-gray-400">
+                <p>© 2025 Stellarsion. All rights reserved.</p>
             </div>
-          <a href="https://fazier.com/launches/stellarsion.pages.dev" target="_blank"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=neutral" width=50 alt="Fazier badge" /></a>
-
-           
-            <a href="https://startupfa.me/s/stellarsion?utm_source=stellarsion.pages.dev" target="_blank"><img src="https://startupfa.me/badges/featured-badge-small.webp" alt="Stellarsion - Featured on Startup Fame" width="224" height="36" /></a>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const closeIcon = document.getElementById('close-icon');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            menuIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
-        });
-
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
-                navbar.classList.add('nav-scrolled');
+                navbar.classList.add('nav-blur');
             } else {
-                navbar.classList.remove('nav-scrolled');
+                navbar.classList.remove('nav-blur');
             }
         });
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                    // Close mobile menu if open
-                    mobileMenu.classList.add('hidden');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < window.innerHeight - elementVisible) {
+                    el.classList.add('active');
                 }
             });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Mobile menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            // Add mobile menu logic here
         });
+
+        // ROI Calculator Logic
+        const hoursSlider = document.getElementById('hoursSlider');
+        const hoursDisplay = document.getElementById('hoursDisplay');
+        const rateInput = document.getElementById('rateInput');
+        const weeklySavings = document.getElementById('weeklySavings');
+        const monthlySavings = document.getElementById('monthlySavings');
+        const yearlySavings = document.getElementById('yearlySavings');
+        const hoursPerYear = document.getElementById('hoursPerYear');
+        const workWeeks = document.getElementById('workWeeks');
+        const roiPercent = document.getElementById('roiPercent');
+
+        function calculateSavings() {
+            const hours = parseInt(hoursSlider.value);
+            const rate = parseFloat(rateInput.value) || 0;
+            
+            // Update hours display
+            hoursDisplay.textContent = `${hours} hour${hours > 1 ? 's' : ''}`;
+            
+            // Update slider gradient
+            const percentage = ((hours - 1) / 39) * 100;
+            hoursSlider.style.background = `linear-gradient(to right, #667eea 0%, #764ba2 ${percentage}%, rgba(255,255,255,0.1) ${percentage}%)`;
+            
+            // Calculate savings
+            const weekly = hours * rate;
+            const monthly = weekly * 4.33;
+            const yearly = weekly * 52;
+            
+            // Update displays
+            weeklySavings.textContent = `${weekly.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            monthlySavings.textContent = `${monthly.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            yearlySavings.textContent = `${yearly.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+            
+            // Calculate additional insights
+            const totalHoursPerYear = hours * 52;
+            const weeksWasted = (totalHoursPerYear / 40).toFixed(1);
+            
+            hoursPerYear.textContent = `${totalHoursPerYear.toLocaleString()} hours`;
+            workWeeks.textContent = `${weeksWasted} work weeks`;
+            
+            // Calculate ROI
+            const automationCost = 120;
+            const roi = ((yearly - automationCost) / automationCost * 100).toFixed(0);
+            roiPercent.textContent = `${roi.toLocaleString()}%`;
+        }
+
+        // Event listeners for calculator
+        if (hoursSlider && rateInput) {
+            hoursSlider.addEventListener('input', calculateSavings);
+            rateInput.addEventListener('input', calculateSavings);
+            calculateSavings();
+        }
     </script>
-           <!-- Add this HTML before the closing </body> tag in index.html -->
-<div class="floating-cta">
-    <div class="floating-text-bubble" id="floatingText">
-        <span class="gradient-bubble-text">Get Your Custom Automation! 🚀</span>
-    </div>
-    <a href="custom-automation.html" class="floating-btn" title="Get Custom Automation">
-        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-        </svg>
-    </a>
-</div>
-
-<!-- Add this JavaScript before the closing </body> tag -->
-<script>
-// Dynamic text messages for the floating bubble
-const messages = [
-    "Get Your Custom Automation! 🚀",
-    "Build Your AI System Today! 🤖",
-    "Save 10+ Hours Weekly! ⏰",
-    "Automate Everything Now! ⚡",
-    "Transform Your Workflow! 💡",
-    "Zero Cost Operations! 💰",
-    "Start Automating Free! 🎯",
-    "Custom n8n Workflows! 🔧"
-];
-
-let currentMessageIndex = 0;
-const floatingText = document.getElementById('floatingText');
-
-// Show the bubble initially
-setTimeout(() => {
-    floatingText.classList.add('show');
-}, 1000);
-
-// Change text every 4 seconds
-setInterval(() => {
-    // Fade out
-    floatingText.classList.remove('show');
-    
-    // Change text after fade out
-    setTimeout(() => {
-        currentMessageIndex = (currentMessageIndex + 1) % messages.length;
-        floatingText.innerHTML = `<span class="gradient-bubble-text">${messages[currentMessageIndex]}</span>`;
-        
-        // Fade in
-        setTimeout(() => {
-            floatingText.classList.add('show');
-        }, 100);
-    }, 300);
-}, 4000);
-
-// Hide bubble when hovering over the button, show again when not hovering
-const floatingBtn = document.querySelector('.floating-btn');
-
-floatingBtn.addEventListener('mouseenter', () => {
-    floatingText.classList.remove('show');
-});
-
-floatingBtn.addEventListener('mouseleave', () => {
-    setTimeout(() => {
-        floatingText.classList.add('show');
-    }, 500);
-});
-</script>
 </body>
 </html>
-                          
-                    
-                </div>
-
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
