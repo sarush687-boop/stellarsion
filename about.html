@@ -4,59 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Stellarsion - Our Story & Mission</title>
-    <meta name="description" content="Learn about Stellarsion's mission to make business automation accessible to everyone. Founded by Arush Sharma, we're democratizing automation.">
+    <meta name="description" content="Learn about Stellarsion's mission to make business automation accessible to everyone.">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .animated-bg {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            position: relative;
+        }
+        
+        .animated-bg::before {
+            content: '';
+            position: fixed;
+            width: 200%;
+            height: 200%;
+            top: 0;
+            left: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(156, 39, 176, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(103, 58, 183, 0.3) 0%, transparent 50%);
+            animation: bgMove 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        @keyframes bgMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(5%, 5%) rotate(120deg); }
+            66% { transform: translate(-5%, 5%) rotate(240deg); }
+        }
+        
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            top: -10%;
+            left: -10%;
+        }
+        
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            bottom: -10%;
+            right: -10%;
+            animation-delay: 5s;
+        }
+        
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -50px) scale(1.1); }
+            50% { transform: translate(-30px, 30px) scale(0.9); }
+            75% { transform: translate(40px, 20px) scale(1.05); }
         }
-        @keyframes glow {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        @keyframes slide-up {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(102, 126, 234, 0.2);
         }
-        .glow { animation: glow 3s ease-in-out infinite; }
-        .slide-up { animation: slide-up 0.6s ease-out forwards; }
+        
         .gradient-text {
-            background: linear-gradient(135deg, #8398f8 0%, #670dc1 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: gradientShift 3s ease infinite;
+            background-size: 200% auto;
         }
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
-        .btn-primary {
+        
+        .nav-blur {
+            background: rgba(15, 12, 41, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-modern {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             transition: all 0.3s ease;
         }
-        .btn-primary:hover {
+        
+        .btn-modern:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.5);
         }
-        .nav-scrolled {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.8); }
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-950 via-purple-800 to-slate-900 text-white">
+<body class="animated-bg text-white min-h-screen">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
     
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 glass">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <a href="index.html" class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-gradient-to-br from-purple-300 to-pink-100 rounded-lg flex items-center justify-center">
+                    <div class="w-10 h-10 bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl flex items-center justify-center pulse-glow">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                         </svg>
@@ -65,74 +159,46 @@
                 </a>
 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html#automations" class="hover:text-purple-400 transition">Automations</a>
-                    <a href="blog.html" class="hover:text-purple-400 transition">Blog</a>
-                    <a href="about.html" class="hover:text-purple-400 transition">About</a>
-                    <a href="contact.html" class="btn-primary px-6 py-2 rounded-full font-semibold">
+                    <a href="index.html#automations" class="hover:text-purple-400 transition-colors">Automations</a>
+                    <a href="blog.html" class="hover:text-purple-400 transition-colors">Blog</a>
+                    <a href="about.html" class="hover:text-purple-400 transition-colors">About</a>
+                    <a href="contact.html" class="btn-modern px-6 py-2 rounded-full font-semibold">
                         Contact Us
                     </a>
                 </div>
-
-                <button id="mobile-menu-btn" class="md:hidden">
-                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <div id="mobile-menu" class="hidden md:hidden glass">
-            <div class="px-4 pt-2 pb-4 space-y-3">
-                <a href="index.html#automations" class="block py-2 hover:text-purple-400">Automations</a>
-                <a href="blog.html" class="block py-2 hover:text-purple-400">Blog</a>
-                <a href="about.html" class="block py-2 hover:text-purple-400">About</a>
-                <a href="contact.html" class="btn-primary w-full px-6 py-2 rounded-full font-semibold mt-2 text-center block">
-                    Contact Us
-                </a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-12 px-4 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-30">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full filter blur-3xl glow"></div>
-            <div class="absolute bottom-20 right-10 w-96 h-96 bg-pink-200 rounded-full filter blur-3xl glow"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto relative z-10 text-center slide-up">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+    <section class="relative pt-32 pb-12 px-4">
+        <div class="max-w-7xl mx-auto relative z-10 text-center">
+            <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
                 About <span class="gradient-text">Stellarsion</span>
             </h1>
             <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                We're on a mission to democratize business automation—making powerful workflows accessible and affordable for everyone, not just enterprises with massive budgets.
+                We're on a mission to democratize business automation—making powerful workflows accessible and affordable for everyone.
             </p>
         </div>
     </section>
 
     <!-- Our Story Section -->
-    <section class="py-12 px-4">
+    <section class="relative py-12 px-4">
         <div class="max-w-4xl mx-auto">
-            <div class="glass rounded-3xl p-8 md:p-12 mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">Our Story</h2>
-                <div class="prose prose-invert max-w-none">
-                    <p class="text-gray-300 leading-relaxed mb-4">
+            <div class="glass-card rounded-3xl p-8 md:p-12 mb-12 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-black mb-6 text-center">Our Story</h2>
+                <div class="prose prose-invert max-w-none space-y-4 text-gray-300 text-lg leading-relaxed">
+                    <p>
                         Stellarsion was born out of frustration. As a founder and developer, I (Arush Sharma) found myself spending 15-20 hours every week on repetitive tasks—writing blog posts, managing social media, data entry, responding to emails, updating spreadsheets. The list went on and on.
                     </p>
-                    <p class="text-gray-300 leading-relaxed mb-4">
-                        I knew automation was the answer. But when I looked at tools like Zapier and Make, I was shocked by the pricing: $300-500/month for the features I needed. As a bootstrapped founder, that was simply too expensive. Plus, these platforms had limitations—complex workflows were difficult to build, debugging was a nightmare, and I didn't truly own the automations I created.
+                    <p>
+                        I knew automation was the answer. But when I looked at tools like Zapier and Make, I was shocked by the pricing: $300-500/month for the features I needed. As a bootstrapped founder, that was simply too expensive.
                     </p>
-                    <p class="text-gray-300 leading-relaxed mb-4">
-                        That's when I discovered n8n—a powerful, open-source automation platform. I dove in, learned the system, and started building workflows for my own business. Within weeks, I had automated 80% of my repetitive tasks. I was saving 15+ hours per week and running these automations for less than $10/month.
+                    <p>
+                        That's when I discovered n8n—a powerful, open-source automation platform. Within weeks, I had automated 80% of my repetitive tasks. I was saving 15+ hours per week and running these automations for less than $10/month.
                     </p>
-                    <p class="text-gray-300 leading-relaxed mb-4">
-                        Friends and fellow entrepreneurs noticed the transformation. They asked, "How are you producing so much content? How do you have time for everything?" When I explained my automation setup, they wanted it too.
-                    </p>
-                    <p class="text-gray-300 leading-relaxed">
-                        That's how Stellarsion was born. We create battle-tested, production-ready n8n workflows and sell them at accessible prices. One-time payment, minimal running costs, full ownership. No subscriptions. No vendor lock-in. Just powerful automation that works.
+                    <p>
+                        Friends and fellow entrepreneurs noticed the transformation. That's how Stellarsion was born. We create battle-tested, production-ready n8n workflows and sell them at accessible prices. One-time payment, minimal running costs, full ownership.
                     </p>
                 </div>
             </div>
@@ -140,105 +206,37 @@
     </section>
 
     <!-- Mission & Vision Section -->
-    <section class="py-12 px-4 bg-black/20">
+    <section class="relative py-12 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Mission -->
-                <div class="glass rounded-2xl p-8 md:p-10">
+                <div class="glass-card rounded-3xl p-8 md:p-10 scroll-reveal">
                     <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+                    <h3 class="text-3xl font-bold mb-4">Our Mission</h3>
                     <p class="text-gray-300 leading-relaxed mb-4">
                         To make business automation accessible and affordable for every entrepreneur, solopreneur, and small business owner worldwide.
                     </p>
                     <p class="text-gray-300 leading-relaxed">
-                        We believe powerful automation shouldn't be reserved for enterprises with massive IT budgets. Every business deserves to reclaim their time and focus on growth, not repetitive tasks.
+                        We believe powerful automation shouldn't be reserved for enterprises with massive IT budgets.
                     </p>
                 </div>
 
-                <!-- Vision -->
-                <div class="glass rounded-2xl p-8 md:p-10">
+                <div class="glass-card rounded-3xl p-8 md:p-10 scroll-reveal">
                     <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
                         </svg>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
+                    <h3 class="text-3xl font-bold mb-4">Our Vision</h3>
                     <p class="text-gray-300 leading-relaxed mb-4">
                         A world where every business runs on intelligent automation, where founders spend their time on creativity and strategy—not on mundane, repetitive tasks.
                     </p>
                     <p class="text-gray-300 leading-relaxed">
-                        We envision a future where automation is the norm, not the exception. Where zero-cost operation is standard, and where you own your workflows completely.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Values Section -->
-    <section class="py-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Our Core Values</h2>
-                <p class="text-xl text-gray-400">The principles that guide everything we do</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Value 1 -->
-                <div class="glass rounded-2xl p-8 hover:scale-105 transition-all duration-300">
-                    <div class="text-5xl mb-4">🎯</div>
-                    <h3 class="text-xl font-bold mb-3">Results Over Hype</h3>
-                    <p class="text-gray-400">
-                        We focus on delivering real, measurable results—not flashy marketing. Every automation we create must save you time and money, period.
-                    </p>
-                </div>
-
-                <!-- Value 2 -->
-                <div class="glass rounded-2xl p-8 hover:scale-105 transition-all duration-300">
-                    <div class="text-5xl mb-4">💰</div>
-                    <h3 class="text-xl font-bold mb-3">Zero-Cost Philosophy</h3>
-                    <p class="text-gray-400">
-                        We obsess over keeping operational costs near zero. Why? Because we've been bootstrapped founders who watch every dollar.
-                    </p>
-                </div>
-
-                <!-- Value 3 -->
-                <div class="glass rounded-2xl p-8 hover:scale-105 transition-all duration-300">
-                    <div class="text-5xl mb-4">🔓</div>
-                    <h3 class="text-xl font-bold mb-3">Full Ownership</h3>
-                    <p class="text-gray-400">
-                        You own your workflows completely. Modify them, sell them, do whatever you want. No black boxes, no vendor lock-in.
-                    </p>
-                </div>
-
-                <!-- Value 4 -->
-                <div class="glass rounded-2xl p-8 hover:scale-105 transition-all duration-300">
-                    <div class="text-5xl mb-4">🤝</div>
-                    <h3 class="text-xl font-bold mb-3">Transparency First</h3>
-                    <p class="text-gray-400">
-                        We're honest about what works and what doesn't. No hidden costs, no misleading claims. Just honest, transparent communication.
-                    </p>
-                </div>
-
-                <!-- Value 5 -->
-                <div class="glass rounded-2xl p-8 hover:scale-105 transition-all duration-300">
-                    <div class="text-5xl mb-4">🚀</div>
-                    <h3 class="text-xl font-bold mb-3">Immediate ROI</h3>
-                    <p class="text-gray-400">
-                        Our automations should pay for themselves within the first week. If they don't provide immediate value, we've failed.
-                    </p>
-                </div>
-
-                <!-- Value 6 -->
-                <div class="glass rounded-2xl p-8 hover:scale-105 transition-all duration-300">
-                    <div class="text-5xl mb-4">🌍</div>
-                    <h3 class="text-xl font-bold mb-3">Accessible to All</h3>
-                    <p class="text-gray-400">
-                        Automation shouldn't be a luxury. We price our products so that even solo entrepreneurs can afford powerful workflows.
+                        We envision a future where automation is the norm, not the exception.
                     </p>
                 </div>
             </div>
@@ -246,50 +244,38 @@
     </section>
 
     <!-- Founder Section -->
-    <section class="py-12 px-4 bg-black/20">
+    <section class="relative py-20 px-4">
         <div class="max-w-5xl mx-auto">
-            <div class="glass rounded-3xl p-8 md:p-12">
+            <div class="glass-card rounded-3xl p-8 md:p-12 scroll-reveal">
                 <div class="text-center mb-8">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Meet the Founder</h2>
+                    <h2 class="text-4xl md:text-5xl font-black mb-4">Meet the Founder</h2>
                 </div>
 
                 <div class="flex flex-col md:flex-row items-center gap-8">
-                    <!-- Founder Image Placeholder -->
                     <div class="w-48 h-48 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center flex-shrink-0">
                         <svg class="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                         </svg>
                     </div>
 
-                    <!-- Founder Info -->
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-2">Arush Sharma</h3>
-                        <p class="text-purple-400 mb-4">Founder & Lead Automation Architect</p>
+                        <h3 class="text-3xl font-bold mb-2">Arush Sharma</h3>
+                        <p class="text-purple-400 mb-4 text-lg">Founder & Lead Automation Architect</p>
                         
-                        <div class="prose prose-invert max-w-none">
-                            <p class="text-gray-300 leading-relaxed mb-4">
+                        <div class="prose prose-invert max-w-none space-y-4 text-gray-300">
+                            <p>
                                 I'm Arush Sharma, an automation enthusiast with a coding background and founder of NexNotes AI. My journey into automation started out of necessity—I was drowning in repetitive tasks and couldn't afford expensive automation tools.
                             </p>
-                            <p class="text-gray-300 leading-relaxed mb-4">
-                                What started as personal pain points became my passion. I spent months mastering n8n, building workflows, and optimizing for zero-cost operation. Now, I'm sharing these battle-tested automations with entrepreneurs worldwide.
-                            </p>
-                            <p class="text-gray-300 leading-relaxed mb-4">
-                                My philosophy is simple: <strong>automation should solve real problems and be accessible to everyone.</strong> We keep errors and running costs near zero because that's what actually matters.
+                            <p>
+                                My philosophy is simple: <strong class="text-white">automation should solve real problems and be accessible to everyone.</strong>
                             </p>
                         </div>
 
-                        <!-- Social Links -->
                         <div class="flex gap-4 mt-6">
-                            <a href="https://www.linkedin.com/in/arush-sharma-327349396/" target="_blank" rel="noopener noreferrer" class="glass px-4 py-2 rounded-full hover:bg-purple-500/20 transition flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
+                            <a href="https://www.linkedin.com/in/arush-sharma-327349396/" target="_blank" class="glass-card px-4 py-2 rounded-full hover:bg-purple-500/20 transition flex items-center gap-2">
                                 LinkedIn
                             </a>
-                            <a href="https://www.instagram.com/stellarsion.automations/" target="_blank" rel="noopener noreferrer" class="glass px-4 py-2 rounded-full hover:bg-purple-500/20 transition flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                </svg>
+                            <a href="https://www.instagram.com/stellarsion.automations/" target="_blank" class="glass-card px-4 py-2 rounded-full hover:bg-purple-500/20 transition flex items-center gap-2">
                                 Instagram
                             </a>
                         </div>
@@ -299,84 +285,24 @@
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="py-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Why Choose Stellarsion?</h2>
-                <p class="text-xl text-gray-400">What sets us apart from the rest</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="glass rounded-2xl p-8">
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <span class="text-2xl">✓</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">Built by Founders, For Founders</h3>
-                            <p class="text-gray-400">We understand your challenges because we've lived them. Every automation solves real problems we faced.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass rounded-2xl p-8">
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <span class="text-2xl">✓</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">Production-Ready from Day One</h3>
-                            <p class="text-gray-400">Not templates that need hours of work. Our workflows are tested, documented, and ready to deploy.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass rounded-2xl p-8">
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <span class="text-2xl">✓</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">Near-Zero Running Costs</h3>
-                            <p class="text-gray-400">We obsess over cost optimization. Run powerful automations for under $10/month instead of $300+.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass rounded-2xl p-8">
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                            <span class="text-2xl">✓</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold mb-2">Ongoing Support & Updates</h3>
-                            <p class="text-gray-400">We don't disappear after the sale. Get support, updates, and improvements as we enhance our workflows.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA Section -->
-    <section class="py-20 px-4 bg-black/20">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="glass rounded-3xl p-12">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    Ready to Join the Automation Revolution?
+    <section class="relative py-20 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass-card rounded-3xl p-12 text-center scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    Ready to Join the <span class="gradient-text">Revolution</span>?
                 </h2>
                 <p class="text-xl text-gray-400 mb-8">
                     Stop wasting time on repetitive tasks. Start automating today.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="index.html#automations" class="btn-primary px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center gap-2 group">
+                    <a href="index.html#automations" class="btn-modern px-10 py-4 rounded-full font-bold text-lg inline-flex items-center justify-center gap-2 group">
                         View Automations
-                        <svg class="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                         </svg>
                     </a>
-                    <a href="contact.html" class="glass px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition">
+                    <a href="contact.html" class="glass-card px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition">
                         Get in Touch
                     </a>
                 </div>
@@ -385,12 +311,12 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black/40 py-12 px-4 mt-20">
+    <footer class="relative py-12 px-4 border-t border-white/10">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                        <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                             </svg>
@@ -400,14 +326,52 @@
                     <p class="text-gray-400">Automate everything, achieve anything.</p>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Product</h4>
+                    <h4 class="font-bold mb-4">Product</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="https://www.linkedin.com/in/arush-sharma-327349396/" class="hover:text-purple-400 transition">Our Linkedin</a></li>
-                        <li><a href="blog.html" class="hover:text-purple-400 transition">Blog</a></li>
+                        <li><a href="index.html#automations" class="hover:text-purple-400 transition">Automations</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Company</h4>
+                    <h4 class="font-bold mb-4">Company</h4>
                     <ul class="space-y-2 text-gray-400">
                         <li><a href="about.html" class="hover:text-purple-400 transition">About</a></li>
-                        
+                        <li><a href="contact.html" class="hover:text-purple-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="privacy.html" class="hover:text-purple-400 transition">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-gray-400">
+                <p>© 2025 Stellarsion. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-blur');
+            } else {
+                navbar.classList.remove('nav-blur');
+            }
+        });
+
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 150) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
+</body>
+</html>
