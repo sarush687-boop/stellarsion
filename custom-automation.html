@@ -4,54 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Automations | Stellarsion - Tailored Solutions</title>
-    <meta name="description" content="Get custom automation solutions built specifically for your business needs. Expert n8n workflow development by Stellarsion.">
+    <meta name="description" content="Get custom automation solutions built specifically for your business needs.">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * { font-family: 'Inter', sans-serif; }
+        
+        .animated-bg {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            position: relative;
+        }
+        
+        .animated-bg::before {
+            content: '';
+            position: fixed;
+            width: 200%;
+            height: 200%;
+            top: 0;
+            left: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(156, 39, 176, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(103, 58, 183, 0.3) 0%, transparent 50%);
+            animation: bgMove 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        @keyframes bgMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(5%, 5%) rotate(120deg); }
+            66% { transform: translate(-5%, 5%) rotate(240deg); }
+        }
+        
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            top: -10%;
+            left: -10%;
+        }
+        
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            bottom: -10%;
+            right: -10%;
+            animation-delay: 5s;
+        }
+        
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -50px) scale(1.1); }
+            50% { transform: translate(-30px, 30px) scale(0.9); }
+            75% { transform: translate(40px, 20px) scale(1.05); }
         }
-        @keyframes glow {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .glow { animation: glow 3s ease-in-out infinite; }
+        
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+        }
+        
         .gradient-text {
-            background: linear-gradient(135deg, #8398f8 0%, #670dc1 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: gradientShift 3s ease infinite;
+            background-size: 200% auto;
         }
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
-        .btn-primary {
+        
+        .nav-blur {
+            background: rgba(15, 12, 41, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-modern {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             transition: all 0.3s ease;
         }
-        .btn-primary:hover {
+        
+        .btn-modern:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.5);
         }
-        .nav-scrolled {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.8); }
+        }
+        
+        input, select, textarea {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            background: rgba(255, 255, 255, 0.08) !important;
+            border-color: #667eea !important;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
     </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-950 via-purple-800 to-slate-900 text-white">
+<body class="animated-bg text-white min-h-screen">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
     
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 glass">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <a href="index.html" class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-gradient-to-br from-purple-300 to-pink-100 rounded-lg flex items-center justify-center">
+                    <div class="w-10 h-10 bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl flex items-center justify-center pulse-glow">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                         </svg>
@@ -60,131 +158,104 @@
                 </a>
 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html#automations" class="hover:text-purple-400 transition">Automations</a>
-                    <a href="blog.html" class="hover:text-purple-400 transition">Blog</a>
-                    <a href="custom-automation.html" class="hover:text-purple-400 transition">Custom Solutions</a>
-                    <a href="contact.html" class="btn-primary px-6 py-2 rounded-full font-semibold">
+                    <a href="index.html#automations" class="hover:text-purple-400 transition-colors">Automations</a>
+                    <a href="blog.html" class="hover:text-purple-400 transition-colors">Blog</a>
+                    <a href="about.html" class="hover:text-purple-400 transition-colors">About</a>
+                    <a href="contact.html" class="btn-modern px-6 py-2 rounded-full font-semibold">
                         Contact Us
                     </a>
                 </div>
-
-                <button id="mobile-menu-btn" class="md:hidden">
-                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <div id="mobile-menu" class="hidden md:hidden glass">
-            <div class="px-4 pt-2 pb-4 space-y-3">
-                <a href="index.html#automations" class="block py-2 hover:text-purple-400">Automations</a>
-                <a href="blog.html" class="block py-2 hover:text-purple-400">Blog</a>
-                <a href="custom-automation.html" class="block py-2 hover:text-purple-400">Custom Solutions</a>
-                <a href="contact.html" class="btn-primary w-full px-6 py-2 rounded-full font-semibold mt-2 text-center block">
-                    Contact Us
-                </a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-12 px-4 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-30">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full filter blur-3xl glow"></div>
-            <div class="absolute bottom-20 right-10 w-96 h-96 bg-pink-200 rounded-full filter blur-3xl glow"></div>
-        </div>
-
+    <section class="relative pt-32 pb-12 px-4">
         <div class="max-w-7xl mx-auto relative z-10 text-center">
-            <div class="inline-block glass px-4 py-3 rounded-full mb-6">
-                <span class="text-sm">✨ Tailored Solutions for Your Business</span>
+            <div class="inline-block glass-card px-6 py-3 rounded-full mb-6">
+                <span class="text-sm font-semibold">✨ Tailored Solutions for Your Business</span>
             </div>
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                Custom <span class="gradient-text">Automation</span> Solutions
+            <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
+                Custom <span class="gradient-text">Automation</span>
             </h1>
             <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-                Need something unique? We'll build custom n8n automation workflows specifically designed for your business needs.
+                Need something unique? We'll build custom n8n workflows specifically designed for your business.
             </p>
         </div>
     </section>
 
     <!-- Benefits Section -->
-    <section class="py-12 px-4">
+    <section class="relative py-12 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <div class="glass rounded-2xl p-8 text-center hover:scale-105 transition-all duration-300">
+                <div class="glass-card rounded-3xl p-8 text-center">
                     <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Built for You</h3>
-                    <p class="text-gray-400">Every automation is custom-designed to solve your specific business challenges</p>
+                    <p class="text-gray-400">Custom-designed to solve your specific challenges</p>
                 </div>
 
-                <div class="glass rounded-2xl p-8 text-center hover:scale-105 transition-all duration-300">
+                <div class="glass-card rounded-3xl p-8 text-center">
                     <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Cost-Effective</h3>
-                    <p class="text-gray-400">One-time payment, minimal running costs. Save thousands compared to monthly SaaS subscriptions</p>
+                    <p class="text-gray-400">One-time payment, minimal running costs</p>
                 </div>
 
-                <div class="glass rounded-2xl p-8 text-center hover:scale-105 transition-all duration-300">
+                <div class="glass-card rounded-3xl p-8 text-center">
                     <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 mx-auto">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Ongoing Support</h3>
-                    <p class="text-gray-400">We provide documentation, training, and support to ensure your automation runs smoothly</p>
+                    <p class="text-gray-400">Documentation, training, and support included</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Request Form Section -->
-    <section class="py-12 px-4">
+    <section class="relative py-12 px-4">
         <div class="max-w-4xl mx-auto">
-            <div class="glass rounded-3xl p-8 md:p-12">
+            <div class="glass-card rounded-3xl p-8 md:p-12">
                 <div class="text-center mb-8">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Request Custom Automation</h2>
-                    <p class="text-gray-400">Tell us about your needs and we'll create the perfect solution for you</p>
+                    <h2 class="text-4xl md:text-5xl font-black mb-4">Request Custom Automation</h2>
+                    <p class="text-gray-400">Tell us your needs and we'll create the perfect solution</p>
                 </div>
 
-                <form id="customAutomationForm" class="space-y-6">
-                    <!-- Personal Information -->
+                <form id="customForm" class="space-y-6">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-semibold mb-2">Full Name *</label>
-                            <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-purple-500 focus:outline-none transition" placeholder="John Doe">
+                            <label class="block text-sm font-bold mb-2">Full Name *</label>
+                            <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl text-white" placeholder="John Doe">
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold mb-2">Email *</label>
-                            <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-purple-500 focus:outline-none transition" placeholder="john@company.com">
+                            <label class="block text-sm font-bold mb-2">Email *</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl text-white" placeholder="john@company.com">
                         </div>
                     </div>
 
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-semibold mb-2">Phone Number</label>
-                            <input type="tel" name="phone" class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-purple-500 focus:outline-none transition" placeholder="+91 1234567890">
+                            <label class="block text-sm font-bold mb-2">Phone</label>
+                            <input type="tel" name="phone" class="w-full px-4 py-3 rounded-xl text-white" placeholder="+91 1234567890">
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold mb-2">Company Name</label>
-                            <input type="text" name="company" class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-purple-500 focus:outline-none transition" placeholder="Your Company">
+                            <label class="block text-sm font-bold mb-2">Company Name</label>
+                            <input type="text" name="company" class="w-full px-4 py-3 rounded-xl text-white" placeholder="Your Company">
                         </div>
                     </div>
 
-                    <!-- Automation Requirements -->
                     <div>
-                        <label class="block text-sm font-semibold mb-2">What do you want to automate? *</label>
-                        <select name="automationType" required class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-purple-500 focus:outline-none transition">
+                        <label class="block text-sm font-bold mb-2">What do you want to automate? *</label>
+                        <select name="automationType" required class="w-full px-4 py-3 rounded-xl text-white">
                             <option value="">Select automation type</option>
                             <option value="content-creation">Content Creation & Blogging</option>
                             <option value="social-media">Social Media Management</option>
@@ -192,140 +263,60 @@
                             <option value="data-entry">Data Entry & Processing</option>
                             <option value="customer-support">Customer Support</option>
                             <option value="sales-crm">Sales & CRM Automation</option>
-                            <option value="invoicing">Invoicing & Payments</option>
-                            <option value="reporting">Reports & Analytics</option>
-                            <option value="lead-generation">Lead Generation</option>
-                            <option value="e-commerce">E-commerce Operations</option>
                             <option value="other">Other (Specify in details)</option>
                         </select>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-semibold mb-2">Describe Your Workflow Requirements *</label>
-                        <textarea name="requirements" required rows="5" class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-purple-500 focus:outline-none transition resize-none" placeholder="Describe what you want to automate, what tools/services you use, and what the desired outcome should be..."></textarea>
+                        <label class="block text-sm font-bold mb-2">Describe Your Requirements *</label>
+                        <textarea name="requirements" required rows="5" class="w-full px-4 py-3 rounded-xl text-white resize-none" placeholder="Describe what you want to automate..."></textarea>
                     </div>
 
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-semibold mb-2">Estimated Time Currently Spent</label>
-                            <select name="timeSpent" class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-purple-500 focus:outline-none transition">
-                                <option value="">Select time range</option>
-                                <option value="1-5-hours">1-5 hours/week</option>
-                                <option value="5-10-hours">5-10 hours/week</option>
-                                <option value="10-20-hours">10-20 hours/week</option>
-                                <option value="20-plus-hours">20+ hours/week</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-semibold mb-2">Budget Range</label>
-                            <select name="budget" class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-purple-500 focus:outline-none transition">
-                                <option value="">Select budget range</option>
+                            <label class="block text-sm font-bold mb-2">Budget Range</label>
+                            <select name="budget" class="w-full px-4 py-3 rounded-xl text-white">
+                                <option value="">Select budget</option>
                                 <option value="under-500">Under $500</option>
                                 <option value="500-1000">$500 - $1,000</option>
                                 <option value="1000-2500">$1,000 - $2,500</option>
-                                <option value="2500-5000">$2,500 - $5,000</option>
-                                <option value="5000-plus">$5,000+</option>
                                 <option value="discuss">Let's discuss</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">Timeline</label>
+                            <select name="timeline" class="w-full px-4 py-3 rounded-xl text-white">
+                                <option value="">Select timeline</option>
+                                <option value="asap">ASAP (Within 1 week)</option>
+                                <option value="2-weeks">Within 2 weeks</option>
+                                <option value="1-month">Within 1 month</option>
+                                <option value="flexible">Flexible</option>
                             </select>
                         </div>
                     </div>
 
-                    <div>
-                        <label class="block text-sm font-semibold mb-2">Tools & Services You Currently Use</label>
-                        <input type="text" name="tools" class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-purple-500 focus:outline-none transition" placeholder="e.g., WordPress, Gmail, Slack, Airtable, Shopify...">
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-semibold mb-2">Timeline / Urgency</label>
-                        <select name="timeline" class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-purple-500 focus:outline-none transition">
-                            <option value="">Select timeline</option>
-                            <option value="asap">ASAP (Within 1 week)</option>
-                            <option value="2-weeks">Within 2 weeks</option>
-                            <option value="1-month">Within 1 month</option>
-                            <option value="flexible">Flexible / No rush</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-semibold mb-2">Additional Notes / Questions</label>
-                        <textarea name="notes" rows="3" class="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-purple-500 focus:outline-none transition resize-none" placeholder="Any other information that would help us understand your needs..."></textarea>
-                    </div>
-
-                    <!-- Preferred Contact Method -->
-                    <div>
-                        <label class="block text-sm font-semibold mb-2">How would you like us to contact you? *</label>
-                        <div class="flex flex-wrap gap-4">
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="contactMethod" value="email" checked class="w-4 h-4 text-purple-600">
-                                <span>Email</span>
-                            </label>
-            
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="contactMethod" value="whatsapp" class="w-4 h-4 text-purple-600">
-                                <span>WhatsApp</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="w-full btn-primary px-8 py-4 rounded-full font-semibold text-lg flex items-center justify-center gap-2 group">
+                    <button type="submit" class="w-full btn-modern px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 group">
                         Submit Request
-                        <svg class="w-5 h-5 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                         </svg>
                     </button>
                 </form>
 
                 <p class="text-center text-gray-400 text-sm mt-6">
-                    We typically respond within 48-72 hours with a consultation and quote
-                    Note: If there are too many requests, we may take time to review and reach to your request. If you have urgency, you can message on our whatsapp number in contact info.
+                    We typically respond within 48-72 hours
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="py-20 px-4 bg-black/20">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">How It Works</h2>
-                <p class="text-xl text-gray-400">Simple process from request to deployment</p>
-            </div>
-
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
-                    <h3 class="text-xl font-bold mb-2">Submit Request</h3>
-                    <p class="text-gray-400">Fill out the form with your automation needs</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
-                    <h3 class="text-xl font-bold mb-2">Consultation</h3>
-                    <p class="text-gray-400">We discuss your needs and provide a quote</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
-                    <h3 class="text-xl font-bold mb-2">Development</h3>
-                    <p class="text-gray-400">We build and test your custom automation</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
-                    <h3 class="text-xl font-bold mb-2">Delivery</h3>
-                    <p class="text-gray-400">Deploy, train, and provide ongoing support</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="bg-black/40 py-12 px-4 mt-20">
+    <footer class="relative py-12 px-4 border-t border-white/10 mt-20">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                        <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                             </svg>
@@ -335,109 +326,64 @@
                     <p class="text-gray-400">Automate everything, achieve anything.</p>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Product</h4>
+                    <h4 class="font-bold mb-4">Product</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="https://www.linkedin.com/in/arush-sharma-327349396/" class="hover:text-purple-400 transition">Our Linkedin</a></li>
-                        <li><a href="blog.html" class="hover:text-purple-400 transition">Blog</a></li>
+                        <li><a href="index.html#automations" class="hover:text-purple-400 transition">Automations</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Company</h4>
+                    <h4 class="font-bold mb-4">Company</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="index.html#testimonials" class="hover:text-purple-400 transition">About</a></li>
-                        <li><a href="custom-automation.html" class="hover:text-purple-400 transition">Custom Solutions</a></li>
+                        <li><a href="about.html" class="hover:text-purple-400 transition">About</a></li>
                         <li><a href="contact.html" class="hover:text-purple-400 transition">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Legal</h4>
+                    <h4 class="font-bold mb-4">Legal</h4>
                     <ul class="space-y-2 text-gray-400">
                         <li><a href="privacy.html" class="hover:text-purple-400 transition">Privacy</a></li>
-                        <li><a href="#" class="hover:text-purple-400 transition">Terms</a></li>
-                        <li><a href="#" class="hover:text-purple-400 transition">Security</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
-                <p>© 2025 Stellarsion Automations. All rights reserved.</p>
+            <div class="border-t border-white/10 pt-8 text-center text-gray-400">
+                <p>© 2025 Stellarsion. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const closeIcon = document.getElementById('close-icon');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            menuIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
-        });
-
-        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
-                navbar.classList.add('nav-scrolled');
+                navbar.classList.add('nav-blur');
             } else {
-                navbar.classList.remove('nav-scrolled');
+                navbar.classList.remove('nav-blur');
             }
         });
 
-        // Form submission
-        document.getElementById('customAutomationForm').addEventListener('submit', function(e) {
+        document.getElementById('customForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Get all form values
             const formData = new FormData(this);
             const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
+            formData.forEach((value, key) => { data[key] = value; });
             
-            // Construct detailed email body
             const subject = `Custom Automation Request from ${data.name}`;
-            
             let body = `CUSTOM AUTOMATION REQUEST%0D%0A`;
             body += `================================%0D%0A%0D%0A`;
-            body += `CONTACT INFORMATION:%0D%0A`;
             body += `Name: ${data.name}%0D%0A`;
             body += `Email: ${data.email}%0D%0A`;
             body += `Phone: ${data.phone || 'Not provided'}%0D%0A`;
-            body += `Company: ${data.company || 'Not provided'}%0D%0A`;
-            body += `Preferred Contact: ${data.contactMethod}%0D%0A%0D%0A`;
-            
-            body += `AUTOMATION DETAILS:%0D%0A`;
+            body += `Company: ${data.company || 'Not provided'}%0D%0A%0D%0A`;
             body += `Type: ${data.automationType}%0D%0A`;
-            body += `Time Currently Spent: ${data.timeSpent || 'Not specified'}%0D%0A`;
-            body += `Budget Range: ${data.budget || 'Not specified'}%0D%0A`;
-            body += `Timeline: ${data.timeline || 'Not specified'}%0D%0A`;
-            body += `Current Tools: ${data.tools || 'Not specified'}%0D%0A%0D%0A`;
+            body += `Budget: ${data.budget || 'Not specified'}%0D%0A`;
+            body += `Timeline: ${data.timeline || 'Not specified'}%0D%0A%0D%0A`;
+            body += `Requirements:%0D%0A${data.requirements}`;
             
-            body += `REQUIREMENTS:%0D%0A`;
-            body += `${data.requirements}%0D%0A%0D%0A`;
+            window.location.href = `mailto:arush2022pro@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
             
-            if (data.notes) {
-                body += `ADDITIONAL NOTES:%0D%0A`;
-                body += `${data.notes}%0D%0A%0D%0A`;
-            }
-            
-            body += `================================%0D%0A`;
-            body += `Submitted on: ${new Date().toLocaleString()}`;
-            
-            // Create mailto link
-            const mailtoLink = `mailto:arush2022pro@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Reset form after a short delay
             setTimeout(() => {
                 this.reset();
-                alert('Thank you! Your request has been prepared. Please send the email from your email client to complete the submission.');
+                alert('Thank you! Your request has been prepared. Please send the email to complete submission.');
             }, 1000);
         });
     </script>
