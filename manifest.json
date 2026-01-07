@@ -3,17 +3,17 @@
     "name": "Agenbase AI",
     "icons": [
       {
-        "src": "stellarsionlogo.jpeg",
+        "src": "agenbase.jpeg",
         "sizes": "64x64",
         "type": "image/jpeg"
       },
       {
-        "src": "stellarsionlogo.jpeg",
+        "src": "agenbase.jpeg",
         "type": "image/jpeg",
         "sizes": "192x192"
       },
       {
-        "src": "stellarsionlogo.jpeg",
+        "src": "agenbase.jpeg",
         "type": "image/jpeg",
         "sizes": "512x512"
       }
