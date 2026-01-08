@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your AI Agent | AgenBase AI Marketplace</title>
+    <meta name="description" content="Submit your AI agent to the AgenBase AI marketplace. Get your automation solution listed and reach thousands of users.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Modern Animated Background - Matches Other Pages */
+        .animated-bg {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        .animated-bg::before {
+            content: '';
+            position: fixed;
+            width: 200%;
+            height: 200%;
+            top: 0;
+            left: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(156, 39, 176, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(103, 58, 183, 0.3) 0%, transparent 50%);
+            animation: bgMove 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        @keyframes bgMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(5%, 5%) rotate(120deg); }
+            66% { transform: translate(-5%, 5%) rotate(240deg); }
+        }
+        
+        /* Floating orbs - Matches Other Pages */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            top: -10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+        
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            bottom: -10%;
+            right: -10%;
+            animation-delay: 5s;
+        }
+        
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            top: 50%;
+            left: 50%;
+            animation-delay: 10s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -50px) scale(1.1); }
+            50% { transform: translate(-30px, 30px) scale(0.9); }
+            75% { transform: translate(40px, 20px) scale(1.05); }
+        }
+        
+        /* Enhanced Glass Effect - Matches Other Pages */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(102, 126, 234, 0.2);
+        }
+        
+        /* Modern Button - Matches Other Pages */
+        .btn-modern {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-modern:hover::before {
+            left: 100%;
+        }
+        
+        .btn-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.5);
+        }
+        
+        /* Gradient Text - Matches Other Pages */
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
+            background-size: 200% auto;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Navigation - Matches Other Pages */
+        .nav-blur {
+            background: rgba(15, 12, 41, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Pulse Effect - Matches Other Pages */
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(102, 126, 234, 0.8);
+            }
+        }
+        
+        /* Form Styling */
+        .form-input {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        /* Review Process Steps */
+        .process-step {
+            position: relative;
+        }
+        
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 20px;
+            width: 2px;
+            height: calc(100% - 80px);
+            background: linear-gradient(to bottom, transparent, rgba(102, 126, 234, 0.5), transparent);
+        }
+        
+        .process-step:last-child::before {
+            display: none;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        /* Scroll Animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Category Tags */
+        .category-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            font-size: 14px;
+            margin: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .category-tag:hover {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .category-tag.active {
+            background: rgba(102, 126, 234, 0.3);
+            border-color: rgba(102, 126, 234, 0.8);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+        
+        /* Feature Card */
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Loading Animation */
+        .loading-spinner {
+            display: none;
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            border-top-color: #667eea;
+            animation: spin 1s ease-in-out infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Agent Type Selector */
+        .agent-type-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .agent-type-card.selected {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Preview Card */
+        .preview-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .preview-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        /* Upload Box */
+        .upload-box {
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .upload-box:hover {
+            border-color: rgba(102, 126, 234, 0.5);
+            background: rgba(102, 126, 234, 0.05);
+        }
+        
+        .upload-box.dragover {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+    </style>
+</head>
+<body class="animated-bg text-white min-h-screen">
+    <!-- Floating Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl flex items-center justify-center pulse-glow">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold">AgenBase AI</span>
+                </a>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="hover:text-purple-400 transition-colors duration-300">Home</a>
+                    <a href="directory.html" class="hover:text-purple-400 transition-colors duration-300">Agents Directory</a>
+                    <a href="index.html#pricing" class="hover:text-purple-400 transition-colors duration-300">Pricing</a>
+                    <a href="contact.html" class="hover:text-purple-400 transition-colors duration-300">Contact</a>
+                    <a href="submit-agent.html" class="btn-modern px-6 py-2 rounded-full font-semibold">
+                        Submit Agent
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                    <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/90 backdrop-blur-lg">
+            <div class="px-4 pt-2 pb-4 space-y-3">
+                <a href="index.html" class="block py-2 hover:text-purple-400 transition-colors duration-300">Home</a>
+                <a href="directory.html" class="block py-2 hover:text-purple-400 transition-colors duration-300">Agents Directory</a>
+                <a href="index.html#pricing" class="block py-2 hover:text-purple-400 transition-colors duration-300">Pricing</a>
+                <a href="contact.html" class="block py-2 hover:text-purple-400 transition-colors duration-300">Contact</a>
+                <a href="submit-agent.html" class="btn-modern w-full px-6 py-2 rounded-full font-semibold mt-2 text-center block">
+                    Submit Agent
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="md:hidden fixed inset-0 z-40 bg-black/90 backdrop-blur-lg hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="index.html" class="text-2xl hover:text-purple-400 transition-colors duration-300">Home</a>
+            <a href="directory.html" class="text-2xl hover:text-purple-400 transition-colors duration-300">Agents Directory</a>
+            <a href="index.html#pricing" class="text-2xl hover:text-purple-400 transition-colors duration-300">Pricing</a>
+            <a href="contact.html" class="text-2xl hover:text-purple-400 transition-colors duration-300">Contact</a>
+            <a href="submit-agent.html" class="btn-modern px-8 py-3 rounded-full font-semibold text-lg">
+                Submit Agent
+            </a>
+            <button id="mobile-menu-close" class="absolute top-6 right-6">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-12 px-4" style="position: relative; z-index: 10;">
+        <div class="max-w-7xl mx-auto" style="position: relative; z-index: 10;">
+            <div class="text-center space-y-4 mb-12 scroll-reveal">
+                <h1 class="text-5xl md:text-7xl font-black leading-tight" style="position: relative; z-index: 10;">
+                    Submit Your <span class="gradient-text">AI Agent</span>
+                </h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto" style="position: relative; z-index: 10;">
+                    Share your AI agent with thousands of users on the AgenBase marketplace. Get discovered, earn revenue, and grow your audience.
+                </p>
+                
+                <!-- Important Notice -->
+                <div class="glass-card rounded-2xl p-6 max-w-4xl mx-auto mt-8 border-l-4 border-yellow-500">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center flex-shrink: 0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">Review Process Notice</h3>
+                            <p class="text-gray-300 mb-2">
+                                <span class="text-yellow-300 font-semibold">Important:</span> All agent submissions go through a review process. 
+                                <span class="text-purple-300 font-semibold">We will first review your agent</span> to ensure quality and security standards.
+                            </p>
+                            <p class="text-gray-400 text-sm">
+                                After you submit your agent, please reach us through email at <span class="text-purple-300 font-semibold">agenbase.ai@gmail.com</span> for follow-up.
+                                Our team typically reviews submissions within 3-5 business days.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="relative px-4 pb-20" style="position: relative; z-index: 10;">
+        <div class="max-w-7xl mx-auto" style="position: relative; z-index: 10;">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Left Column: Submission Form -->
+                <div class="scroll-reveal">
+                    <div class="glass-card rounded-3xl p-8">
+                        <h2 class="text-3xl font-bold mb-2">Submit Your Agent Details</h2>
+                        <p class="text-gray-400 mb-8">Fill out all required information about your AI agent</p>
+                        
+                        <form id="agentSubmissionForm" class="space-y-6">
+                            <!-- Agent Information -->
+                            <div class="space-y-4">
+                                <h3 class="text-xl font-bold">Agent Information</h3>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Agent Name <span class="text-red-400">*</span></label>
+                                    <input type="text" required 
+                                           class="w-full px-4 py-3 rounded-xl form-input focus:outline-none" 
+                                           placeholder="Your AI agent's name"
+                                           id="agentName">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Agent Tagline <span class="text-red-400">*</span></label>
+                                    <input type="text" required 
+                                           class="w-full px-4 py-3 rounded-xl form-input focus:outline-none" 
+                                           placeholder="Brief description (max 60 characters)"
+                                           maxlength="60"
+                                           id="agentTagline">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Select Category <span class="text-red-400">*</span></label>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="category-tag" data-category="analytics">📊 Analytics</span>
+                                        <span class="category-tag" data-category="marketing">📈 Marketing</span>
+                                        <span class="category-tag" data-category="support">💬 Support</span>
+                                        <span class="category-tag" data-category="development">💻 Development</span>
+                                        <span class="category-tag" data-category="productivity">⚡ Productivity</span>
+                                        <span class="category-tag" data-category="sales">💰 Sales</span>
+                                        <span class="category-tag" data-category="research">🔍 Research</span>
+                                        <span class="category-tag" data-category="content">✍️ Content</span>
+                                        <span class="category-tag" data-category="education">🎓 Education</span>
+                                        <span class="category-tag" data-category="health">🏥 Health</span>
+                                        <span class="category-tag" data-category="finance">💳 Finance</span>
+                                        <span class="category-tag" data-category="other">🎯 Other</span>
+                                    </div>
+                                    <input type="hidden" id="selectedCategory" required>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Detailed Description <span class="text-red-400">*</span></label>
+                                    <textarea required rows="4" 
+                                              class="w-full px-4 py-3 rounded-xl form-input focus:outline-none resize-none" 
+                                              placeholder="Describe what your agent does, features, benefits, and use cases..."
+                                              id="agentDescription"></textarea>
+                                    <p class="text-gray-400 text-sm mt-1">Include key features, how it works, and who it's for.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Creator Information -->
+                            <div class="space-y-4">
+                                <h3 class="text-xl font-bold">Your Information</h3>
+                                
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Your Name <span class="text-red-400">*</span></label>
+                                        <input type="text" required 
+                                               class="w-full px-4 py-3 rounded-xl form-input focus:outline-none" 
+                                               placeholder="Your full name"
+                                               id="creatorName">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-semibold mb-2">Email <span class="text-red-400">*</span></label>
+                                        <input type="email" required 
+                                               class="w-full px-4 py-3 rounded-xl form-input focus:outline-none" 
+                                               placeholder="your@email.com"
+                                               id="creatorEmail">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Company/Organization</label>
+                                    <input type="text" 
+                                           class="w-full px-4 py-3 rounded-xl form-input focus:outline-none" 
+                                           placeholder="Your company or organization name"
+                                           id="creatorCompany">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Website/Portfolio</label>
+                                    <input type="url" 
+                                           class="w-full px-4 py-3 rounded-xl form-input focus:outline-none" 
+                                           placeholder="https://yourwebsite.com"
+                                           id="creatorWebsite">
+                                </div>
+                            </div>
+                            
+                            <!-- Agent Type & Pricing -->
+                            <div class="space-y-4">
+                                <h3 class="text-xl font-bold">Agent Type & Pricing</h3>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-3">Agent Type <span class="text-red-400">*</span></label>
+                                    <div class="grid sm:grid-cols-3 gap-4">
+                                        <div class="agent-type-card glass-card rounded-2xl p-4 text-center" data-type="free">
+                                            <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                </svg>
+                                            </div>
+                                            <h4 class="font-bold">Free</h4>
+                                            <p class="text-gray-400 text-sm">Completely free to use</p>
+                                        </div>
+                                        
+                                        <div class="agent-type-card glass-card rounded-2xl p-4 text-center" data-type="freemium">
+                                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                                </svg>
+                                            </div>
+                                            <h4 class="font-bold">Freemium</h4>
+                                            <p class="text-gray-400 text-sm">Free tier + paid features</p>
+                                        </div>
+                                        
+                                        <div class="agent-type-card glass-card rounded-2xl p-4 text-center" data-type="paid">
+                                            <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                </svg>
+                                            </div>
+                                            <h4 class="font-bold">Paid</h4>
+                                            <p class="text-gray-400 text-sm">Subscription or one-time</p>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" id="agentType" required>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Pricing Details</label>
+                                    <textarea rows="3" 
+                                              class="w-full px-4 py-3 rounded-xl form-input focus:outline-none resize-none" 
+                                              placeholder="Pricing structure (if paid): e.g., $10/month, $100/year, custom pricing..."
+                                              id="pricingDetails"></textarea>
+                                </div>
+                            </div>
+                            
+                            <!-- Technical Details -->
+                            <div class="space-y-4">
+                                <h3 class="text-xl font-bold">Technical Details</h3>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Platform/Technology</label>
+                                    <input type="text" 
+                                           class="w-full px-4 py-3 rounded-xl form-input focus:outline-none" 
+                                           placeholder="e.g., OpenAI API, Custom Model, Python, etc."
+                                           id="technology">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Integration Methods</label>
+                                    <div class="space-y-2">
+                                        <label class="flex items-center space-x-3">
+                                            <input type="checkbox" class="rounded form-input" value="api">
+                                            <span>API Access</span>
+                                        </label>
+                                        <label class="flex items-center space-x-3">
+                                            <input type="checkbox" class="rounded form-input" value="webhook">
+                                            <span>Webhook Support</span>
+                                        </label>
+                                        <label class="flex items-center space-x-3">
+                                            <input type="checkbox" class="rounded form-input" value="zapier">
+                                            <span>Zapier Integration</span>
+                                        </label>
+                                        <label class="flex items-center space-x-3">
+                                            <input type="checkbox" class="rounded form-input" value="chatgpt">
+                                            <span>ChatGPT Plugin</span>
+                                        </label>
+                                        <label class="flex items-center space-x-3">
+                                            <input type="checkbox" class="rounded form-input" value="custom">
+                                            <span>Custom Integration</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Documentation Link</label>
+                                    <input type="url" 
+                                           class="w-full px-4 py-3 rounded-xl form-input focus:outline-none" 
+                                           placeholder="https://docs.your-agent.com"
+                                           id="documentationLink">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Demo/Try Link</label>
+                                    <input type="url" 
+                                           class="w-full px-4 py-3 rounded-xl form-input focus:outline-none" 
+                                           placeholder="https://demo.your-agent.com"
+                                           id="demoLink">
+                                </div>
+                            </div>
+                            
+                            <!-- Additional Information -->
+                            <div class="space-y-4">
+                                <h3 class="text-xl font-bold">Additional Information</h3>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Target Audience</label>
+                                    <textarea rows="2" 
+                                              class="w-full px-4 py-3 rounded-xl form-input focus:outline-none resize-none" 
+                                              placeholder="Who is this agent designed for? e.g., Marketers, Developers, Students, etc."
+                                              id="targetAudience"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Key Features</label>
+                                    <textarea rows="3" 
+                                              class="w-full px-4 py-3 rounded-xl form-input focus:outline-none resize-none" 
+                                              placeholder="List the main features of your agent (one per line)"
+                                              id="keyFeatures"></textarea>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold mb-2">Support Information</label>
+                                    <textarea rows="2" 
+                                              class="w-full px-4 py-3 rounded-xl form-input focus:outline-none resize-none" 
+                                              placeholder="How do you provide support? Response time, channels, etc."
+                                              id="supportInfo"></textarea>
+                                </div>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <div class="pt-6 border-t border-white/10">
+                                <div class="flex items-center mb-4">
+                                    <input type="checkbox" required class="mr-3 rounded form-input">
+                                    <span class="text-sm text-gray-300">
+                                        I understand that my agent will be reviewed before listing and I need to follow up via email at <span class="text-purple-300">agenbase.ai@gmail.com</span>
+                                    </span>
+                                </div>
+                                
+                                <div class="flex items-center mb-4">
+                                    <input type="checkbox" required class="mr-3 rounded form-input">
+                                    <span class="text-sm text-gray-300">
+                                        I confirm that I own or have the right to distribute this AI agent
+                                    </span>
+                                </div>
+                                
+                                <button type="submit" 
+                                        class="w-full btn-modern px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-3 relative">
+                                    <span>Submit Agent for Review</span>
+                                    <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                                    </svg>
+                                    <div id="loadingSpinner" class="loading-spinner absolute right-4"></div>
+                                </button>
+                                
+                                <p class="text-gray-400 text-sm text-center mt-4">
+                                    After submission, please email us at <span class="text-purple-300">agenbase.ai@gmail.com</span> with your agent details for faster review.
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Preview & Information -->
+                <div class="space-y-8 scroll-reveal">
+                    <!-- Agent Preview -->
+                    <div class="glass-card rounded-3xl p-8">
+                        <h2 class="text-3xl font-bold mb-6">Your Agent Preview</h2>
+                        <p class="text-gray-400 mb-6">This is how your agent will appear in our directory</p>
+                        
+                        <div class="preview-card rounded-2xl p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl" id="previewIcon">
+                                    🤖
+                                </div>
+                                <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
+                                    <span class="text-yellow-400">★★★★★</span>
+                                    <span class="ml-1">New</span>
+                                </div>
+                            </div>
+                            <h3 id="previewName" class="text-xl font-bold mb-2">Your Agent Name</h3>
+                            <span id="previewCategory" class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Category</span>
+                            <p id="previewDescription" class="text-gray-400 text-sm mb-4 leading-relaxed">
+                                Agent description will appear here...
+                            </p>
+                            <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                                <div class="flex items-center gap-3 text-xs text-gray-400">
+                                    <span id="previewType">Type: Free</span>
+                                </div>
+                                <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm">
+                                    Try Now
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 p-4 bg-white/5 rounded-xl">
+                            <h4 class="font-bold mb-2 text-sm">Note:</h4>
+                            <p class="text-gray-400 text-sm">
+                                This is a preview. Actual listing may vary based on review and optimization by our team.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Review Process -->
+                    <div class="glass-card rounded-3xl p-8">
+                        <h2 class="text-3xl font-bold mb-6">Review Process</h2>
+                        
+                        <div class="space-y-8">
+                            <div class="process-step flex items-start">
+                                <div class="step-number">1</div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Submit Your Agent</h3>
+                                    <p class="text-gray-400">Fill out the form with complete details about your AI agent.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step flex items-start">
+                                <div class="step-number">2</div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Initial Review</h3>
+                                    <p class="text-gray-400">
+                                        <span class="text-purple-300 font-semibold">Important:</span> We review all submissions for quality, security, and compliance. 
+                                        <span class="text-purple-300">Email us at agenbase.ai@gmail.com</span> after submission.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step flex items-start">
+                                <div class="step-number">3</div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Technical Assessment</h3>
+                                    <p class="text-gray-400">Our team tests functionality, security, and performance.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step flex items-start">
+                                <div class="step-number">4</div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Listing Optimization</h3>
+                                    <p class="text-gray-400">We optimize your listing for better visibility and user experience.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="step-number">5</div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2">Go Live & Promotion</h3>
+                                    <p class="text-gray-400">Your agent goes live and gets promoted to our user base.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Benefits for Creators -->
+                    <div class="glass-card rounded-3xl p-8">
+                        <h2 class="text-3xl font-bold mb-6">Benefits of Listing</h2>
+                        
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="feature-card glass-card rounded-2xl p-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-3">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                    </svg>
+                                </div>
+                                <h4 class="font-bold mb-2">Large Audience</h4>
+                                <p class="text-gray-400 text-sm">Reach thousands of potential users</p>
+                            </div>
+                            
+                            <div class="feature-card glass-card rounded-2xl p-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-3">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <h4 class="font-bold mb-2">Revenue Share</h4>
+                                <p class="text-gray-400 text-sm">Earn from paid agent usage</p>
+                            </div>
+                            
+                            <div class="feature-card glass-card rounded-2xl p-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-3">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                    </svg>
+                                </div>
+                                <h4 class="font-bold mb-2">Quality Badge</h4>
+                                <p class="text-gray-400 text-sm">Gain trust with verified status</p>
+                            </div>
+                            
+                            <div class="feature-card glass-card rounded-2xl p-4">
+                                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-3">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                                    </svg>
+                                </div>
+                                <h4 class="font-bold mb-2">Featured Placement</h4>
+                                <p class="text-gray-400 text-sm">Get highlighted in our directory</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Email Instructions -->
+                    <div class="glass-card rounded-3xl p-8 border-l-4 border-purple-500">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center flex-shrink: 0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-3">Required: Email Follow-up</h3>
+                                <p class="text-gray-300 mb-3">
+                                    After submitting your agent, you must email us at:
+                                </p>
+                                <a href="mailto:agenbase.ai@gmail.com" 
+                                   class="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-xl font-bold text-lg hover:from-purple-700 hover:to-pink-700 transition-all duration-300 mb-3">
+                                    agenbase.ai@gmail.com
+                                </a>
+                                <p class="text-gray-400 text-sm">
+                                    Include "Agent Submission" in the subject and your agent name for faster review.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative px-4 py-8 border-t border-white/10" style="position: relative; z-index: 10;">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl flex items-center justify-center pulse-glow">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold">AgenBase AI</span>
+                    </div>
+                    <p class="text-gray-400">Automate everything, achieve anything.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4 text-lg">Marketplace</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="directory.html" class="hover:text-purple-400 transition-colors duration-300">Browse Agents</a></li>
+                        <li><a href="submit-agent.html" class="hover:text-purple-400 transition-colors duration-300">Submit Agent</a></li>
+                        <li><a href="index.html#pricing" class="hover:text-purple-400 transition-colors duration-300">Pricing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4 text-lg">For Creators</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="submit-agent.html" class="hover:text-purple-400 transition-colors duration-300">Submit Guidelines</a></li>
+                        <li><a href="index.html#testimonials" class="hover:text-purple-400 transition-colors duration-300">Success Stories</a></li>
+                        <li><a href="contact.html" class="hover:text-purple-400 transition-colors duration-300">Creator Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4 text-lg">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="contact.html" class="hover:text-purple-400 transition-colors duration-300">Contact Us</a></li>
+                        <li><a href="mailto:agenbase.ai@gmail.com" class="hover:text-purple-400 transition-colors duration-300">Submit: agenbase.ai@gmail.com</a></li>
+                        <li><a href="tel:+917006814178" class="hover:text-purple-400 transition-colors duration-300">Phone: +91 7006814178</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-gray-400">
+                <p>© 2024 AgenBase AI. All rights reserved.</p>
+                <p class="mt-2 text-sm">Submit your AI agent to reach thousands of users. All submissions are reviewed for quality.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuOverlay.classList.toggle('hidden');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenuOverlay.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        mobileMenuOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileMenuOverlay) {
+                mobileMenuOverlay.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-blur');
+            } else {
+                navbar.classList.remove('nav-blur');
+            }
+        });
+
+        // Category tag selection
+        const categoryTags = document.querySelectorAll('.category-tag');
+        const selectedCategoryInput = document.getElementById('selectedCategory');
+        
+        categoryTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                // Remove active class from all tags
+                categoryTags.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tag
+                tag.classList.add('active');
+                
+                // Set the selected category value
+                selectedCategoryInput.value = tag.dataset.category;
+                
+                // Update preview
+                updatePreview();
+            });
+        });
+
+        // Agent type selection
+        const agentTypeCards = document.querySelectorAll('.agent-type-card');
+        const agentTypeInput = document.getElementById('agentType');
+        
+        agentTypeCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Remove selected class from all cards
+                agentTypeCards.forEach(c => c.classList.remove('selected'));
+                
+                // Add selected class to clicked card
+                card.classList.add('selected');
+                
+                // Set the selected agent type
+                agentTypeInput.value = card.dataset.type;
+                
+                // Update preview
+                updatePreview();
+            });
+        });
+
+        // Form input listeners for live preview
+        const formInputs = document.querySelectorAll('#agentSubmissionForm input, #agentSubmissionForm textarea');
+        formInputs.forEach(input => {
+            input.addEventListener('input', updatePreview);
+        });
+
+        // Preview update function
+        function updatePreview() {
+            // Update name
+            const agentName = document.getElementById('agentName').value || 'Your Agent Name';
+            document.getElementById('previewName').textContent = agentName;
+            
+            // Update category
+            const category = selectedCategoryInput.value || 'Category';
+            document.getElementById('previewCategory').textContent = category.charAt(0).toUpperCase() + category.slice(1);
+            
+            // Update description (first 120 chars)
+            const description = document.getElementById('agentDescription').value || 'Agent description will appear here...';
+            const shortDescription = description.length > 120 ? description.substring(0, 120) + '...' : description;
+            document.getElementById('previewDescription').textContent = shortDescription;
+            
+            // Update agent type
+            const agentType = agentTypeInput.value || 'free';
+            let typeText = 'Type: ';
+            switch(agentType) {
+                case 'free': typeText += 'Free'; break;
+                case 'freemium': typeText += 'Freemium'; break;
+                case 'paid': typeText += 'Paid'; break;
+            }
+            document.getElementById('previewType').textContent = typeText;
+            
+            // Update icon based on category
+            const icons = {
+                analytics: '📊',
+                marketing: '📈',
+                support: '💬',
+                development: '💻',
+                productivity: '⚡',
+                sales: '💰',
+                research: '🔍',
+                content: '✍️',
+                education: '🎓',
+                health: '🏥',
+                finance: '💳',
+                other: '🤖'
+            };
+            const previewIcon = document.getElementById('previewIcon');
+            previewIcon.textContent = icons[category] || '🤖';
+        }
+
+        // Initialize with first category and agent type selected
+        if (categoryTags.length > 0) {
+            categoryTags[0].classList.add('active');
+            selectedCategoryInput.value = categoryTags[0].dataset.category;
+        }
+        
+        if (agentTypeCards.length > 0) {
+            agentTypeCards[0].classList.add('selected');
+            agentTypeInput.value = agentTypeCards[0].dataset.type;
+        }
+        
+        // Initial preview update
+        updatePreview();
+
+        // Form submission with mailto functionality
+        document.getElementById('agentSubmissionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading spinner
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            loadingSpinner.style.display = 'block';
+            
+            // Collect form data
+            const formData = {
+                agentName: document.getElementById('agentName').value,
+                agentTagline: document.getElementById('agentTagline').value,
+                category: document.getElementById('selectedCategory').value,
+                description: document.getElementById('agentDescription').value,
+                creatorName: document.getElementById('creatorName').value,
+                creatorEmail: document.getElementById('creatorEmail').value,
+                creatorCompany: document.getElementById('creatorCompany').value || 'Not provided',
+                creatorWebsite: document.getElementById('creatorWebsite').value || 'Not provided',
+                agentType: document.getElementById('agentType').value,
+                pricingDetails: document.getElementById('pricingDetails').value || 'Not provided',
+                technology: document.getElementById('technology').value || 'Not provided',
+                documentationLink: document.getElementById('documentationLink').value || 'Not provided',
+                demoLink: document.getElementById('demoLink').value || 'Not provided',
+                targetAudience: document.getElementById('targetAudience').value || 'Not specified',
+                keyFeatures: document.getElementById('keyFeatures').value || 'Not specified',
+                supportInfo: document.getElementById('supportInfo').value || 'Not specified'
+            };
+            
+            // Get checkbox values
+            const integrationMethods = Array.from(this.querySelectorAll('input[value][type="checkbox"]:checked'))
+                .map(cb => cb.value)
+                .join(', ') || 'Not specified';
+            
+            // Construct email body
+            const subject = `New Agent Submission: ${formData.agentName}`;
+            
+            const body = `
+NEW AI AGENT SUBMISSION
+============================
+
+AGENT INFORMATION:
+------------------
+Agent Name: ${formData.agentName}
+Tagline: ${formData.agentTagline}
+Category: ${formData.category}
+Agent Type: ${formData.agentType}
+
+Description:
+${formData.description}
+
+Pricing Details: ${formData.pricingDetails}
+
+CREATOR INFORMATION:
+--------------------
+Name: ${formData.creatorName}
+Email: ${formData.creatorEmail}
+Company: ${formData.creatorCompany}
+Website: ${formData.creatorWebsite}
+
+TECHNICAL DETAILS:
+------------------
+Platform/Technology: ${formData.technology}
+Integration Methods: ${integrationMethods}
+Documentation: ${formData.documentationLink}
+Demo Link: ${formData.demoLink}
+
+ADDITIONAL INFORMATION:
+-----------------------
+Target Audience: ${formData.targetAudience}
+
+Key Features:
+${formData.keyFeatures}
+
+Support Information:
+${formData.supportInfo}
+
+============================
+Submitted via AgenBase AI Submission Form
+Note: Creator will follow up via email as required.
+            `.trim();
+            
+            // Create mailto link with proper encoding
+            const mailtoLink = `mailto:agenbase.ai@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Simulate processing delay
+            setTimeout(() => {
+                // Open email client
+                window.location.href = mailtoLink;
+                
+                // Hide loading spinner
+                loadingSpinner.style.display = 'none';
+                submitBtn.disabled = false;
+                
+                // Show success message
+                setTimeout(() => {
+                    alert('Thank you for submitting your AI agent! A draft email has been prepared. Please send it to us and we\'ll review your submission within 3-5 business days.');
+                    
+                }, 500);
+                
+            }, 1500);
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        // Observe scroll reveal elements
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Initialize scroll reveal on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                el.classList.add('active');
+            });
+            
+            // Add slight delay for staggered animation
+            document.querySelectorAll('.scroll-reveal').forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+            
+            // Initialize form validation
+            const form = document.getElementById('agentSubmissionForm');
+            form.addEventListener('input', () => {
+                const submitBtn = form.querySelector('button[type="submit"]');
+                submitBtn.disabled = !form.checkValidity();
+            });
+        });
+    </script>
+</body>
+</html>
