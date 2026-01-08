@@ -84,6 +84,32 @@
             50% { transform: translate(-30px, 30px) scale(0.9); }
             75% { transform: translate(40px, 20px) scale(1.05); }
         }
+
+                /* Submit Agent Section */
+        .submit-agent-section {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .submit-agent-section:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Creator Icon */
+        .creator-icon {
+            animation: floatIcon 6s ease-in-out infinite;
+        }
+        
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(5deg); }
+            50% { transform: translateY(-5px) rotate(-5deg); }
+            75% { transform: translateY(-8px) rotate(3deg); }
+        }
         
         /* Enhanced Glass Effect */
         .glass-card {
@@ -395,7 +421,112 @@
             </div>
         </div>
     </section>
-
+       <!-- Submit Your Agent Section (NEW) -->
+    <section class="relative px-4 pb-8" style="position: relative; z-index: 10;">
+        <div class="max-w-7xl mx-auto" style="position: relative; z-index: 10;">
+            <div class="submit-agent-section glass-card rounded-3xl p-8 mb-8 scroll-reveal">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center creator-icon">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold">Have Your Own AI Agent?</h3>
+                                <p class="text-gray-400 text-sm">Join our marketplace of creators</p>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-300 mb-6">
+                            <span class="text-purple-300 font-semibold">Do you want to submit your own AI agent?</span> Get listed in our directory and reach thousands of users. Share your automation solution with the world and earn revenue from your creation.
+                        </p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-300">Reach thousands of potential users</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-300">Earn revenue from paid agents</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                </div>
+                                <span class="text-gray-300">Get quality verification badge</span>
+                            </div>
+                        </div>
+                        
+                        <a href="useragent.html" class="inline-flex items-center btn-modern px-6 py-3 rounded-xl font-bold">
+                            <span>Submit Your Agent</span>
+                            <svg class="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="hidden md:block">
+                        <div class="relative">
+                            <div class="glass-card rounded-2xl p-6 mb-4">
+                                <div class="flex items-center space-x-3 mb-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">Review Process</h4>
+                                        <p class="text-gray-400 text-sm">All agents are reviewed for quality</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="glass-card rounded-2xl p-6 ml-8">
+                                <div class="flex items-center space-x-3 mb-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">Large Audience</h4>
+                                        <p class="text-gray-400 text-sm">Reach thousands of users</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="glass-card rounded-2xl p-6 mt-4">
+                                <div class="flex items-center space-x-3 mb-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">Monetization</h4>
+                                        <p class="text-gray-400 text-sm">Earn from your creations</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- <section class="relative px-4 pb-20" style="position: relative; z-index: 10;">
         <div class="max-w-7xl mx-auto" style="position: relative; z-index: 10;">
             <div id="agentsContainer" class="agents-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
