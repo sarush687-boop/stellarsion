@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollinations AI - Image Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .bg-animation {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s infinite;
+        }
+
+        .orb1 {
+            width: 500px;
+            height: 500px;
+            background: #a855f7;
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb2 {
+            width: 400px;
+            height: 400px;
+            background: #ec4899;
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 5s;
+        }
+
+        .orb3 {
+            width: 300px;
+            height: 300px;
+            background: #3b82f6;
+            top: 50%;
+            left: 50%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(100px, -50px) scale(1.1); }
+            66% { transform: translate(-50px, 100px) scale(0.9); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .sparkle {
+            width: 40px;
+            height: 40px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f0abfc, #fbbf24, #f0abfc);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #c4b5fd;
+            margin-top: 0.5rem;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 968px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px rgba(168, 85, 247, 0.4);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #e9d5ff;
+            font-size: 0.95rem;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            color: white;
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 120px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #a855f7;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.2);
+        }
+
+        textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-generate {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            border: none;
+            border-radius: 16px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 16px rgba(168, 85, 247, 0.4);
+        }
+
+        .btn-generate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(168, 85, 247, 0.6);
+        }
+
+        .btn-generate:active {
+            transform: translateY(0);
+        }
+
+        .btn-generate:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .example-prompts {
+            margin-top: 1.5rem;
+        }
+
+        .example-title {
+            font-size: 0.9rem;
+            color: #c4b5fd;
+            margin-bottom: 0.8rem;
+        }
+
+        .prompt-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .chip {
+            padding: 0.5rem 1rem;
+            background: rgba(168, 85, 247, 0.2);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 12px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chip:hover {
+            background: rgba(168, 85, 247, 0.3);
+            border-color: #a855f7;
+            transform: translateY(-2px);
+        }
+
+        .image-container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .placeholder {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .placeholder svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+
+        .generated-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            animation: imageAppear 0.5s ease-out;
+        }
+
+        @keyframes imageAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .loader {
+            display: none;
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(168, 85, 247, 0.2);
+            border-top-color: #a855f7;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loader.active {
+            display: block;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn-action {
+            flex: 1;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-action:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #a855f7;
+            transform: translateY(-2px);
+        }
+
+        .btn-action:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <svg class="sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93"/>
+                </svg>
+                <h1>Pollinations AI</h1>
+            </div>
+            <p class="subtitle">Transform your imagination into stunning visuals</p>
+        </div>
+
+        <div class="main-grid">
+            <!-- Left Panel - Input -->
+            <div class="card">
+                <div class="input-group">
+                    <label for="prompt">Enter Your Prompt</label>
+                    <textarea 
+                        id="prompt" 
+                        placeholder="Describe the image you want to create... Be creative!"
+                    ></textarea>
+                </div>
+
+                <button class="btn-generate" id="generateBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93"/>
+                    </svg>
+                    Generate Image
+                </button>
+
+                <div class="example-prompts">
+                    <div class="example-title">✨ Try these prompts:</div>
+                    <div class="prompt-chips">
+                        <div class="chip" onclick="usePrompt(this)">Futuristic cyberpunk city at sunset</div>
+                        <div class="chip" onclick="usePrompt(this)">Ethereal bioluminescent forest</div>
+                        <div class="chip" onclick="usePrompt(this)">Abstract holographic patterns</div>
+                        <div class="chip" onclick="usePrompt(this)">Serene Japanese garden with cherry blossoms</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Output -->
+            <div class="card">
+                <div class="image-container" id="imageContainer">
+                    <div class="placeholder" id="placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <path d="M21 15l-5-5L5 21"/>
+                        </svg>
+                        <p>Your generated image will appear here</p>
+                    </div>
+                    <div class="loader" id="loader"></div>
+                    <img id="generatedImage" class="generated-image" style="display: none;" alt="Generated image">
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-action" id="downloadBtn" disabled>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download
+                    </button>
+                    <button class="btn-action" id="copyBtn" disabled>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2"/>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                        </svg>
+                        Copy URL
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const promptInput = document.getElementById('prompt');
+        const generateBtn = document.getElementById('generateBtn');
+        const loader = document.getElementById('loader');
+        const placeholder = document.getElementById('placeholder');
+        const generatedImage = document.getElementById('generatedImage');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const copyBtn = document.getElementById('copyBtn');
+        let currentImageUrl = '';
+
+        function usePrompt(element) {
+            promptInput.value = element.textContent;
+            promptInput.focus();
+        }
+
+        promptInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                generateImage();
+            }
+        });
+
+        generateBtn.addEventListener('click', generateImage);
+
+        async function generateImage() {
+            const prompt = promptInput.value.trim();
+            if (!prompt) return;
+
+            // Show loader
+            loader.classList.add('active');
+            placeholder.style.display = 'none';
+            generatedImage.style.display = 'none';
+            generateBtn.disabled = true;
+            generateBtn.innerHTML = '<span class="spinner"></span> Generating...';
+            downloadBtn.disabled = true;
+            copyBtn.disabled = true;
+
+            // Generate random seed for unique images
+            const seed = Math.floor(Math.random() * 1000000);
+            const encodedPrompt = encodeURIComponent(prompt);
+            currentImageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?seed=${seed}&width=1024&height=1024&nologo=true`;
+
+            // Simply set the image src - let the browser handle the request
+            generatedImage.onload = () => {
+                loader.classList.remove('active');
+                generatedImage.style.display = 'block';
+                generateBtn.disabled = false;
+                generateBtn.innerHTML = `
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93"/>
+                    </svg>
+                    Generate Image
+                `;
+                downloadBtn.disabled = false;
+                copyBtn.disabled = false;
+            };
+
+            generatedImage.onerror = () => {
+                loader.classList.remove('active');
+                placeholder.style.display = 'block';
+                placeholder.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    <p>Failed to load image. Please try again.</p>
+                `;
+                generateBtn.disabled = false;
+                generateBtn.innerHTML = `
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93"/>
+                    </svg>
+                    Generate Image
+                `;
+            };
+
+            // Set the image source - this triggers the HTTP request
+            generatedImage.src = currentImageUrl;
+        }
+
+        downloadBtn.addEventListener('click', () => {
+            if (!currentImageUrl) return;
+            
+            const link = document.createElement('a');
+            link.href = currentImageUrl;
+            link.download = `pollinations-${Date.now()}.png`;
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+        copyBtn.addEventListener('click', async () => {
+            if (!currentImageUrl) return;
+            try {
+                await navigator.clipboard.writeText(currentImageUrl);
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '✓ Copied!';
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy:', err);
+            }
+        });
+    </script>
+</body>
+</html>
