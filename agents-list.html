@@ -1,1086 +1,665 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Agents Directory - AgenBase AI</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
-        * {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        /* Modern Animated Background */
-        .animated-bg {
-            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-            position: relative;
-        }
-        
-        .animated-bg::before {
-            content: '';
-            position: fixed;
-            width: 200%;
-            height: 200%;
-            top: 0;
-            left: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(156, 39, 176, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(103, 58, 183, 0.3) 0%, transparent 50%);
-            animation: bgMove 20s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        @keyframes bgMove {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(5%, 5%) rotate(120deg); }
-            66% { transform: translate(-5%, 5%) rotate(240deg); }
-        }
-        
-        /* Floating orbs */
-        .orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.4;
-            animation: float 20s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .orb-1 {
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            top: -10%;
-            left: -10%;
-            animation-delay: 0s;
-        }
-        
-        .orb-2 {
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            bottom: -10%;
-            right: -10%;
-            animation-delay: 5s;
-        }
-        
-        .orb-3 {
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            top: 50%;
-            left: 50%;
-            animation-delay: 10s;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(50px, -50px) scale(1.1); }
-            50% { transform: translate(-30px, 30px) scale(0.9); }
-            75% { transform: translate(40px, 20px) scale(1.05); }
-        }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AgenDB — AI Automation Agents</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-                /* Submit Agent Section */
-        .submit-agent-section {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .submit-agent-section:hover {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 48px rgba(102, 126, 234, 0.3);
-        }
+:root{
+  --bg:#fafaf8;
+  --white:#ffffff;
+  --text:#0f0e0c;
+  --text2:#4a4844;
+  --text3:#9b9890;
+  --border:rgba(0,0,0,0.07);
+  --border2:rgba(0,0,0,0.12);
+  --accent:#ff3d00;
+  --accent2:#ff6b35;
+  --glass:rgba(255,255,255,0.72);
+  --glass2:rgba(255,255,255,0.45);
+}
 
-        /* Creator Icon */
-        .creator-icon {
-            animation: floatIcon 6s ease-in-out infinite;
-        }
-        
-        @keyframes floatIcon {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-10px) rotate(5deg); }
-            50% { transform: translateY(-5px) rotate(-5deg); }
-            75% { transform: translateY(-8px) rotate(3deg); }
-        }
-        
-        /* Enhanced Glass Effect */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.15);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 48px rgba(102, 126, 234, 0.2);
-        }
-        
-        /* Modern Button */
-        .btn-modern {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-modern::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .btn-modern:hover::before {
-            left: 100%;
-        }
-        
-        .btn-modern:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.5);
-        }
-        
-        /* Gradient Text */
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 3s ease infinite;
-            background-size: 200% auto;
-        }
-        
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        /* Scroll Reveal Animation */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-        
-        .scroll-reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Navigation */
-        .nav-blur {
-            background: rgba(15, 12, 41, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Pulse Effect */
-        .pulse-glow {
-            animation: pulseGlow 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulseGlow {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 40px rgba(102, 126, 234, 0.8);
-            }
-        }
+html{scroll-behavior:smooth}
+body{font-family:'Figtree',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 
-        /* Agent Card Specific Styles */
-        .agent-card {
-            position: relative;
-            overflow: hidden;
-        }
+/* FIXED BLUR ORBS */
+.orbs{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.orb{position:absolute;border-radius:50%;animation:float 20s ease-in-out infinite alternate}
+.orb1{width:700px;height:700px;background:radial-gradient(circle,rgba(255,140,60,0.5),rgba(255,80,0,0.2),transparent 70%);top:-200px;right:-150px;filter:blur(60px);opacity:.45;animation-duration:28s}
+.orb2{width:600px;height:600px;background:radial-gradient(circle,rgba(180,220,255,0.6),rgba(100,180,255,0.2),transparent 70%);bottom:-100px;left:-150px;filter:blur(70px);opacity:.35;animation-delay:-12s;animation-duration:32s}
+.orb3{width:500px;height:500px;background:radial-gradient(circle,rgba(255,220,140,0.5),rgba(255,180,60,0.15),transparent 70%);top:35%;left:25%;filter:blur(80px);opacity:.3;animation-delay:-8s;animation-duration:24s}
+.orb4{width:350px;height:350px;background:radial-gradient(circle,rgba(200,170,255,0.5),transparent 70%);top:15%;right:20%;filter:blur(60px);opacity:.25;animation-delay:-4s;animation-duration:20s}
+.orb5{width:400px;height:400px;background:radial-gradient(circle,rgba(150,255,200,0.3),transparent 70%);bottom:20%;right:10%;filter:blur(70px);opacity:.2;animation-delay:-18s;animation-duration:26s}
 
-        .agent-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.8), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
+@keyframes float{
+  0%{transform:translate(0,0) scale(1)}
+  25%{transform:translate(30px,-40px) scale(1.04)}
+  50%{transform:translate(-20px,30px) scale(0.97)}
+  75%{transform:translate(40px,20px) scale(1.03)}
+  100%{transform:translate(-10px,-20px) scale(1.01)}
+}
 
-        .agent-card:hover::after {
-            opacity: 1;
-        }
+/* GRAIN */
+body::after{
+  content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:180px;
+}
 
-        /* Filter Button Active State */
-        .filter-btn {
-            transition: all 0.3s ease;
-        }
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:200;
+  padding:0 44px;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(250,250,248,0.55);
+  backdrop-filter:blur(28px) saturate(200%);
+  -webkit-backdrop-filter:blur(28px) saturate(200%);
+  border-bottom:1px solid rgba(255,255,255,0.6);
+  box-shadow:0 1px 0 rgba(0,0,0,0.06);
+}
 
-        .filter-btn.active {
-            background: rgba(102, 126, 234, 0.2);
-            border-color: rgba(102, 126, 234, 0.5);
-            color: #fff;
-        }
+.logo{font-family:'Syne',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.8px;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:9px}
+.logo-pulse{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(255,61,0,0.4);animation:ping 2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,61,0,0.5)}70%{box-shadow:0 0 0 10px rgba(255,61,0,0)}100%{box-shadow:0 0 0 0 rgba(255,61,0,0)}}
 
-        /* Card Grid Animation */
-        .agents-grid > * {
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-        }
-        
-        .agents-grid > *:nth-child(1) { animation-delay: 0.05s; }
-        .agents-grid > *:nth-child(2) { animation-delay: 0.1s; }
-        .agents-grid > *:nth-child(3) { animation-delay: 0.15s; }
-        .agents-grid > *:nth-child(4) { animation-delay: 0.2s; }
-        .agents-grid > *:nth-child(5) { animation-delay: 0.25s; }
-        .agents-grid > *:nth-child(6) { animation-delay: 0.3s; }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.nav-pill{
+  display:flex;align-items:center;gap:8px;
+  background:var(--glass);backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,0.8);
+  border-radius:100px;padding:7px 16px;
+  font-size:12px;font-weight:500;color:var(--text2);
+  box-shadow:0 2px 12px rgba(0,0,0,0.05);
+}
+.nav-pill b{background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px}
 
-        /* Hidden state for filtered items */
-        .hidden-agent {
-            display: none;
-        }
+.btn-nav{
+  background:var(--text);color:white;font-family:'Figtree',sans-serif;
+  font-size:13px;font-weight:600;padding:10px 22px;border-radius:100px;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:all .2s;letter-spacing:-.2px;
+}
+.btn-nav:hover{background:var(--accent);box-shadow:0 0 28px rgba(255,61,0,.35)}
 
-        /* Loading animation */
-        .loading-spinner {
-            display: none;
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(255,255,255,0.1);
-            border-radius: 50%;
-            border-top-color: #667eea;
-            animation: spin 1s ease-in-out infinite;
-            margin: 0 auto;
-        }
+/* HERO */
+.hero{
+  position:relative;z-index:2;
+  padding:110px 44px 90px;max-width:980px;margin:0 auto;text-align:center;
+}
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+.hero-badge{
+  display:inline-flex;align-items:center;gap:0;
+  border-radius:100px;overflow:hidden;
+  border:1px solid rgba(255,61,0,.2);margin-bottom:36px;
+  background:var(--glass);backdrop-filter:blur(16px);
+  box-shadow:0 4px 20px rgba(255,61,0,.08);
+}
+.hero-badge-left{background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:6px 12px;letter-spacing:.5px;text-transform:uppercase}
+.hero-badge-right{font-size:12px;font-weight:500;color:var(--accent);padding:6px 14px}
 
-        /* No results message */
-        .no-results {
-            display: none;
-            text-align: center;
-            padding: 3rem;
-            color: #999;
-            grid-column: 1 / -1;
-        }
-    </style>
+h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(48px,8vw,96px);
+  font-weight:700;letter-spacing:-3px;line-height:.95;
+  color:var(--text);margin-bottom:28px;
+}
+h1 .grad{
+  display:block;
+  background:linear-gradient(120deg,#ff3d00 0%,#ff6b35 40%,#ffaa50 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+.hero-p{font-size:18px;color:var(--text2);max-width:500px;margin:0 auto 48px;font-weight:300;line-height:1.7}
+
+.hero-btns{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:72px}
+
+.btn-big{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent);color:white;
+  font-family:'Figtree',sans-serif;font-size:15px;font-weight:700;
+  padding:16px 32px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 6px 30px rgba(255,61,0,.3);letter-spacing:-.2px;
+}
+.btn-big:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(255,61,0,.45)}
+.btn-big:active{transform:scale(.97)}
+
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--glass);backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.9);color:var(--text);
+  font-family:'Figtree',sans-serif;font-size:15px;font-weight:500;
+  padding:16px 28px;border-radius:100px;text-decoration:none;cursor:pointer;
+  transition:all .2s;box-shadow:0 2px 16px rgba(0,0,0,.06);
+}
+.btn-ghost:hover{background:var(--white);box-shadow:0 6px 24px rgba(0,0,0,.1)}
+
+/* STATS ROW */
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--glass);backdrop-filter:blur(24px) saturate(180%);
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:22px;overflow:hidden;
+  box-shadow:0 4px 40px rgba(0,0,0,.07);
+  max-width:900px;margin:0 auto;
+}
+.sstat{
+  padding:28px 20px;text-align:center;border-right:1px solid rgba(0,0,0,.06);
+  transition:background .2s;position:relative;
+}
+.sstat:last-child{border-right:none}
+.sstat:hover{background:rgba(255,255,255,.7)}
+.sn{font-family:'Syne',sans-serif;font-size:38px;font-weight:700;letter-spacing:-2px;color:var(--text);line-height:1}
+.sn em{font-style:normal;color:var(--accent)}
+.sl{font-size:11px;color:var(--text3);margin-top:5px;letter-spacing:.2px}
+
+/* WRAP */
+.wrap{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:0 44px}
+
+/* BUNDLE */
+.bundle{
+  position:relative;
+  background:var(--text);border-radius:28px;
+  display:grid;grid-template-columns:1fr 240px;
+  overflow:hidden;
+  box-shadow:0 20px 80px rgba(0,0,0,.18);
+}
+.b-orb1{position:absolute;width:450px;height:450px;border-radius:50%;background:radial-gradient(circle,rgba(255,80,0,.3),transparent 65%);top:-120px;right:-80px;filter:blur(50px);pointer-events:none}
+.b-orb2{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(255,160,60,.2),transparent 65%);bottom:-60px;left:280px;filter:blur(60px);pointer-events:none}
+.b-body{padding:52px 52px;position:relative;z-index:1}
+.b-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,61,0,.18);color:#ff7a4d;
+  font-size:10px;font-weight:700;padding:5px 12px;border-radius:100px;
+  margin-bottom:20px;text-transform:uppercase;letter-spacing:1px;
+  border:1px solid rgba(255,61,0,.2);
+}
+.b-h{font-family:'Syne',sans-serif;font-size:clamp(22px,2.4vw,34px);font-weight:700;letter-spacing:-1px;line-height:1.15;color:#fff;margin-bottom:14px}
+.b-p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;max-width:500px;margin-bottom:28px;font-weight:300}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-size:12px;padding:5px 13px;border-radius:9px;transition:all .2s;backdrop-filter:blur(8px)}
+.chip:hover{background:rgba(255,255,255,.13);color:rgba(255,255,255,.9)}
+
+.b-side{
+  border-left:1px solid rgba(255,255,255,.07);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:44px 32px;gap:20px;position:relative;z-index:1;
+}
+.bprice{text-align:center}
+.bp-was{font-size:13px;color:rgba(255,255,255,.3);text-decoration:line-through;margin-bottom:4px}
+.bp-main{font-family:'Syne',sans-serif;font-size:70px;font-weight:700;letter-spacing:-4px;color:#fff;line-height:1}
+.bp-main sup{font-size:26px;vertical-align:super;letter-spacing:0}
+.bp-save{font-size:12px;color:#ff8055;font-weight:600;margin-top:6px}
+
+.btn-bundle{
+  display:block;width:100%;text-align:center;
+  background:linear-gradient(135deg,#ff3d00,#ff6b35);
+  color:#fff;font-family:'Figtree',sans-serif;font-size:14px;font-weight:700;
+  padding:15px 20px;border-radius:14px;text-decoration:none;cursor:pointer;border:none;
+  transition:all .2s;box-shadow:0 6px 24px rgba(255,61,0,.35);letter-spacing:-.2px;
+}
+.btn-bundle:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(255,61,0,.55)}
+.b-fine{font-size:11px;color:rgba(255,255,255,.22);text-align:center;line-height:1.6}
+
+/* SECTION HEAD */
+.sh{padding:80px 0 40px}
+.eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--text3);margin-bottom:10px}
+.sh2{font-family:'Syne',sans-serif;font-size:clamp(26px,3vw,42px);font-weight:700;letter-spacing:-1.5px;color:var(--text);line-height:1.1}
+.sh2 em{font-style:normal;color:var(--accent)}
+
+/* AGENT GRID */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-bottom:80px}
+
+/* CARD */
+.card{
+  position:relative;
+  background:var(--glass);
+  backdrop-filter:blur(32px) saturate(180%);
+  -webkit-backdrop-filter:blur(32px) saturate(180%);
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:24px;padding:28px;
+  display:flex;flex-direction:column;overflow:hidden;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease;
+  box-shadow:0 4px 24px rgba(0,0,0,.05),inset 0 1px 0 rgba(255,255,255,.9);
+}
+.card::before{
+  content:'';position:absolute;inset:0;border-radius:24px;
+  background:linear-gradient(145deg,rgba(255,255,255,.7) 0%,rgba(255,255,255,.1) 100%);
+  pointer-events:none;z-index:0;
+}
+.card:hover{
+  transform:translateY(-8px) scale(1.015);
+  box-shadow:0 24px 60px rgba(0,0,0,.1),0 0 0 1px rgba(255,255,255,.95),inset 0 1px 0 rgba(255,255,255,1);
+}
+.card.feat{border-color:rgba(255,61,0,.22);background:linear-gradient(145deg,rgba(255,250,247,.85),rgba(255,255,255,.75))}
+.card.feat::after{
+  content:'';position:absolute;top:0;left:20px;right:20px;height:1.5px;
+  background:linear-gradient(90deg,transparent,var(--accent) 30%,var(--accent2) 70%,transparent);
+}
+.cg{position:absolute;border-radius:50%;filter:blur(40px);pointer-events:none;opacity:.14;z-index:0}
+.card>*{position:relative;z-index:1}
+
+.ch{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px}
+.ci{
+  width:48px;height:48px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+  border:1px solid rgba(255,255,255,.7);backdrop-filter:blur(8px);flex-shrink:0;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.bgs{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+.bdg{font-size:10px;font-weight:700;padding:4px 9px;border-radius:8px;text-transform:uppercase;letter-spacing:.4px;border:1px solid transparent}
+.bh{background:rgba(255,61,0,.09);color:var(--accent);border-color:rgba(255,61,0,.15)}
+.bn{background:rgba(22,163,74,.08);color:#16a34a;border-color:rgba(22,163,74,.14)}
+.ba{background:rgba(37,99,235,.08);color:#2563eb;border-color:rgba(37,99,235,.14)}
+.bp2{background:rgba(124,58,237,.08);color:#7c3aed;border-color:rgba(124,58,237,.14)}
+.bo{background:rgba(217,119,6,.08);color:#d97706;border-color:rgba(217,119,6,.14)}
+
+.cn{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--text3);margin-bottom:6px}
+.cname{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;letter-spacing:-.7px;color:var(--text);line-height:1.2;margin-bottom:8px}
+.chook{font-size:13px;font-weight:600;color:var(--accent);margin-bottom:12px;line-height:1.45}
+.cdesc{font-size:13.5px;color:var(--text2);line-height:1.65;flex:1;margin-bottom:18px;font-weight:300}
+
+.feats{list-style:none;margin-bottom:16px;display:flex;flex-direction:column;gap:7px}
+.feats li{font-size:12.5px;color:var(--text2);display:flex;align-items:flex-start;gap:8px;line-height:1.45}
+.fd{width:4px;height:4px;border-radius:50%;background:var(--text3);margin-top:5.5px;flex-shrink:0}
+
+.pfrow{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px}
+.pf{font-size:11px;color:var(--text3);background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.07);padding:3px 9px;border-radius:6px;backdrop-filter:blur(4px)}
+
+.cf{display:flex;align-items:center;justify-content:space-between;padding-top:18px;border-top:1px solid rgba(0,0,0,.06);margin-top:auto}
+.cp{display:flex;flex-direction:column;gap:1px}
+.pm{font-size:10px;color:var(--text3)}
+.pv{font-family:'Syne',sans-serif;font-size:26px;font-weight:700;letter-spacing:-.8px;color:var(--text);line-height:1}
+.pv sup{font-size:14px;vertical-align:super;font-weight:600}
+
+.btn-buy{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--text);color:#fff;
+  font-family:'Figtree',sans-serif;font-size:13px;font-weight:600;
+  padding:11px 18px;border-radius:100px;text-decoration:none;
+  border:none;cursor:pointer;
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);letter-spacing:-.2px;
+}
+.btn-buy:hover{background:var(--accent);box-shadow:0 6px 22px rgba(255,61,0,.35);transform:scale(1.05)}
+.btn-buy:active{transform:scale(.97)}
+.arr{width:13px;height:13px;opacity:.6;transition:all .2s}
+.btn-buy:hover .arr{opacity:1;transform:translate(2px,-2px)}
+
+/* BOTTOM CTA */
+.bcta{position:relative;z-index:2;max-width:1100px;margin:0 auto 80px;padding:0 44px}
+.bcta-in{
+  background:var(--text);border-radius:28px;padding:36px 44px;
+  position:relative;overflow:hidden;
+  box-shadow:0 24px 80px rgba(0,0,0,.2);
+}
+.bc-o1{position:absolute;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,61,0,.3),transparent 65%);top:-80px;left:-60px;filter:blur(50px);pointer-events:none}
+.bc-o2{position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,140,60,.2),transparent 65%);bottom:-60px;right:-40px;filter:blur(50px);pointer-events:none}
+.bc-o3{display:none}
+.bc-h{font-family:'Syne',sans-serif;font-size:clamp(24px,2.8vw,38px);font-weight:700;letter-spacing:-1.5px;color:#fff;line-height:1.12;margin-bottom:12px}
+.bc-p{font-size:15px;color:rgba(255,255,255,.45);font-weight:300;margin-bottom:0;line-height:1.65}
+.bc-fine{font-size:12px;color:rgba(255,255,255,.2);margin-top:20px}
+
+.bc-top-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,61,0,.2);color:#ff7a4d;
+  font-size:10px;font-weight:700;padding:5px 14px;border-radius:100px;
+  margin-bottom:24px;text-transform:uppercase;letter-spacing:1px;
+  border:1px solid rgba(255,61,0,.25);
+}
+
+.bc-agents{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:10px;max-width:640px;margin:0 auto 36px;
+}
+.bc-agent{
+  display:flex;align-items:center;gap:9px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:12px;padding:11px 14px;
+  backdrop-filter:blur(8px);
+  transition:background .2s;
+}
+.bc-agent:hover{background:rgba(255,255,255,.1)}
+.bca-icon{font-size:16px;flex-shrink:0}
+.bca-name{font-size:13px;color:rgba(255,255,255,.75);font-weight:400;flex:1;text-align:left}
+.bca-tag{font-size:9px;font-weight:700;background:rgba(255,61,0,.25);color:#ff8055;padding:2px 7px;border-radius:6px;text-transform:uppercase;letter-spacing:.5px;flex-shrink:0}
+
+.bc-pricing{
+  display:flex;align-items:center;justify-content:center;gap:40px;
+  max-width:480px;margin:0 auto 36px;
+  padding:28px 36px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  backdrop-filter:blur(8px);
+}
+.bc-price-col{text-align:center}
+.bc-price-was{font-size:12px;color:rgba(255,255,255,.3);text-decoration:line-through;margin-bottom:4px}
+.bc-price-now{font-family:'Syne',sans-serif;font-size:56px;font-weight:700;letter-spacing:-3px;color:#fff;line-height:1}
+.bc-price-now sup{font-size:22px;vertical-align:super;letter-spacing:0}
+.bc-price-save{font-size:12px;color:#ff8055;font-weight:600;margin-top:4px}
+.bc-divider{width:1px;height:80px;background:rgba(255,255,255,.1)}
+.bc-perks{display:flex;flex-direction:column;gap:10px;text-align:left}
+.bc-perk{font-size:13px;color:rgba(255,255,255,.6);font-weight:400}
+
+/* FOOTER */
+footer{position:relative;z-index:2;border-top:1px solid rgba(0,0,0,.07);padding:32px 44px;display:flex;align-items:center;justify-content:space-between}
+.fl{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.5px;color:var(--text)}
+.fl span{color:var(--accent)}
+.fr{font-size:12px;color:var(--text3)}
+
+/* REVEAL */
+.rup{opacity:0;transform:translateY(30px);transition:opacity .65s ease, transform .65s cubic-bezier(.16,1,.3,1)}
+.rup.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .bundle{grid-template-columns:1fr}
+  .b-side{border-left:none;border-top:1px solid rgba(255,255,255,.07);flex-direction:row;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .sstat:nth-child(2){border-right:none}
+  .sstat:nth-child(3){border-top:1px solid rgba(0,0,0,.06)}
+}
+@media(max-width:640px){
+  nav{padding:0 20px}
+  .nav-pill{display:none}
+  .hero{padding:72px 20px 56px}
+  .wrap,.bcta{padding:0 20px}
+  .stats{margin:0 20px;grid-template-columns:repeat(2,1fr)}
+  .grid{grid-template-columns:1fr}
+  .b-body{padding:36px 24px}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;text-align:center}
+}
+</style>
 </head>
-<body class="animated-bg text-white min-h-screen">
-    <!-- Floating Orbs -->
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-    
-    <!-- Navigation -->
-    <nav id="navbar" class="nav-blur fixed w-full z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl flex items-center justify-center pulse-glow">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <span class="text-xl font-bold">AgenBase AI</span>
-                </div>
+<body>
 
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="hover:text-purple-400 transition-colors duration-300">Home</a>
-                    <a href="#" class="text-purple-400 transition-colors duration-300">Agents</a>
-                    <a href="#" class="hover:text-purple-400 transition-colors duration-300">Docs</a>
-                    <a href="#pricing" class="hover:text-purple-400 transition-colors duration-300">Pricing</a>
-                    <a href="custom-automation.html" class="btn-modern px-6 py-2 rounded-full font-semibold">
-                        Get Started
-                    </a>
-                </div>
+<!-- BLUR ORBS -->
+<div class="orbs">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="orb orb4"></div>
+  <div class="orb orb5"></div>
+</div>
 
-                <button id="mobile-menu-btn" class="md:hidden">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </nav>
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#"><span class="logo-pulse"></span>AgenDB</a>
+  <div class="nav-pill">
+    <b>n8n</b>
+    6 AI Automation Agents · Plug &amp; Play
+  </div>
+  <a class="btn-nav" href="https://betanodeautomations.gumroad.com/l/znlbva" target="_blank">Bundle — $25 →</a>
+</nav>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden fixed inset-0 z-40 bg-black/90 backdrop-blur-lg hidden">
-        <div class="flex flex-col items-center justify-center h-full space-y-8">
-            <a href="index.html" class="text-2xl hover:text-purple-400 transition-colors duration-300">Home</a>
-            <a href="#" class="text-2xl text-purple-400 transition-colors duration-300">Agents</a>
-            <a href="#" class="text-2xl hover:text-purple-400 transition-colors duration-300">Docs</a>
-            <a href="#pricing" class="text-2xl hover:text-purple-400 transition-colors duration-300">Pricing</a>
-            <a href="custom-automation.html" class="btn-modern px-8 py-3 rounded-full font-semibold text-lg">
-                Get Started
-            </a>
-            <button id="mobile-menu-close" class="absolute top-6 right-6">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-            </button>
-        </div>
+<!-- HERO -->
+<section class="hero rup">
+  <div class="hero-badge">
+    <span class="hero-badge-left">🔥 New</span>
+    <span class="hero-badge-right">AutoShorts AI just dropped</span>
+  </div>
+  <h1>Your Business,<span class="grad">On Autopilot.</span></h1>
+  <p class="hero-p">Six n8n agents that handle your content, marketing, and research — fully automated, every single day. No code. No grind.</p>
+  <div class="hero-btns">
+    <a class="btn-big" href="https://betanodeautomations.gumroad.com/l/znlbva" target="_blank">
+      Get All 6 Agents — $25
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+    </a>
+    <a class="btn-ghost" href="#agents">Browse Agents ↓</a>
+  </div>
+  <div class="stats rup">
+    <div class="sstat"><div class="sn">6</div><div class="sl">Automation Agents</div></div>
+    <div class="sstat"><div class="sn"><em>100</em>%</div><div class="sl">Autopilot Ready</div></div>
+    <div class="sstat"><div class="sn"><em>0</em>hr</div><div class="sl">Manual Work Required</div></div>
+    <div class="sstat"><div class="sn">$<em>25</em></div><div class="sl">For the Full Bundle</div></div>
+  </div>
+</section>
+
+<!-- BUNDLE -->
+<div class="wrap" style="padding-top:80px">
+  <div class="bundle rup">
+    <div class="b-orb1"></div>
+    <div class="b-orb2"></div>
+    <div class="b-body">
+      <div class="b-tag">🔥 Best Value · Save 58%</div>
+      <div class="b-h">The Full Automation<br>Stack Bundle</div>
+      <div class="b-p">All 6 agents. One purchase. Forever yours. The complete system to run a fully automated content and marketing engine — on autopilot.</div>
+      <div class="chips">
+        <span class="chip">AutoShorts AI</span>
+        <span class="chip">AutoMarket</span>
+        <span class="chip">Youcord AI</span>
+        <span class="chip">ContentPilot Blog</span>
+        <span class="chip">FinanceUpdater</span>
+        <span class="chip">YouBlog AI</span>
+      </div>
+    </div>
+    <div class="b-side">
+      <div class="bprice">
+        <div class="bp-was">$60+ value</div>
+        <div class="bp-main"><sup>$</sup>25</div>
+        <div class="bp-save">You save 58% today</div>
+      </div>
+      <a class="btn-bundle" href="https://betanodeautomations.gumroad.com/l/znlbva" target="_blank">Buy Full Bundle →</a>
+      <div class="b-fine">Instant download<br>All 6 n8n workflows</div>
+    </div>
+  </div>
+</div>
+
+<!-- AGENTS -->
+<div class="wrap" id="agents">
+  <div class="sh rup">
+    <div class="eyebrow">Individual Agents</div>
+    <div class="sh2">Pick what you need.<br><em>Or grab them all.</em></div>
+  </div>
+
+  <div class="grid">
+
+    <!-- 00 AutoShorts -->
+    <div class="card feat rup" style="transition-delay:.04s">
+      <div class="cg" style="width:220px;height:220px;background:#ff3d00;top:-70px;right:-50px"></div>
+      <div class="ch">
+        <div class="ci" style="background:rgba(255,248,245,.92)">🎬</div>
+        <div class="bgs"><span class="bdg bh">🔥 Newest</span><span class="bdg ba">Autopilot</span></div>
+      </div>
+      <div class="cn">Agent · 00</div>
+      <div class="cname">AutoShorts AI</div>
+      <div class="chook">Your YouTube Shorts factory that never stops.</div>
+      <div class="cdesc">Define your niche once. Every day the agent researches trending topics, writes a script, generates visuals, and hands you a ready-to-post Short. No editing. No brainstorming. Ever.</div>
+      <ul class="feats">
+        <li><span class="fd"></span>Researches trending niche topics daily</li>
+        <li><span class="fd"></span>Auto-generates script + visuals</li>
+        <li><span class="fd"></span>Outputs a ready-to-post Short</li>
+        <li><span class="fd"></span>Scheduled — fully hands-off</li>
+      </ul>
+      <div class="pfrow"><span class="pf">Faceless channels</span><span class="pf">Daily Shorts</span><span class="pf">AI content</span></div>
+      <div class="cf">
+        <div class="cp"><span class="pm">Get this agent</span><span class="pv"><sup>$</sup>9</span></div>
+        <a class="btn-buy" href="https://betanodeautomations.gumroad.com/l/zhhvff" target="_blank">Gumroad<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-12 px-4" style="position: relative; z-index: 10;">
-        <div class="max-w-7xl mx-auto" style="position: relative; z-index: 10;">
-            <div class="text-center space-y-4 mb-12">
-                <h1 class="text-5xl md:text-7xl font-black leading-tight" style="position: relative; z-index: 10;">
-                    AI Agents <span class="gradient-text">Directory</span>
-                </h1>
-                <p class="text-xl text-gray-300 max-w-2xl mx-auto" style="position: relative; z-index: 10;">
-                    Browse 500+ pre-built AI agents ready to automate your workflows
-                </p>
-            </div>
+    <!-- 01 AutoMarket -->
+    <div class="card rup" style="transition-delay:.08s">
+      <div class="cg" style="width:200px;height:200px;background:#2563eb;top:-60px;right:-40px"></div>
+      <div class="ch">
+        <div class="ci" style="background:rgba(239,246,255,.92)">📣</div>
+        <div class="bgs"><span class="bdg ba">Daily Posts</span></div>
+      </div>
+      <div class="cn">Agent · 01</div>
+      <div class="cname">AutoMarket</div>
+      <div class="chook">Your product markets itself while you sleep.</div>
+      <div class="cdesc">AI writes community-native promo posts that don't smell spammy, posts them to Discord and Telegram on schedule, and keeps your product visible every single day without you lifting a finger.</div>
+      <ul class="feats">
+        <li><span class="fd"></span>AI-crafted community-native promos</li>
+        <li><span class="fd"></span>Posts to Discord & Telegram daily</li>
+        <li><span class="fd"></span>Avoids spammy tone naturally</li>
+        <li><span class="fd"></span>Fully scheduled — zero management</li>
+      </ul>
+      <div class="pfrow"><span class="pf">SaaS founders</span><span class="pf">Gumroad creators</span><span class="pf">Indie hackers</span></div>
+      <div class="cf">
+        <div class="cp"><span class="pm">Get this agent</span><span class="pv"><sup>$</sup>9</span></div>
+        <a class="btn-buy" href="https://betanodeautomations.gumroad.com/l/autonews" target="_blank">Gumroad<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+    </div>
+
+    <!-- 02 Youcord -->
+    <div class="card rup" style="transition-delay:.12s">
+      <div class="cg" style="width:200px;height:200px;background:#7c3aed;top:-60px;right:-40px"></div>
+      <div class="ch">
+        <div class="ci" style="background:rgba(245,243,255,.92)">🎙️</div>
+        <div class="bgs"><span class="bdg bp2">Instant</span></div>
+      </div>
+      <div class="cn">Agent · 02</div>
+      <div class="cname">Youcord AI</div>
+      <div class="chook">YouTube uploads → Discord posts in seconds.</div>
+      <div class="cdesc">Every time you upload a YouTube video, this agent extracts the captions, summarizes everything with AI, and publishes a polished post to your Discord — automatically. One upload, two pieces of content.</div>
+      <ul class="feats">
+        <li><span class="fd"></span>Detects new uploads instantly</li>
+        <li><span class="fd"></span>AI extracts & summarizes captions</li>
+        <li><span class="fd"></span>Publishes to Discord automatically</li>
+        <li><span class="fd"></span>Zero copy-pasting, ever</li>
+      </ul>
+      <div class="pfrow"><span class="pf">YouTubers</span><span class="pf">Discord communities</span><span class="pf">Repurposers</span></div>
+      <div class="cf">
+        <div class="cp"><span class="pm">Get this agent</span><span class="pv"><sup>$</sup>9</span></div>
+        <a class="btn-buy" href="https://betanodeautomations.gumroad.com/l/youcord" target="_blank">Gumroad<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+    </div>
+
+    <!-- 03 ContentPilot -->
+    <div class="card rup" style="transition-delay:.16s">
+      <div class="cg" style="width:200px;height:200px;background:#16a34a;top:-60px;right:-40px"></div>
+      <div class="ch">
+        <div class="ci" style="background:rgba(240,253,244,.92)">✍️</div>
+        <div class="bgs"><span class="bdg bn">SEO Ready</span></div>
+      </div>
+      <div class="cn">Agent · 03</div>
+      <div class="cname">ContentPilot Blog</div>
+      <div class="chook">Reddit threads → published blogs. No writing.</div>
+      <div class="cdesc">Monitors Reddit, Discord, and online discussions, converts the hottest threads into structured SEO-optimized blog posts, and saves you hours of staring at a blank page every single week.</div>
+      <ul class="feats">
+        <li><span class="fd"></span>Monitors Reddit & Discord for trends</li>
+        <li><span class="fd"></span>Converts threads to full blog posts</li>
+        <li><span class="fd"></span>SEO-friendly formatting built in</li>
+        <li><span class="fd"></span>Authority content on autopilot</li>
+      </ul>
+      <div class="pfrow"><span class="pf">Bloggers</span><span class="pf">Niche sites</span><span class="pf">AI founders</span></div>
+      <div class="cf">
+        <div class="cp"><span class="pm">Get this agent</span><span class="pv"><sup>$</sup>9</span></div>
+        <a class="btn-buy" href="https://betanodeautomations.gumroad.com/l/contentpilotblog" target="_blank">Gumroad<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+    </div>
+
+    <!-- 04 FinanceUpdater -->
+    <div class="card rup" style="transition-delay:.20s">
+      <div class="cg" style="width:200px;height:200px;background:#d97706;top:-60px;right:-40px"></div>
+      <div class="ch">
+        <div class="ci" style="background:rgba(255,251,235,.92)">📊</div>
+        <div class="bgs"><span class="bdg bo">Signal Filter</span></div>
+      </div>
+      <div class="cn">Agent · 04</div>
+      <div class="cname">FinanceUpdater</div>
+      <div class="chook">Never miss a market-moving update again.</div>
+      <div class="cdesc">Tracks financial and industry updates in real time, filters the noise with AI, and delivers only the signal that actually matters. Save hours of manual research without missing what's important.</div>
+      <ul class="feats">
+        <li><span class="fd"></span>Monitors key financial sources</li>
+        <li><span class="fd"></span>AI filters signal from noise</li>
+        <li><span class="fd"></span>Saves hours of daily research</li>
+        <li><span class="fd"></span>Delivers clean digestible updates</li>
+      </ul>
+      <div class="pfrow"><span class="pf">Finance creators</span><span class="pf">Traders</span><span class="pf">Newsletters</span></div>
+      <div class="cf">
+        <div class="cp"><span class="pm">Get this agent</span><span class="pv"><sup>$</sup>9</span></div>
+        <a class="btn-buy" href="https://betanodeautomations.gumroad.com/l/financeupdater" target="_blank">Gumroad<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+    </div>
+
+    <!-- 05 YouBlog -->
+    <div class="card rup" style="transition-delay:.24s">
+      <div class="cg" style="width:200px;height:200px;background:#0891b2;top:-60px;right:-40px"></div>
+      <div class="ch">
+        <div class="ci" style="background:rgba(236,254,255,.92)">🚀</div>
+        <div class="bgs"><span class="bdg bh">🔥 Powerful</span><span class="bdg bn">Dual Traffic</span></div>
+      </div>
+      <div class="cn">Agent · 05</div>
+      <div class="cname">YouBlog AI</div>
+      <div class="chook">1 video = YouTube views + blog SEO. Both. Auto.</div>
+      <div class="cdesc">Upload once, get two content assets. Detects your upload, extracts the full transcript, converts it into a complete structured blog post, and auto-publishes — without touching a keyboard. Insane ROI.</div>
+      <ul class="feats">
+        <li><span class="fd"></span>Detects new YouTube uploads instantly</li>
+        <li><span class="fd"></span>Extracts full transcript automatically</li>
+        <li><span class="fd"></span>Converts to structured SEO blog</li>
+        <li><span class="fd"></span>Auto-publishes — zero manual effort</li>
+      </ul>
+      <div class="pfrow"><span class="pf">YouTubers</span><span class="pf">Course creators</span><span class="pf">Edu channels</span></div>
+      <div class="cf">
+        <div class="cp"><span class="pm">Get this agent</span><span class="pv"><sup>$</sup>9</span></div>
+        <a class="btn-buy" href="https://betanodeautomations.gumroad.com/l/dplsya" target="_blank">Gumroad<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- BOTTOM CTA -->
+<div class="bcta">
+  <div class="bcta-in">
+    <div class="bc-o1"></div>
+    <div class="bc-o2"></div>
+    <div class="bc-o3"></div>
+    <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+      <div>
+        <div class="bc-h">Get all 6 agents.<br>Run everything on autopilot.</div>
+        <div class="bc-p">One purchase · Instant download · No subscriptions</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px;flex-shrink:0;">
+        <div style="text-align:right;">
+          <div style="font-size:11px;color:rgba(255,255,255,.3);text-decoration:line-through;">$54+ individually</div>
+          <div style="font-family:'Syne',sans-serif;font-size:44px;font-weight:700;letter-spacing:-2px;color:#fff;line-height:1;"><sup style="font-size:18px;vertical-align:super;">$</sup>25</div>
+          <div style="font-size:11px;color:#ff8055;font-weight:600;">Save 58%</div>
         </div>
-    </section>
+        <a class="btn-big" href="https://betanodeautomations.gumroad.com/l/znlbva" target="_blank" style="font-size:14px;padding:15px 28px;white-space:nowrap;">
+          Buy Bundle →
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- Filters Section -->
-    <section class="relative px-4 pb-8" style="position: relative; z-index: 10;">
-        <div class="max-w-7xl mx-auto" style="position: relative; z-index: 10;">
-            <div class="glass-card rounded-3xl p-6 mb-8" style="position: relative; z-index: 10;">
-                <div class="flex flex-col lg:flex-row gap-4 items-stretch lg:items-center">
-                    <!-- Search Bar -->
-                    <div class="flex-1">
-                        <div class="relative">
-                            <input 
-                                type="text" 
-                                id="searchInput" 
-                                placeholder="Search agents by name or description..."
-                                class="w-full px-6 py-3 pl-12 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 transition"
-                            >
-                            <svg class="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                            </svg>
-                            <div class="loading-spinner absolute right-4 top-1/2 transform -translate-y-1/2"></div>
-                        </div>
-                    </div>
+<footer>
+  <div class="fl">Agen<span>DB</span></div>
+  <div class="fr">n8n automations for builders who ship.</div>
+</footer>
 
-                    <!-- Filter Buttons -->
-                    <div class="flex flex-wrap gap-2">
-                        <button class="filter-btn active px-4 py-2 rounded-xl font-semibold text-sm bg-white/5 border border-white/20 hover:bg-white/10 transition" data-filter="all">
-                            All
-                        </button>
-                        <button class="filter-btn px-4 py-2 rounded-xl font-semibold text-sm bg-white/5 border border-white/20 hover:bg-white/10 transition" data-filter="analytics">
-                            Analytics
-                        </button>
-                        <button class="filter-btn px-4 py-2 rounded-xl font-semibold text-sm bg-white/5 border border-white/20 hover:bg-white/10 transition" data-filter="marketing">
-                            Marketing
-                        </button>
-                        <button class="filter-btn px-4 py-2 rounded-xl font-semibold text-sm bg-white/5 border border-white/20 hover:bg-white/10 transition" data-filter="support">
-                            Support
-                        </button>
-                        <button class="filter-btn px-4 py-2 rounded-xl font-semibold text-sm bg-white/5 border border-white/20 hover:bg-white/10 transition" data-filter="development">
-                            Development
-                        </button>
-                        <button class="filter-btn px-4 py-2 rounded-xl font-semibold text-sm bg-white/5 border border-white/20 hover:bg-white/10 transition" data-filter="productivity">
-                            Productivity
-                        </button>
-                    </div>
-                </div>
+<script>
+  // Scroll reveal
+  const rups = document.querySelectorAll('.rup');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08 });
+  rups.forEach(el => obs.observe(el));
 
-                <!-- Stats Bar -->
-                <div class="flex flex-col sm:flex-row justify-between items-center mt-6 pt-6 border-t border-white/10 text-sm text-gray-400 gap-2">
-                    <span id="resultsCount">Showing <span id="visibleCount">24</span> of <span id="totalCount">500+</span> agents</span>
-                    <div class="flex items-center gap-2">
-                        <span>Sort by:</span>
-                        <select id="sortSelect" class="bg-transparent border-none text-white focus:outline-none">
-                            <option value="popular">Most Popular</option>
-                            <option value="rating">Highest Rating</option>
-                            <option value="newest">Newest First</option>
-                            <option value="name">Name A-Z</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-       <!-- Submit Your Agent Section (NEW) -->
-    <!-- <section class="relative px-4 pb-8" style="position: relative; z-index: 10;">
-        <div class="max-w-7xl mx-auto" style="position: relative; z-index: 10;">
-            <div class="submit-agent-section glass-card rounded-3xl p-8 mb-8 scroll-reveal">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <div class="flex items-center space-x-3 mb-4">
-                            <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center creator-icon">
-                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-2xl font-bold">Have Your Own AI Agent?</h3>
-                                <p class="text-gray-400 text-sm">Join our marketplace of creators</p>
-                            </div>
-                        </div>
-                        
-                        <p class="text-gray-300 mb-6">
-                            <span class="text-purple-300 font-semibold">Do you want to submit your own AI agent?</span> Get listed in our directory and reach thousands of users. Share your automation solution with the world and earn revenue from your creation.
-                        </p>
-                        
-                        <div class="space-y-3 mb-6">
-                            <div class="flex items-center space-x-2">
-                                <div class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </div>
-                                <span class="text-gray-300">Reach thousands of potential users</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <div class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </div>
-                                <span class="text-gray-300">Earn revenue from paid agents</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <div class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </div>
-                                <span class="text-gray-300">Get quality verification badge</span>
-                            </div>
-                        </div>
-                        
-                        <a href="useragent.html" class="inline-flex items-center btn-modern px-6 py-3 rounded-xl font-bold">
-                            <span>Submit Your Agent</span>
-                            <svg class="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                            </svg>
-                        </a>
-                    </div> -->
-                    
-                    <!-- <div class="hidden md:block">
-                        <div class="relative">
-                            <div class="glass-card rounded-2xl p-6 mb-4">
-                                <div class="flex items-center space-x-3 mb-3">
-                                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
-                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold">Review Process</h4>
-                                        <p class="text-gray-400 text-sm">All agents are reviewed for quality</p>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <!-- 
-                            <div class="glass-card rounded-2xl p-6 ml-8">
-                                <div class="flex items-center space-x-3 mb-3">
-                                    <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
-                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold">Large Audience</h4>
-                                        <p class="text-gray-400 text-sm">Reach thousands of users</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="glass-card rounded-2xl p-6 mt-4">
-                                <div class="flex items-center space-x-3 mb-3">
-                                    <div class="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
-                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold">Monetization</h4>
-                                        <p class="text-gray-400 text-sm">Earn from your creations</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-        <!-- Pricing Section - Unlock All Agents -->
-    <section class="relative px-4 pb-8" style="position: relative; z-index: 10;">
-        <div class="max-w-7xl mx-auto" style="position: relative; z-index: 10;">
-            <div class="pricing-section glass-card rounded-3xl p-8 mb-8 scroll-reveal overflow-hidden">
-                <div class="grid lg:grid-cols-2 gap-8 items-center">
-                    <!-- Left Side - Value Proposition -->
-                    <div>
-                        <div class="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30 rounded-full px-4 py-2 mb-6">
-                            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                            <span class="text-sm font-semibold text-purple-300">Limited Time Offer</span>
-                        </div>
-                        
-                        <h2 class="text-4xl md:text-5xl font-black mb-4">
-                            Unlock <span class="gradient-text">All Agents</span>
-                        </h2>
-                        
-                        <p class="text-xl text-gray-300 mb-6">
-                            Get unlimited access to our entire AI agent library for one simple price.
-                        </p>
-                        
-                        <div class="space-y-4 mb-8">
-                            <div class="flex items-start space-x-3">
-                                <div class="w-6 h-6 bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-white font-semibold">Full Access to all Premium Agents</p>
-                                    <p class="text-gray-400 text-sm">No restrictions, no limits</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start space-x-3">
-                                <div class="w-6 h-6 bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-white font-semibold">Priority Support & Updates</p>
-                                    <p class="text-gray-400 text-sm">Get help when you need it</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start space-x-3">
-                                <div class="w-6 h-6 bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-white font-semibold">New Agents Added Weekly</p>
-                                    <p class="text-gray-400 text-sm">Stay ahead with latest automation</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start space-x-3">
-                                <div class="w-6 h-6 bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                </div>
-                
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Right Side - Pricing Card -->
-                    <div class="relative">
-                        <!-- Glow effect -->
-                        <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur-2xl opacity-30 animate-pulse"></div>
-                        
-                        <div class="relative glass-card rounded-3xl p-8 border-2 border-purple-400/50">
-                            <div class="text-center mb-6">
-                                <div class="inline-flex items-baseline space-x-2 mb-2">
-                                    <span class="text-6xl font-black gradient-text">$20</span>
-                                    <span class="text-2xl text-gray-400">One time!</span>
-                                </div>
-                                <p class="text-gray-400">Pay once, automate forever</p>
-                            </div>
-                            
-                            <!-- Price Comparison -->
-                            <div class="bg-white/5 rounded-2xl p-4 mb-6 border border-white/10">
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-gray-400">Individual agents:</span>
-                                    <span class="text-gray-400 line-through">$5-10 each</span>
-                                </div>
-                                <div class="flex justify-between items-center mb-2">
-                                    <span class="text-gray-400">500+ agents separately:</span>
-                                    <span class="text-gray-400 line-through">$2,500+</span>
-                                </div>
-                                <div class="flex justify-between items-center pt-2 border-t border-white/10">
-                                    <span class="text-white font-bold">Your Price:</span>
-                                    <span class="text-2xl font-bold gradient-text">$20</span>
-                                </div>
-                                <div class="text-center mt-3">
-                                    <span class="inline-block bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-400/30 rounded-full px-4 py-1 text-sm text-green-300 font-semibold">
-                                        Save 99% 🎉
-                                    </span>
-                                </div>
-                            </div>
-                            
-                            <button class="w-full btn-modern px-8 py-4 rounded-xl font-bold text-lg mb-4 group">
-                                <span class="flex items-center justify-center">
-                                    Unlock All Agents Now
-                                    <svg class="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                                    </svg>
-                                </span>
-                            </button>
-                            
-                            <div class="flex items-center justify-center space-x-4 text-sm text-gray-400">
-                                <div class="flex items-center space-x-1">
-                                    <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                                    </svg>
-                                    <span>Secure Payment</span>
-                                </div>
-                                <div class="flex items-center space-x-1">
-                                    <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                                    </svg>
-                                    <span>30-Day Guarantee</span>
-                                </div>
-                            </div>
-                            
-                            <!-- Social Proof -->
-                            <div class="mt-6 pt-6 border-t border-white/10">
-                                <div class="flex items-center justify-center space-x-2 mb-2">
-                                    <div class="flex -space-x-2">
-                                        <div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full border-2 border-white/20"></div>
-                                        <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full border-2 border-white/20"></div>
-                                        <div class="w-8 h-8 bg-gradient-to-br from-green-400 to-emerald-400 rounded-full border-2 border-white/20"></div>
-                                        <div class="w-8 h-8 bg-gradient-to-br from-orange-400 to-red-400 rounded-full border-2 border-white/20"></div>
-                                    </div>
-                                    <span class="text-sm text-gray-300">
-                                        <span class="font-bold text-white">12,847+</span> active users
-                                    </span>
-                                </div>
-                                <div class="flex items-center justify-center text-yellow-400 text-sm">
-                                    <span class="mr-1">★★★★★</span>
-                                    <span class="text-gray-300">4.9/5 from 3,200+ reviews</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="relative px-4 pb-20" style="position: relative; z-index: 10;"> 
-        <div class="max-w-7xl mx-auto" style="position: relative; z-index: 10;">
-            <div id="agentsContainer" class="agents-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-                <div class="agent-card glass-card rounded-3xl p-6" data-category="analytics" data-rating="4.9" data-users="12500" data-speed="fast">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl">
-                            📊
-                        </div>
-                        <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
-                            <span class="text-yellow-400">EXCLUSIVE ★★★★★</span>
-                            <span class="ml-1">4.9</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">ContentBlog Pro Automation</h3>
-                    <span class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Analytics</span>
-                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
-                        Automatically searches for latest topics in A Niche and generates titles, tags, Post, Thumbnail and even publishes automatically. 0 running costs.
-                    </p>
-                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
-                        <div class="flex items-center gap-3 text-xs text-gray-400">
-                            <span>👥 12.5K</span>
-                            <span>⚡ Fast</span>
-                        </div>
-                        <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm try-now-btn">
-                            <a href= "https://betanodeautomations.gumroad.com/l/contentpilotblog">
-                            Just Get It!
-                            </a>
-                        </button>
-                    </div>
-                </div> 
-
-                
-                <div class="agent-card glass-card rounded-3xl p-6" data-category="marketing" data-rating="4.8" data-users="18200" data-speed="fast">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl">
-                            ✍️
-                        </div>
-                        <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
-                            <span class="text-yellow-400">★★★★★</span>
-                            <span class="ml-1">4.8</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">AutoNews AI</h3>
-                    <span class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Marketing</span>
-                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
-                        Generate high-quality News posts, social media content, and automatically push to your discord server and telegram server.
-                    </p>
-                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
-                        <div class="flex items-center gap-3 text-xs text-gray-400">
-                            <span>👥 18.2K</span>
-                            <span>⚡ Fast</span>
-                        </div>
-                        <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm try-now-btn">
-                         <a href= "https://betanodeautomations.gumroad.com/l/autonews">
-                            Just Get It!
-                            </a>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="agent-card glass-card rounded-3xl p-6" data-category="support" data-rating="4.9" data-users="25800" data-speed="realtime">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl">
-                            📈
-                        </div>
-                        <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
-                            <span class="text-yellow-400">★★★★★</span>
-                            <span class="ml-1">4.2</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Financial news fetcher</h3>
-                    <span class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3"></span>
-                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
-                        Automatically get important financial updates to your outlook inbox With AI summarization. Never miss important noise in the market!
-                    </p>
-                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
-                        <div class="flex items-center gap-3 text-xs text-gray-400">
-                            <span>👥 25.8K</span>
-                            <span>⚡ Real-time</span>
-                        </div>
-                        <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm try-now-btn">
-                    <a href= "https://betanodeautomations.gumroad.com/l/financeupdater">
-                            Just Get It!
-                            </a>
-                        </button>
-                    </div>
-                </div>
-                 <div class="agent-card glass-card rounded-3xl p-6" data-category="productivity" data-rating="4.7" data-users="8400" data-speed="medium">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl">
-                            🔍
-                        </div>
-                        <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
-                            <span class="text-yellow-400">★★★★☆</span>
-                            <span class="ml-1">4.7</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">From YT captions To Discord Posts.</h3>
-                    <span class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Productivity</span>
-                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
-                        Automatically fetch latest Yt video captions of a channel and convert to discord message and post .
-                    </p>
-                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
-                        <div class="flex items-center gap-3 text-xs text-gray-400">
-                            <span>👥 22.2K</span>
-                            <span>⚡ Medium</span>
-                        </div>
-                        <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm try-now-btn">
-                            <a href= "https://aadarshpro.gumroad.com/l/busnh?_gl=1*s5u4je*_ga*NTA5NjA0Mjg1LjE3NjYzMzIyOTk.*_ga_6LJN6D94N6*czE3NjkzNTMxNDUkbzUkZzEkdDE3NjkzNTMyNTkkajU3JGwwJGgw">
-                            Still Waiting!
-                            </a>
-                        </button>
-                    </div>
-                </div>
-
-             
-                <div class="agent-card glass-card rounded-3xl p-6" data-category="productivity" data-rating="4.7" data-users="8400" data-speed="medium">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl">
-                            🔍
-                        </div>
-                        <div class="flex items-center gap-1 bg-white/5 px-3 py-1 rounded-lg text-sm">
-                            <span class="text-yellow-400">★★★★☆</span>
-                            <span class="ml-1">4.7</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Morning briefing</h3>
-                    <span class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-3">Productivity</span>
-                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
-                        Automatically recieve GM message and latest headline to telegram .
-                    </p>
-                    <div class="flex items-center justify-between pt-4 border-t border-white/10">
-                        <div class="flex items-center gap-3 text-xs text-gray-400">
-                            <span>👥 8.4K</span>
-                            <span>⚡ Medium</span>
-                        </div>
-                        <button class="btn-modern px-5 py-2 rounded-lg font-semibold text-sm try-now-btn">
-                            <a href= "https://betanodeautomations.gumroad.com/l/briefing">
-                            Just Get It!
-                            </a>
-                        </button>
-                    </div>
-                </div>
-
-                
-             
-                
-
-               
-             
-               
- 
-            <!-- No Results Message -->
-            <div id="noResults" class="no-results glass-card rounded-3xl">
-                <div class="text-5xl mb-4">🔍</div>
-                <h3 class="text-2xl font-bold mb-2">No agents found</h3>
-                <p class="text-gray-400">Try adjusting your search or filter to find what you're looking for.</p>
-            </div>
-
-            <!-- Loading Spinner -->
-            <div id="loadingSpinner" class="loading-spinner mt-12"></div>
-
-            <!-- Load More Button -->
-            <div id="loadMoreContainer" class="text-center mt-12">
-                <button id="loadMoreBtn" class="btn-modern px-8 py-3 rounded-full font-semibold text-lg">
-                    Load More Agents
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="relative px-4 py-8 border-t border-white/10" style="position: relative; z-index: 10;">
-        <div class="max-w-7xl mx-auto text-center text-gray-400">
-            <p>© 2024 AgenBase AI. All rights reserved.</p>
-            <p class="mt-2 text-sm">Browse 500+ AI agents to automate your workflows and boost productivity.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-        });
-
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-        });
-
-        // Close mobile menu when clicking outside
-        mobileMenu.addEventListener('click', (e) => {
-            if (e.target === mobileMenu) {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-
-        // Initialize variables
-        let currentFilter = 'all';
-        let currentSearch = '';
-        let currentSort = 'popular';
-        let visibleCount = 12;
-        const totalAgents = document.querySelectorAll('.agent-card').length;
-        const agents = Array.from(document.querySelectorAll('.agent-card'));
-        const loadMoreBtn = document.getElementById('loadMoreBtn');
-        const noResults = document.getElementById('noResults');
-        const loadingSpinner = document.getElementById('loadingSpinner');
-        const searchLoadingSpinner = document.querySelector('.loading-spinner');
-
-        // Initialize counts
-        document.getElementById('totalCount').textContent = `${totalAgents}+`;
-        updateResultsCount();
-
-        // Filter functionality
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                button.classList.add('active');
-                
-                currentFilter = button.dataset.filter;
-                applyFiltersAndSort();
-            });
-        });
-
-        // Search functionality with debounce
-        const searchInput = document.getElementById('searchInput');
-        let searchTimeout;
-        
-        searchInput.addEventListener('input', (e) => {
-            currentSearch = e.target.value.toLowerCase().trim();
-            
-            // Show loading spinner
-            searchLoadingSpinner.style.display = 'block';
-            
-            // Clear previous timeout
-            clearTimeout(searchTimeout);
-            
-            // Set new timeout for debounce
-            searchTimeout = setTimeout(() => {
-                applyFiltersAndSort();
-                searchLoadingSpinner.style.display = 'none';
-            }, 300);
-        });
-
-        // Sort functionality
-        const sortSelect = document.getElementById('sortSelect');
-        sortSelect.addEventListener('change', (e) => {
-            currentSort = e.target.value;
-            applyFiltersAndSort();
-        });
-
-        // Try Now button functionality
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('try-now-btn')) {
-                const agentName = e.target.closest('.agent-card').querySelector('h3').textContent;
-                alert(`Launching ${agentName}...\nThis would normally open the agent interface.`);
-            }
-        });
-
-        // Load More functionality
-        loadMoreBtn.addEventListener('click', () => {
-            visibleCount += 6;
-            applyFiltersAndSort();
-            
-            // Smooth scroll to newly loaded items
-            setTimeout(() => {
-                const lastVisibleCard = document.querySelector('.agent-card:not(.hidden-agent)');
-                lastVisibleCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }, 100);
-        });
-
-        // Main filter and sort function
-        function applyFiltersAndSort() {
-            let filteredAgents = agents;
-            
-            // Apply search filter
-            if (currentSearch) {
-                filteredAgents = filteredAgents.filter(agent => {
-                    const title = agent.querySelector('h3').textContent.toLowerCase();
-                    const description = agent.querySelector('p').textContent.toLowerCase();
-                    const category = agent.querySelector('span').textContent.toLowerCase();
-                    
-                    return title.includes(currentSearch) || 
-                           description.includes(currentSearch) ||
-                           category.includes(currentSearch);
-                });
-            }
-            
-            // Apply category filter
-            if (currentFilter !== 'all') {
-                filteredAgents = filteredAgents.filter(agent => 
-                    agent.dataset.category === currentFilter
-                );
-            }
-            
-            // Apply sorting
-            filteredAgents.sort((a, b) => {
-                switch (currentSort) {
-                    case 'rating':
-                        return parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating);
-                    case 'users':
-                        return parseInt(b.dataset.users) - parseInt(a.dataset.users);
-                    case 'name':
-                        return a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent);
-                    case 'newest':
-                        // For demo, we'll use a random order
-                        return Math.random() - 0.5;
-                    case 'popular':
-                    default:
-                        return parseInt(b.dataset.users) - parseInt(a.dataset.users);
-                }
-            });
-            
-            // Update UI
-            updateAgentsDisplay(filteredAgents);
-        }
-
-        function updateAgentsDisplay(filteredAgents) {
-            // Reset all agents to hidden
-            agents.forEach(agent => {
-                agent.classList.add('hidden-agent');
-                agent.style.display = 'none';
-            });
-            
-            // Show filtered agents up to visibleCount
-            const agentsToShow = filteredAgents.slice(0, visibleCount);
-            
-            agentsToShow.forEach((agent, index) => {
-                agent.classList.remove('hidden-agent');
-                agent.style.display = 'block';
-                
-                // Add animation delay for staggered appearance
-                agent.style.animationDelay = `${index * 0.05}s`;
-            });
-            
-            // Show/hide no results message
-            if (agentsToShow.length === 0) {
-                noResults.style.display = 'block';
-                loadMoreBtn.style.display = 'none';
-            } else {
-                noResults.style.display = 'none';
-                
-                // Show/hide load more button
-                if (filteredAgents.length > visibleCount) {
-                    loadMoreBtn.style.display = 'inline-block';
-                } else {
-                    loadMoreBtn.style.display = 'none';
-                }
-            }
-            
-            updateResultsCount();
-        }
-
-        function updateResultsCount() {
-            const visibleAgents = document.querySelectorAll('.agent-card:not(.hidden-agent)').length;
-            document.getElementById('visibleCount').textContent = visibleAgents;
-        }
-
-        // Initialize on load
-        applyFiltersAndSort();
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        // Observe scroll reveal elements
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('nav-blur');
-            } else {
-                navbar.classList.remove('nav-blur');
-            }
-        });
-
-        // Initialize scroll reveal on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.scroll-reveal').forEach(el => {
-                el.classList.add('active');
-            });
-        });
-    </script>
+  // Parallax orbs on mouse move
+  const orbs = document.querySelectorAll('.orb');
+  let tx = 0, ty = 0, cx = 0, cy = 0;
+  document.addEventListener('mousemove', e => {
+    tx = (e.clientX / window.innerWidth - 0.5);
+    ty = (e.clientY / window.innerHeight - 0.5);
+  });
+  function animOrbs() {
+    cx += (tx - cx) * 0.05;
+    cy += (ty - cy) * 0.05;
+    orbs.forEach((orb, i) => {
+      const d = (i + 1) * 18;
+      orb.style.transform = `translate(${cx * d}px, ${cy * d}px)`;
+    });
+    requestAnimationFrame(animOrbs);
+  }
+  animOrbs();
+</script>
 </body>
 </html>
