@@ -1,806 +1,616 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="msvalidate.01" content="430232803DFC8475DB36566DADB9309F" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgenBase AI | Business Automation Solutions - Save 6-12 Hours Daily</title>
-    <meta name="description" content="Transform repetitive tasks into powerful automated workflows with AgenBase AI. AI-powered business automations that save 6-12 hours daily.">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
-        * {
-            font-family: 'Inter', sans-serif;
-        }
-        
-        /* Modern Animated Background */
-        .animated-bg {
-            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-            position: relative;
-        }
-        
-        .animated-bg::before {
-            content: '';
-            position: fixed;
-            width: 200%;
-            height: 200%;
-            top: 0;
-            left: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(156, 39, 176, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(103, 58, 183, 0.3) 0%, transparent 50%);
-            animation: bgMove 20s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        @keyframes bgMove {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(5%, 5%) rotate(120deg); }
-            66% { transform: translate(-5%, 5%) rotate(240deg); }
-        }
-        
-        /* Floating orbs */
-        .orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.4;
-            animation: float 20s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .orb-1 {
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            top: -10%;
-            left: -10%;
-            animation-delay: 0s;
-        }
-        
-        .orb-2 {
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            bottom: -10%;
-            right: -10%;
-            animation-delay: 5s;
-        }
-        
-        .orb-3 {
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            top: 50%;
-            left: 50%;
-            animation-delay: 10s;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(50px, -50px) scale(1.1); }
-            50% { transform: translate(-30px, 30px) scale(0.9); }
-            75% { transform: translate(40px, 20px) scale(1.05); }
-        }
-        
-        /* Enhanced Glass Effect */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.15);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 48px rgba(102, 126, 234, 0.2);
-        }
-        
-        /* Modern Button */
-        .btn-modern {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-modern::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .btn-modern:hover::before {
-            left: 100%;
-        }
-        
-        .btn-modern:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.5);
-        }
-        
-        /* Gradient Text */
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 3s ease infinite;
-            background-size: 200% auto;
-        }
-        
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        /* Scroll Reveal Animation */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-        
-        .scroll-reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Navigation */
-        .nav-blur {
-            background: rgba(15, 12, 41, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Card Grid Animation */
-        .card-grid > * {
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-        }
-        
-        .card-grid > *:nth-child(1) { animation-delay: 0.1s; }
-        .card-grid > *:nth-child(2) { animation-delay: 0.2s; }
-        .card-grid > *:nth-child(3) { animation-delay: 0.3s; }
-        .card-grid > *:nth-child(4) { animation-delay: 0.4s; }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Pulse Effect */
-        .pulse-glow {
-            animation: pulseGlow 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulseGlow {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 40px rgba(102, 126, 234, 0.8);
-            }
-        }
-        
-        /* Slider Styling */
-        input[type="range"] {
-            -webkit-appearance: none;
-            appearance: none;
-            height: 12px;
-            border-radius: 6px;
-        }
-        
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
-            transition: all 0.3s ease;
-        }
-        
-        input[type="range"]::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.8);
-        }
-        
-        input[type="range"]::-moz-range-thumb {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
-            transition: all 0.3s ease;
-        }
-        
-        input[type="range"]::-moz-range-thumb:hover {
-            transform: scale(1.2);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.8);
-        }
-           .floating-cta-container {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            z-index: 1000;
-        }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AgenBase — AI Automation Agents</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Figtree:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-        .floating-cta-button {
-            position: relative;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 28px;
-            box-shadow: 
-                0 10px 30px rgba(99, 102, 241, 0.4),
-                0 0 0 8px rgba(99, 102, 241, 0.1),
-                inset 0 0 20px rgba(255, 255, 255, 0.2);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: float 3s ease-in-out infinite;
-            overflow: hidden;
-        }
+:root{
+  --bg:#fafaf8;
+  --white:#ffffff;
+  --text:#0f0e0c;
+  --text2:#4a4844;
+  --text3:#9b9890;
+  --border:rgba(0,0,0,0.07);
+  --border2:rgba(0,0,0,0.12);
+  --accent:#ff3d00;
+  --accent2:#ff6b35;
+  --glass:rgba(255,255,255,0.72);
+  --glass2:rgba(255,255,255,0.45);
+}
 
-        .floating-cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
+html{scroll-behavior:smooth}
+body{font-family:'Figtree',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 
-        .floating-cta-button:hover::before {
-            left: 100%;
-        }
+/* FIXED BLUR ORBS */
+.orbs{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.orb{position:absolute;border-radius:50%;animation:float 20s ease-in-out infinite alternate}
+.orb1{width:700px;height:700px;background:radial-gradient(circle,rgba(255,140,60,0.5),rgba(255,80,0,0.2),transparent 70%);top:-200px;right:-150px;filter:blur(60px);opacity:.45;animation-duration:28s}
+.orb2{width:600px;height:600px;background:radial-gradient(circle,rgba(180,220,255,0.6),rgba(100,180,255,0.2),transparent 70%);bottom:-100px;left:-150px;filter:blur(70px);opacity:.35;animation-delay:-12s;animation-duration:32s}
+.orb3{width:500px;height:500px;background:radial-gradient(circle,rgba(255,220,140,0.5),rgba(255,180,60,0.15),transparent 70%);top:35%;left:25%;filter:blur(80px);opacity:.3;animation-delay:-8s;animation-duration:24s}
+.orb4{width:350px;height:350px;background:radial-gradient(circle,rgba(200,170,255,0.5),transparent 70%);top:15%;right:20%;filter:blur(60px);opacity:.25;animation-delay:-4s;animation-duration:20s}
+.orb5{width:400px;height:400px;background:radial-gradient(circle,rgba(150,255,200,0.3),transparent 70%);bottom:20%;right:10%;filter:blur(70px);opacity:.2;animation-delay:-18s;animation-duration:26s}
 
-        .floating-cta-button:hover {
-            transform: scale(1.15) rotate(5deg);
-            box-shadow: 
-                0 15px 40px rgba(99, 102, 241, 0.6),
-                0 0 0 12px rgba(99, 102, 241, 0.15),
-                inset 0 0 30px rgba(255, 255, 255, 0.3);
-        }
+@keyframes float{
+  0%{transform:translate(0,0) scale(1)}
+  25%{transform:translate(30px,-40px) scale(1.04)}
+  50%{transform:translate(-20px,30px) scale(0.97)}
+  75%{transform:translate(40px,20px) scale(1.03)}
+  100%{transform:translate(-10px,-20px) scale(1.01)}
+}
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
+/* GRAIN */
+body::after{
+  content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:180px;
+}
 
-        .floating-cta-label {
-            position: absolute;
-            right: 100px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(10, 14, 26, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            padding: 12px 24px;
-            border-radius: 12px;
-            color: #fff;
-            font-weight: 600;
-            font-size: 14px;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:200;
+  padding:0 44px;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(250,250,248,0.55);
+  backdrop-filter:blur(28px) saturate(200%);
+  -webkit-backdrop-filter:blur(28px) saturate(200%);
+  border-bottom:1px solid rgba(255,255,255,0.6);
+  box-shadow:0 1px 0 rgba(0,0,0,0.06);
+}
 
-        .floating-cta-label::after {
-            content: '';
-            position: absolute;
-            right: -6px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 12px;
-            height: 12px;
-            background: rgba(10, 14, 26, 0.95);
-            border-right: 1px solid rgba(99, 102, 241, 0.3);
-            border-top: 1px solid rgba(99, 102, 241, 0.3);
-            transform: translateY(-50%) rotate(45deg);
-        }
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:22px;letter-spacing:-0.8px;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:9px}
+.logo-pulse{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 rgba(255,61,0,0.4);animation:ping 2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,61,0,0.5)}70%{box-shadow:0 0 0 10px rgba(255,61,0,0)}100%{box-shadow:0 0 0 0 rgba(255,61,0,0)}}
 
-        .floating-cta-container:hover .floating-cta-label {
-            opacity: 1;
-            right: 90px;
-        }
+.nav-pill{
+  display:flex;align-items:center;gap:8px;
+  background:var(--glass);backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,0.8);
+  border-radius:100px;padding:7px 16px;
+  font-size:12px;font-weight:500;color:var(--text2);
+  box-shadow:0 2px 12px rgba(0,0,0,0.05);
+}
+.nav-pill b{background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px}
 
-    </style>
+.btn-nav{
+  background:var(--text);color:white;font-family:'Figtree',sans-serif;
+  font-size:13px;font-weight:600;padding:10px 22px;border-radius:100px;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:all .2s;letter-spacing:-.2px;
+}
+.btn-nav:hover{background:var(--accent);box-shadow:0 0 28px rgba(255,61,0,.35)}
+
+/* HERO */
+.hero{
+  position:relative;z-index:2;
+  padding:110px 44px 90px;max-width:980px;margin:0 auto;text-align:center;
+}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:0;
+  border-radius:100px;overflow:hidden;
+  border:1px solid rgba(255,61,0,.2);margin-bottom:36px;
+  background:var(--glass);backdrop-filter:blur(16px);
+  box-shadow:0 4px 20px rgba(255,61,0,.08);
+}
+.hero-badge-left{background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:6px 12px;letter-spacing:.5px;text-transform:uppercase}
+.hero-badge-right{font-size:12px;font-weight:500;color:var(--accent);padding:6px 14px}
+
+h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(48px,8vw,96px);
+  font-weight:800;letter-spacing:-3.5px;line-height:.95;
+  color:var(--text);margin-bottom:28px;
+}
+h1 .grad{
+  display:block;
+  background:linear-gradient(120deg,#ff3d00 0%,#ff6b35 40%,#ffaa50 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+.hero-p{font-size:18px;color:var(--text2);max-width:500px;margin:0 auto 48px;font-weight:300;line-height:1.7}
+
+.hero-btns{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:72px}
+
+.btn-big{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--accent);color:white;
+  font-family:'Figtree',sans-serif;font-size:15px;font-weight:700;
+  padding:16px 32px;border-radius:100px;text-decoration:none;border:none;cursor:pointer;
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);
+  box-shadow:0 6px 30px rgba(255,61,0,.3);letter-spacing:-.2px;
+}
+.btn-big:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(255,61,0,.45)}
+.btn-big:active{transform:scale(.97)}
+
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--glass);backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.9);color:var(--text);
+  font-family:'Figtree',sans-serif;font-size:15px;font-weight:500;
+  padding:16px 28px;border-radius:100px;text-decoration:none;cursor:pointer;
+  transition:all .2s;box-shadow:0 2px 16px rgba(0,0,0,.06);
+}
+.btn-ghost:hover{background:var(--white);box-shadow:0 6px 24px rgba(0,0,0,.1)}
+
+/* STATS ROW */
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--glass);backdrop-filter:blur(24px) saturate(180%);
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:22px;overflow:hidden;
+  box-shadow:0 4px 40px rgba(0,0,0,.07);
+  max-width:900px;margin:0 auto;
+}
+.sstat{
+  padding:28px 20px;text-align:center;border-right:1px solid rgba(0,0,0,.06);
+  transition:background .2s;position:relative;
+}
+.sstat:last-child{border-right:none}
+.sstat:hover{background:rgba(255,255,255,.7)}
+.sn{font-family:'Syne',sans-serif;font-size:38px;font-weight:800;letter-spacing:-2px;color:var(--text);line-height:1}
+.sn em{font-style:normal;color:var(--accent)}
+.sl{font-size:11px;color:var(--text3);margin-top:5px;letter-spacing:.2px}
+
+/* WRAP */
+.wrap{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:0 44px}
+
+/* BUNDLE */
+.bundle{
+  position:relative;
+  background:var(--text);border-radius:28px;
+  display:grid;grid-template-columns:1fr 240px;
+  overflow:hidden;
+  box-shadow:0 20px 80px rgba(0,0,0,.18);
+}
+.b-orb1{position:absolute;width:450px;height:450px;border-radius:50%;background:radial-gradient(circle,rgba(255,80,0,.3),transparent 65%);top:-120px;right:-80px;filter:blur(50px);pointer-events:none}
+.b-orb2{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(255,160,60,.2),transparent 65%);bottom:-60px;left:280px;filter:blur(60px);pointer-events:none}
+.b-body{padding:52px 52px;position:relative;z-index:1}
+.b-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,61,0,.18);color:#ff7a4d;
+  font-size:10px;font-weight:700;padding:5px 12px;border-radius:100px;
+  margin-bottom:20px;text-transform:uppercase;letter-spacing:1px;
+  border:1px solid rgba(255,61,0,.2);
+}
+.b-h{font-family:'Syne',sans-serif;font-size:clamp(22px,2.4vw,34px);font-weight:800;letter-spacing:-1px;line-height:1.15;color:#fff;margin-bottom:14px}
+.b-p{font-size:14px;color:rgba(255,255,255,.5);line-height:1.7;max-width:500px;margin-bottom:28px;font-weight:300}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-size:12px;padding:5px 13px;border-radius:9px;transition:all .2s;backdrop-filter:blur(8px)}
+.chip:hover{background:rgba(255,255,255,.13);color:rgba(255,255,255,.9)}
+
+.b-side{
+  border-left:1px solid rgba(255,255,255,.07);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:44px 32px;gap:20px;position:relative;z-index:1;
+}
+.bprice{text-align:center}
+.bp-was{font-size:13px;color:rgba(255,255,255,.3);text-decoration:line-through;margin-bottom:4px}
+.bp-main{font-family:'Syne',sans-serif;font-size:70px;font-weight:800;letter-spacing:-4px;color:#fff;line-height:1}
+.bp-main sup{font-size:26px;vertical-align:super;letter-spacing:0}
+.bp-save{font-size:12px;color:#ff8055;font-weight:600;margin-top:6px}
+
+.btn-bundle{
+  display:block;width:100%;text-align:center;
+  background:linear-gradient(135deg,#ff3d00,#ff6b35);
+  color:#fff;font-family:'Figtree',sans-serif;font-size:14px;font-weight:700;
+  padding:15px 20px;border-radius:14px;text-decoration:none;cursor:pointer;border:none;
+  transition:all .2s;box-shadow:0 6px 24px rgba(255,61,0,.35);letter-spacing:-.2px;
+}
+.btn-bundle:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(255,61,0,.55)}
+.b-fine{font-size:11px;color:rgba(255,255,255,.22);text-align:center;line-height:1.6}
+
+/* SECTION HEAD */
+.sh{padding:80px 0 40px}
+.eyebrow{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--text3);margin-bottom:10px}
+.sh2{font-family:'Syne',sans-serif;font-size:clamp(26px,3vw,42px);font-weight:800;letter-spacing:-1.5px;color:var(--text);line-height:1.1}
+.sh2 em{font-style:normal;color:var(--accent)}
+
+/* AGENT GRID */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-bottom:80px}
+
+/* CARD */
+.card{
+  position:relative;
+  background:var(--glass);
+  backdrop-filter:blur(32px) saturate(180%);
+  -webkit-backdrop-filter:blur(32px) saturate(180%);
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:24px;padding:28px;
+  display:flex;flex-direction:column;overflow:hidden;
+  transition:transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease;
+  box-shadow:0 4px 24px rgba(0,0,0,.05),inset 0 1px 0 rgba(255,255,255,.9);
+}
+.card::before{
+  content:'';position:absolute;inset:0;border-radius:24px;
+  background:linear-gradient(145deg,rgba(255,255,255,.7) 0%,rgba(255,255,255,.1) 100%);
+  pointer-events:none;z-index:0;
+}
+.card:hover{
+  transform:translateY(-8px) scale(1.015);
+  box-shadow:0 24px 60px rgba(0,0,0,.1),0 0 0 1px rgba(255,255,255,.95),inset 0 1px 0 rgba(255,255,255,1);
+}
+.card.feat{border-color:rgba(255,61,0,.22);background:linear-gradient(145deg,rgba(255,250,247,.85),rgba(255,255,255,.75))}
+.card.feat::after{
+  content:'';position:absolute;top:0;left:20px;right:20px;height:1.5px;
+  background:linear-gradient(90deg,transparent,var(--accent) 30%,var(--accent2) 70%,transparent);
+}
+.cg{position:absolute;border-radius:50%;filter:blur(40px);pointer-events:none;opacity:.14;z-index:0}
+.card>*{position:relative;z-index:1}
+
+.ch{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px}
+.ci{
+  width:48px;height:48px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+  border:1px solid rgba(255,255,255,.7);backdrop-filter:blur(8px);flex-shrink:0;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.bgs{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+.bdg{font-size:10px;font-weight:700;padding:4px 9px;border-radius:8px;text-transform:uppercase;letter-spacing:.4px;border:1px solid transparent}
+.bh{background:rgba(255,61,0,.09);color:var(--accent);border-color:rgba(255,61,0,.15)}
+.bn{background:rgba(22,163,74,.08);color:#16a34a;border-color:rgba(22,163,74,.14)}
+.ba{background:rgba(37,99,235,.08);color:#2563eb;border-color:rgba(37,99,235,.14)}
+.bp2{background:rgba(124,58,237,.08);color:#7c3aed;border-color:rgba(124,58,237,.14)}
+.bo{background:rgba(217,119,6,.08);color:#d97706;border-color:rgba(217,119,6,.14)}
+
+.cn{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--text3);margin-bottom:6px}
+.cname{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.7px;color:var(--text);line-height:1.2;margin-bottom:8px}
+.chook{font-size:13px;font-weight:600;color:var(--accent);margin-bottom:12px;line-height:1.45}
+.cdesc{font-size:13.5px;color:var(--text2);line-height:1.65;flex:1;margin-bottom:18px;font-weight:300}
+
+.feats{list-style:none;margin-bottom:16px;display:flex;flex-direction:column;gap:7px}
+.feats li{font-size:12.5px;color:var(--text2);display:flex;align-items:flex-start;gap:8px;line-height:1.45}
+.fd{width:4px;height:4px;border-radius:50%;background:var(--text3);margin-top:5.5px;flex-shrink:0}
+
+.pfrow{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:20px}
+.pf{font-size:11px;color:var(--text3);background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.07);padding:3px 9px;border-radius:6px;backdrop-filter:blur(4px)}
+
+.cf{display:flex;align-items:center;justify-content:space-between;padding-top:18px;border-top:1px solid rgba(0,0,0,.06);margin-top:auto}
+.cp{display:flex;flex-direction:column;gap:1px}
+.pm{font-size:10px;color:var(--text3)}
+.pv{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.8px;color:var(--text);line-height:1}
+.pv sup{font-size:14px;vertical-align:super;font-weight:700}
+
+.btn-buy{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--text);color:#fff;
+  font-family:'Figtree',sans-serif;font-size:13px;font-weight:600;
+  padding:11px 18px;border-radius:100px;text-decoration:none;
+  border:none;cursor:pointer;
+  transition:all .25s cubic-bezier(.34,1.56,.64,1);letter-spacing:-.2px;
+}
+.btn-buy:hover{background:var(--accent);box-shadow:0 6px 22px rgba(255,61,0,.35);transform:scale(1.05)}
+.btn-buy:active{transform:scale(.97)}
+.arr{width:13px;height:13px;opacity:.6;transition:all .2s}
+.btn-buy:hover .arr{opacity:1;transform:translate(2px,-2px)}
+
+/* BOTTOM CTA */
+.bcta{position:relative;z-index:2;max-width:1100px;margin:0 auto 80px;padding:0 44px}
+.bcta-in{
+  background:var(--text);border-radius:28px;padding:70px 52px;text-align:center;
+  position:relative;overflow:hidden;
+  box-shadow:0 24px 80px rgba(0,0,0,.2);
+}
+.bc-o1{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,61,0,.28),transparent 65%);top:-100px;left:-80px;filter:blur(50px);pointer-events:none}
+.bc-o2{position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(255,140,60,.2),transparent 65%);bottom:-80px;right:-60px;filter:blur(60px);pointer-events:none}
+.bc-o3{position:absolute;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(200,140,255,.12),transparent 65%);top:20%;right:20%;filter:blur(50px);pointer-events:none}
+.bcta-in>*{position:relative;z-index:1}
+.bc-h{font-family:'Syne',sans-serif;font-size:clamp(28px,3.5vw,50px);font-weight:800;letter-spacing:-2px;color:#fff;line-height:1.08;margin-bottom:16px}
+.bc-p{font-size:16px;color:rgba(255,255,255,.45);font-weight:300;margin-bottom:40px;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.7}
+.bc-fine{font-size:12px;color:rgba(255,255,255,.2);margin-top:16px}
+
+/* FOOTER */
+footer{position:relative;z-index:2;border-top:1px solid rgba(0,0,0,.07);padding:32px 44px;display:flex;align-items:center;justify-content:space-between}
+.fl{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.5px;color:var(--text)}
+.fl span{color:var(--accent)}
+.fr{font-size:12px;color:var(--text3)}
+
+/* REVEAL */
+.rup{opacity:0;transform:translateY(30px);transition:opacity .65s ease, transform .65s cubic-bezier(.16,1,.3,1)}
+.rup.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .bundle{grid-template-columns:1fr}
+  .b-side{border-left:none;border-top:1px solid rgba(255,255,255,.07);flex-direction:row;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .sstat:nth-child(2){border-right:none}
+  .sstat:nth-child(3){border-top:1px solid rgba(0,0,0,.06)}
+}
+@media(max-width:640px){
+  nav{padding:0 20px}
+  .nav-pill{display:none}
+  .hero{padding:72px 20px 56px}
+  .wrap,.bcta{padding:0 20px}
+  .stats{margin:0 20px;grid-template-columns:repeat(2,1fr)}
+  .grid{grid-template-columns:1fr}
+  .b-body{padding:36px 24px}
+  footer{padding:24px 20px;flex-direction:column;gap:8px;text-align:center}
+}
+</style>
 </head>
-<body class="animated-bg text-white min-h-screen">
-    <!-- Floating Orbs -->
-    <!-- <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-       <div class="floating-cta-container">
-        <button class="floating-cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-            <i class="fas fa-robot"></i>
-        </button>
-        <span class="floating-cta-label">Build Custom Agent</span>
-    </div> -->
+<body>
 
-    <div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-<div class="orb orb-3"></div>
-<div class="floating-cta-container">
-    <button class="floating-cta-button" onclick="window.location.href='custom-automation.html'">
-        <i class="fas fa-robot"></i>
-    </button>
-    <span class="floating-cta-label">Build Custom Agent</span>
+<!-- BLUR ORBS -->
+<div class="orbs">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="orb orb4"></div>
+  <div class="orb orb5"></div>
 </div>
 
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl flex items-center justify-center pulse-glow">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <span class="text-xl font-bold">AgenBase AI</span>
-                </div>
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#"><span class="logo-pulse"></span>AgenBase</a>
+  <div class="nav-pill">
+    <b>n8n</b>
+    6 AI Automation Agents · Plug &amp; Play
+  </div>
+  <a class="btn-nav" href="https://gumroad.com" target="_blank">Bundle — $25 →</a>
+</nav>
 
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#automations" class="hover:text-purple-400 transition-colors duration-300">Automations</a>
-                    <a href="#features" class="hover:text-purple-400 transition-colors duration-300">Features</a>
-                    <a href="#pricing" class="hover:text-purple-400 transition-colors duration-300">Pricing</a>
-                    <a href="custom-automation.html" class="btn-modern px-6 py-2 rounded-full font-semibold">
-                        Get Started
-                    </a>
-                </div>
+<!-- HERO -->
+<section class="hero rup">
+  <div class="hero-badge">
+    <span class="hero-badge-left">🔥 New</span>
+    <span class="hero-badge-right">AutoShorts AI just dropped</span>
+  </div>
+  <h1>Your Business,<span class="grad">On Autopilot.</span></h1>
+  <p class="hero-p">Six n8n agents that handle your content, marketing, and research — fully automated, every single day. No code. No grind.</p>
+  <div class="hero-btns">
+    <a class="btn-big" href="https://gumroad.com" target="_blank">
+      Get All 6 Agents — $25
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+    </a>
+    <a class="btn-ghost" href="#agents">Browse Agents ↓</a>
+  </div>
+  <div class="stats rup">
+    <div class="sstat"><div class="sn">6</div><div class="sl">Automation Agents</div></div>
+    <div class="sstat"><div class="sn"><em>100</em>%</div><div class="sl">Autopilot Ready</div></div>
+    <div class="sstat"><div class="sn"><em>0</em>hr</div><div class="sl">Manual Work Required</div></div>
+    <div class="sstat"><div class="sn">$<em>25</em></div><div class="sl">For the Full Bundle</div></div>
+  </div>
+</section>
 
-                <button id="mobile-menu-btn" class="md:hidden">
-                    <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </nav>
+<!-- BUNDLE -->
+<div class="wrap" style="padding-top:80px">
+  <div class="bundle rup">
+    <div class="b-orb1"></div>
+    <div class="b-orb2"></div>
+    <div class="b-body">
+      <div class="b-tag">🔥 Best Value · Save 58%</div>
+      <div class="b-h">The Full Automation<br>Stack Bundle</div>
+      <div class="b-p">All 6 agents. One purchase. Forever yours. The complete system to run a fully automated content and marketing engine — on autopilot.</div>
+      <div class="chips">
+        <span class="chip">AutoShorts AI</span>
+        <span class="chip">AutoMarket</span>
+        <span class="chip">Youcord AI</span>
+        <span class="chip">ContentPilot Blog</span>
+        <span class="chip">FinanceUpdater</span>
+        <span class="chip">YouBlog AI</span>
+      </div>
+    </div>
+    <div class="b-side">
+      <div class="bprice">
+        <div class="bp-was">$60+ value</div>
+        <div class="bp-main"><sup>$</sup>25</div>
+        <div class="bp-save">You save 58% today</div>
+      </div>
+      <a class="btn-bundle" href="https://gumroad.com" target="_blank">Buy Full Bundle →</a>
+      <div class="b-fine">Instant download<br>All 6 n8n workflows</div>
+    </div>
+  </div>
+</div>
 
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 px-4 overflow-hidden">
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="text-center space-y-6">
-                <div class="inline-block glass-card px-6 py-3 rounded-full mb-6 animate-bounce">
-                    <span class="text-sm font-semibold">🔥 ContentPilot: Complete Blog Automation - 50% OFF!</span>
-                </div>
-                
-                <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
-                    Get AI Workflows<br>
-                    <span class="gradient-text">That Work While You Sleep</span>
-                </h1>
-                
-                <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                    Transform repetitive tasks into powerful automated workflows. Save 6-12 hours daily, reduce errors, and scale without limits.
-                </p>
+<!-- AGENTS -->
+<div class="wrap" id="agents">
+  <div class="sh rup">
+    <div class="eyebrow">Individual Agents</div>
+    <div class="sh2">Pick what you need.<br><em>Or grab them all.</em></div>
+  </div>
 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-                    <a href="custom-automation.html" class="btn-modern px-10 py-4 rounded-full font-bold text-lg inline-flex items-center gap-2 group">
-                        Build My AI System
-                        <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                        </svg>
-                    </a>
-                    <a href="agents-list.html" class="glass-card px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-300">
-                        Explore Templates
-                    </a>
-                </div>
-                
-                    <a href="useragent.html" class="glass-card px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-300">
-                        List your agents
-                    </a>
-                </div>
-            
-            </div>
+  <div class="grid">
 
-            <!-- Stats Cards -->
-            <div class="mt-20 card-grid grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <div class="glass-card rounded-2xl p-8 text-center">
-                    <div class="text-5xl font-black gradient-text mb-2">1+</div>
-                    <div class="text-gray-400 font-medium">Live Automations</div>
-                </div>
-                <div class="glass-card rounded-2xl p-8 text-center">
-                    <div class="text-5xl font-black gradient-text mb-2">7+</div>
-                    <div class="text-gray-400 font-medium">Tasks Automated</div>
-                </div>
-                <div class="glass-card rounded-2xl p-8 text-center">
-                    <div class="text-5xl font-black gradient-text mb-2">6-12h</div>
-                    <div class="text-gray-400 font-medium">Saved Daily</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- 00 AutoShorts -->
+    <div class="card feat rup" style="transition-delay:.04s">
+      <div class="cg" style="width:220px;height:220px;background:#ff3d00;top:-70px;right:-50px"></div>
+      <div class="ch">
+        <div class="ci" style="background:rgba(255,248,245,.92)">🎬</div>
+        <div class="bgs"><span class="bdg bh">🔥 Newest</span><span class="bdg ba">Autopilot</span></div>
+      </div>
+      <div class="cn">Agent · 00</div>
+      <div class="cname">AutoShorts AI</div>
+      <div class="chook">Your YouTube Shorts factory that never stops.</div>
+      <div class="cdesc">Define your niche once. Every day the agent researches trending topics, writes a script, generates visuals, and hands you a ready-to-post Short. No editing. No brainstorming. Ever.</div>
+      <ul class="feats">
+        <li><span class="fd"></span>Researches trending niche topics daily</li>
+        <li><span class="fd"></span>Auto-generates script + visuals</li>
+        <li><span class="fd"></span>Outputs a ready-to-post Short</li>
+        <li><span class="fd"></span>Scheduled — fully hands-off</li>
+      </ul>
+      <div class="pfrow"><span class="pf">Faceless channels</span><span class="pf">Daily Shorts</span><span class="pf">AI content</span></div>
+      <div class="cf">
+        <div class="cp"><span class="pm">Get this agent</span><span class="pv"><sup>$</sup>9</span></div>
+        <a class="btn-buy" href="https://gumroad.com" target="_blank">Gumroad<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+    </div>
 
-    <!-- Features Grid -->
-    <section id="features" class="relative py-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-5xl md:text-6xl font-black mb-4">
-                    Why Choose <span class="gradient-text">AgenBase AI</span>
-                </h2>
-                <p class="text-xl text-gray-400">Automation that actually works</p>
-            </div>
+    <!-- 01 AutoMarket -->
+    <div class="card rup" style="transition-delay:.08s">
+      <div class="cg" style="width:200px;height:200px;background:#2563eb;top:-60px;right:-40px"></div>
+      <div class="ch">
+        <div class="ci" style="background:rgba(239,246,255,.92)">📣</div>
+        <div class="bgs"><span class="bdg ba">Daily Posts</span></div>
+      </div>
+      <div class="cn">Agent · 01</div>
+      <div class="cname">AutoMarket</div>
+      <div class="chook">Your product markets itself while you sleep.</div>
+      <div class="cdesc">AI writes community-native promo posts that don't smell spammy, posts them to Discord and Telegram on schedule, and keeps your product visible every single day without you lifting a finger.</div>
+      <ul class="feats">
+        <li><span class="fd"></span>AI-crafted community-native promos</li>
+        <li><span class="fd"></span>Posts to Discord & Telegram daily</li>
+        <li><span class="fd"></span>Avoids spammy tone naturally</li>
+        <li><span class="fd"></span>Fully scheduled — zero management</li>
+      </ul>
+      <div class="pfrow"><span class="pf">SaaS founders</span><span class="pf">Gumroad creators</span><span class="pf">Indie hackers</span></div>
+      <div class="cf">
+        <div class="cp"><span class="pm">Get this agent</span><span class="pv"><sup>$</sup>9</span></div>
+        <a class="btn-buy" href="https://gumroad.com" target="_blank">Gumroad<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+    </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass-card rounded-3xl p-8 scroll-reveal">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Lightning Fast</h3>
-                    <p class="text-gray-400 leading-relaxed">Deploy powerful automations in minutes, not days. Pre-built workflows ready to use.</p>
-                </div>
+    <!-- 02 Youcord -->
+    <div class="card rup" style="transition-delay:.12s">
+      <div class="cg" style="width:200px;height:200px;background:#7c3aed;top:-60px;right:-40px"></div>
+      <div class="ch">
+        <div class="ci" style="background:rgba(245,243,255,.92)">🎙️</div>
+        <div class="bgs"><span class="bdg bp2">Instant</span></div>
+      </div>
+      <div class="cn">Agent · 02</div>
+      <div class="cname">Youcord AI</div>
+      <div class="chook">YouTube uploads → Discord posts in seconds.</div>
+      <div class="cdesc">Every time you upload a YouTube video, this agent extracts the captions, summarizes everything with AI, and publishes a polished post to your Discord — automatically. One upload, two pieces of content.</div>
+      <ul class="feats">
+        <li><span class="fd"></span>Detects new uploads instantly</li>
+        <li><span class="fd"></span>AI extracts & summarizes captions</li>
+        <li><span class="fd"></span>Publishes to Discord automatically</li>
+        <li><span class="fd"></span>Zero copy-pasting, ever</li>
+      </ul>
+      <div class="pfrow"><span class="pf">YouTubers</span><span class="pf">Discord communities</span><span class="pf">Repurposers</span></div>
+      <div class="cf">
+        <div class="cp"><span class="pm">Get this agent</span><span class="pv"><sup>$</sup>9</span></div>
+        <a class="btn-buy" href="https://gumroad.com" target="_blank">Gumroad<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+    </div>
 
-                <div class="glass-card rounded-3xl p-8 scroll-reveal">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Near-Zero Cost</h3>
-                    <p class="text-gray-400 leading-relaxed">Run automations for $0-10/month instead of $300+. One-time payment model.</p>
-                </div>
+    <!-- 03 ContentPilot -->
+    <div class="card rup" style="transition-delay:.16s">
+      <div class="cg" style="width:200px;height:200px;background:#16a34a;top:-60px;right:-40px"></div>
+      <div class="ch">
+        <div class="ci" style="background:rgba(240,253,244,.92)">✍️</div>
+        <div class="bgs"><span class="bdg bn">SEO Ready</span></div>
+      </div>
+      <div class="cn">Agent · 03</div>
+      <div class="cname">ContentPilot Blog</div>
+      <div class="chook">Reddit threads → published blogs. No writing.</div>
+      <div class="cdesc">Monitors Reddit, Discord, and online discussions, converts the hottest threads into structured SEO-optimized blog posts, and saves you hours of staring at a blank page every single week.</div>
+      <ul class="feats">
+        <li><span class="fd"></span>Monitors Reddit & Discord for trends</li>
+        <li><span class="fd"></span>Converts threads to full blog posts</li>
+        <li><span class="fd"></span>SEO-friendly formatting built in</li>
+        <li><span class="fd"></span>Authority content on autopilot</li>
+      </ul>
+      <div class="pfrow"><span class="pf">Bloggers</span><span class="pf">Niche sites</span><span class="pf">AI founders</span></div>
+      <div class="cf">
+        <div class="cp"><span class="pm">Get this agent</span><span class="pv"><sup>$</sup>9</span></div>
+        <a class="btn-buy" href="https://gumroad.com" target="_blank">Gumroad<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+    </div>
 
-                <div class="glass-card rounded-3xl p-8 scroll-reveal">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Production Ready</h3>
-                    <p class="text-gray-400 leading-relaxed">Battle-tested workflows with error handling. Works reliably from day one.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- 04 FinanceUpdater -->
+    <div class="card rup" style="transition-delay:.20s">
+      <div class="cg" style="width:200px;height:200px;background:#d97706;top:-60px;right:-40px"></div>
+      <div class="ch">
+        <div class="ci" style="background:rgba(255,251,235,.92)">📊</div>
+        <div class="bgs"><span class="bdg bo">Signal Filter</span></div>
+      </div>
+      <div class="cn">Agent · 04</div>
+      <div class="cname">FinanceUpdater</div>
+      <div class="chook">Never miss a market-moving update again.</div>
+      <div class="cdesc">Tracks financial and industry updates in real time, filters the noise with AI, and delivers only the signal that actually matters. Save hours of manual research without missing what's important.</div>
+      <ul class="feats">
+        <li><span class="fd"></span>Monitors key financial sources</li>
+        <li><span class="fd"></span>AI filters signal from noise</li>
+        <li><span class="fd"></span>Saves hours of daily research</li>
+        <li><span class="fd"></span>Delivers clean digestible updates</li>
+      </ul>
+      <div class="pfrow"><span class="pf">Finance creators</span><span class="pf">Traders</span><span class="pf">Newsletters</span></div>
+      <div class="cf">
+        <div class="cp"><span class="pm">Get this agent</span><span class="pv"><sup>$</sup>9</span></div>
+        <a class="btn-buy" href="https://gumroad.com" target="_blank">Gumroad<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+    </div>
 
-    <!-- Pre-Built Automations Section -->
-    <section id="automations" class="relative py-20 px-4">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16 scroll-reveal">
-                <h2 class="text-5xl md:text-6xl font-black mb-4">
-                    Pre-Built <span class="gradient-text">Automations</span>
-                </h2>
-                <p class="text-xl text-gray-400">Deploy powerful workflows in one click</p>
-            </div>
+    <!-- 05 YouBlog -->
+    <div class="card rup" style="transition-delay:.24s">
+      <div class="cg" style="width:200px;height:200px;background:#0891b2;top:-60px;right:-40px"></div>
+      <div class="ch">
+        <div class="ci" style="background:rgba(236,254,255,.92)">🚀</div>
+        <div class="bgs"><span class="bdg bh">🔥 Powerful</span><span class="bdg bn">Dual Traffic</span></div>
+      </div>
+      <div class="cn">Agent · 05</div>
+      <div class="cname">YouBlog AI</div>
+      <div class="chook">1 video = YouTube views + blog SEO. Both. Auto.</div>
+      <div class="cdesc">Upload once, get two content assets. Detects your upload, extracts the full transcript, converts it into a complete structured blog post, and auto-publishes — without touching a keyboard. Insane ROI.</div>
+      <ul class="feats">
+        <li><span class="fd"></span>Detects new YouTube uploads instantly</li>
+        <li><span class="fd"></span>Extracts full transcript automatically</li>
+        <li><span class="fd"></span>Converts to structured SEO blog</li>
+        <li><span class="fd"></span>Auto-publishes — zero manual effort</li>
+      </ul>
+      <div class="pfrow"><span class="pf">YouTubers</span><span class="pf">Course creators</span><span class="pf">Edu channels</span></div>
+      <div class="cf">
+        <div class="cp"><span class="pm">Get this agent</span><span class="pv"><sup>$</sup>9</span></div>
+        <a class="btn-buy" href="https://gumroad.com" target="_blank">Gumroad<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+    </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Blog Automation Card -->
-                <a href="https://betanodeautomations.gumroad.com/l/contentpilotblog" target="_blank" rel="noopener noreferrer" class="glass-card rounded-3xl p-8 hover:scale-105 transition-all duration-300 group">
-                    <div class="text-6xl mb-4 group-hover:scale-110 transition-transform">🔥</div>
-                    <div class="inline-block px-3 py-1 bg-gradient-to-r from-orange-500 to-red-500 rounded-full text-xs font-bold mb-4">
-                        90% OFF - NEW YEAR SALE - EXCLUSIVE
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 group-hover:text-purple-400 transition">
-                        Complete Blog Automation ⚡
-                    </h3>
-                    <p class="text-sm text-gray-400 mb-4 leading-relaxed">
-                        Research → Writing → SEO → Thumbnails → Publishing multi platform → Social sharing. Runs on autopilot after 5-10 min setup.
-                    </p>
-                    <div class="flex items-center gap-2 text-purple-400 font-semibold">
-                        Get It Now
-                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                        </svg>
-                    </div>
-                </a>
-                
+  </div>
+</div>
 
+<!-- BOTTOM CTA -->
+<div class="bcta">
+  <div class="bcta-in rup">
+    <div class="bc-o1"></div>
+    <div class="bc-o2"></div>
+    <div class="bc-o3"></div>
+    <div class="bc-h">Stop doing it manually.<br>Start running agents.</div>
+    <div class="bc-p">Every workflow was built to eliminate repetitive, time-consuming work. Deploy all six today and let the machines handle it.</div>
+    <div class="hero-btns">
+      <a class="btn-big" href="https://gumroad.com" target="_blank" style="font-size:16px;padding:18px 38px">
+        Get All 6 — $25 Today
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+    <div class="bc-fine">One-time payment · Instant download · All 6 n8n workflows included</div>
+  </div>
+</div>
 
-                <!-- Placeholder Cards -->
-             
+<footer>
+  <div class="fl">Agen<span>DB</span></div>
+  <div class="fr">n8n automations for builders who ship.</div>
+</footer>
 
-                <div class="glass-card rounded-3xl p-8 hover:scale-105 transition-all duration-300 opacity-50">
-                    <div class="text-6xl mb-4">📊</div>
-                    <div class="inline-block px-3 py-1 bg-purple-500/20 rounded-full text-xs text-purple-300 mb-4">
-                        Coming Soon
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Data Entry Bot</h3>
-                    <p class="text-sm text-gray-400 mb-4">Extract, transform, and load data automatically between systems.</p>
-                </div>
-            </div>
+<script>
+  // Scroll reveal
+  const rups = document.querySelectorAll('.rup');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08 });
+  rups.forEach(el => obs.observe(el));
 
-            <div class="text-center mt-12 scroll-reveal">
-                <a href="custom-automation.html" class="glass-card px-8 py-4 rounded-full font-bold hover:bg-white/10 transition-all duration-300 inline-block">
-                    Get Custom Automation →
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ROI Calculator Section -->
-    <section class="relative py-20 px-4 bg-black/20">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-12 scroll-reveal">
-                <h2 class="text-5xl md:text-6xl font-black mb-4">
-                    Calculate Your <span class="gradient-text">ROI</span>
-                </h2>
-                <p class="text-xl text-gray-400">See how much time and money you'll save</p>
-            </div>
-
-            <div class="glass-card rounded-3xl p-8 md:p-12 scroll-reveal">
-                <div class="space-y-8">
-                    <!-- Hours Input -->
-                    <div>
-                        <label class="block text-lg font-bold mb-3">
-                            Hours spent on repetitive tasks per week:
-                        </label>
-                        <div class="flex items-center gap-4">
-                            <input 
-                                type="range" 
-                                min="1" 
-                                max="40" 
-                                value="10" 
-                                id="hoursSlider"
-                                class="flex-1 h-3 bg-white/10 rounded-lg appearance-none cursor-pointer"
-                                style="background: linear-gradient(to right, #667eea 0%, #764ba2 50%, rgba(255,255,255,0.1) 50%);"
-                            >
-                            <span id="hoursDisplay" class="text-3xl font-black gradient-text min-w-[120px] text-right">10 hours</span>
-                        </div>
-                    </div>
-
-                    <!-- Hourly Rate Input -->
-                    <div>
-                        <label class="block text-lg font-bold mb-3">
-                            Your hourly rate:
-                        </label>
-                        <div class="flex items-center gap-3">
-                            <span class="text-3xl font-black">$</span>
-                            <input 
-                                type="number" 
-                                value="50" 
-                                min="1"
-                                max="500"
-                                id="rateInput"
-                                class="flex-1 px-6 py-4 text-2xl font-bold bg-white/5 border-2 border-white/20 rounded-2xl focus:border-purple-500 focus:outline-none transition"
-                            >
-                            <span class="text-gray-400 text-lg">/hour</span>
-                        </div>
-                        <p class="text-sm text-gray-400 mt-2">Enter your hourly value (salary or client rate)</p>
-                    </div>
-
-                    <!-- Results Section -->
-                    <div class="pt-8 border-t border-white/10">
-                        <div class="grid md:grid-cols-3 gap-6 mb-8">
-                            <!-- Weekly Savings -->
-                            <div class="glass-card rounded-2xl p-6 text-center">
-                                <p class="text-gray-400 text-sm mb-2 font-semibold">Weekly Savings</p>
-                                <p id="weeklySavings" class="text-4xl font-black gradient-text">$500</p>
-                            </div>
-
-                            <!-- Monthly Savings -->
-                            <div class="glass-card rounded-2xl p-6 text-center transform scale-105 border-2 border-purple-500/50">
-                                <p class="text-gray-400 text-sm mb-2 font-semibold">Monthly Savings</p>
-                                <p id="monthlySavings" class="text-4xl font-black gradient-text">$2,000</p>
-                            </div>
-
-                            <!-- Yearly Savings -->
-                            <div class="glass-card rounded-2xl p-6 text-center">
-                                <p class="text-gray-400 text-sm mb-2 font-semibold">Yearly Savings</p>
-                                <p id="yearlySavings" class="text-4xl font-black gradient-text">$24,000</p>
-                            </div>
-                        </div>
-
-                        <!-- Additional Insights -->
-                        <div class="glass-card rounded-2xl p-6 bg-purple-500/5">
-                            <h3 class="text-2xl font-bold mb-4">💡 What This Means:</h3>
-                            <div class="space-y-3 text-gray-300">
-                                <p>• You're spending <strong id="hoursPerYear" class="text-white">520 hours</strong> per year on repetitive tasks</p>
-                                <p>• That's equivalent to <strong id="workWeeks" class="text-white">13 work weeks</strong> of wasted time</p>
-                                <p>• Our automation costs <strong class="text-green-400">$5-10/month</strong> to run</p>
-                                <p class="text-purple-400 font-bold text-xl mt-4">
-                                    ⚡ ROI: <span id="roiPercent">20,000%</span> in the first year!
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- CTA Button -->
-                        <div class="text-center mt-8">
-                            <a href="custom-automation.html" class="btn-modern px-12 py-4 rounded-full font-bold text-lg inline-flex items-center gap-2 group">
-                                Start Saving Now
-                                <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                                </svg>
-                            </a>
-                            <p class="text-sm text-gray-400 mt-4">One-time payment. Zero monthly subscriptions.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="relative py-20 px-4">
-        <div class="max-w-4xl mx-auto">
-            <div class="glass-card rounded-3xl p-12 text-center scroll-reveal">
-                <h2 class="text-4xl md:text-5xl font-black mb-6">
-                    Ready to <span class="gradient-text">Automate</span>?
-                </h2>
-                <p class="text-xl text-gray-400 mb-8">
-                    Stop wasting time on repetitive tasks. Start automating today.
-                </p>
-                <a href="custom-automation.html" class="btn-modern px-12 py-4 rounded-full font-bold text-lg inline-flex items-center gap-2 group">
-                    Get Started Now
-                    <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="relative py-12 px-4 border-t border-white/10">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                            </svg>
-                        </div>
-                        <span class="text-xl font-bold">AgenBase AI</span>
-                    </div>
-                    <p class="text-gray-400">Automate everything, achieve anything.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Product</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#automations" class="hover:text-purple-400 transition">Automations</a></li>
-                        <li><a href="blog.html" class="hover:text-purple-400 transition">Blog</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Company</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="about.html" class="hover:text-purple-400 transition">About</a></li>
-                        <li><a href="contact.html" class="hover:text-purple-400 transition">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Legal</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="privacy.html" class="hover:text-purple-400 transition">Privacy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-white/10 pt-8 text-center text-gray-400">
-                <p>© 2025 AgenBase AI. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('nav-blur');
-            } else {
-                navbar.classList.remove('nav-blur');
-            }
-        });
-
-        // Scroll reveal animation
-        const revealElements = document.querySelectorAll('.scroll-reveal');
-        const revealOnScroll = () => {
-            revealElements.forEach(el => {
-                const elementTop = el.getBoundingClientRect().top;
-                const elementVisible = 150;
-                if (elementTop < window.innerHeight - elementVisible) {
-                    el.classList.add('active');
-                }
-            });
-        };
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
-
-        // Mobile menu
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            // Add mobile menu logic here
-        });
-
-        // ROI Calculator Logic
-        const hoursSlider = document.getElementById('hoursSlider');
-        const hoursDisplay = document.getElementById('hoursDisplay');
-        const rateInput = document.getElementById('rateInput');
-        const weeklySavings = document.getElementById('weeklySavings');
-        const monthlySavings = document.getElementById('monthlySavings');
-        const yearlySavings = document.getElementById('yearlySavings');
-        const hoursPerYear = document.getElementById('hoursPerYear');
-        const workWeeks = document.getElementById('workWeeks');
-        const roiPercent = document.getElementById('roiPercent');
-
-        function calculateSavings() {
-            const hours = parseInt(hoursSlider.value);
-            const rate = parseFloat(rateInput.value) || 0;
-            
-            // Update hours display
-            hoursDisplay.textContent = `${hours} hour${hours > 1 ? 's' : ''}`;
-            
-            // Update slider gradient
-            const percentage = ((hours - 1) / 39) * 100;
-            hoursSlider.style.background = `linear-gradient(to right, #667eea 0%, #764ba2 ${percentage}%, rgba(255,255,255,0.1) ${percentage}%)`;
-            
-            // Calculate savings
-            const weekly = hours * rate;
-            const monthly = weekly * 4.33;
-            const yearly = weekly * 52;
-            
-            // Update displays
-            weeklySavings.textContent = `${weekly.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
-            monthlySavings.textContent = `${monthly.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
-            yearlySavings.textContent = `${yearly.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
-            
-            // Calculate additional insights
-            const totalHoursPerYear = hours * 52;
-            const weeksWasted = (totalHoursPerYear / 40).toFixed(1);
-            
-            hoursPerYear.textContent = `${totalHoursPerYear.toLocaleString()} hours`;
-            workWeeks.textContent = `${weeksWasted} work weeks`;
-            
-            // Calculate ROI
-            const automationCost = 120;
-            const roi = ((yearly - automationCost) / automationCost * 100).toFixed(0);
-            roiPercent.textContent = `${roi.toLocaleString()}%`;
-        }
-
-        // Event listeners for calculator
-        if (hoursSlider && rateInput) {
-            hoursSlider.addEventListener('input', calculateSavings);
-            rateInput.addEventListener('input', calculateSavings);
-            calculateSavings();
-        }
-    </script>
+  // Parallax orbs on mouse move
+  const orbs = document.querySelectorAll('.orb');
+  let tx = 0, ty = 0, cx = 0, cy = 0;
+  document.addEventListener('mousemove', e => {
+    tx = (e.clientX / window.innerWidth - 0.5);
+    ty = (e.clientY / window.innerHeight - 0.5);
+  });
+  function animOrbs() {
+    cx += (tx - cx) * 0.05;
+    cy += (ty - cy) * 0.05;
+    orbs.forEach((orb, i) => {
+      const d = (i + 1) * 18;
+      orb.style.transform = `translate(${cx * d}px, ${cy * d}px)`;
+    });
+    requestAnimationFrame(animOrbs);
+  }
+  animOrbs();
+</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
