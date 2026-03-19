@@ -288,7 +288,183 @@ h1 .grad{
 .arr{width:13px;height:13px;opacity:.6;transition:all .2s}
 .btn-buy:hover .arr{opacity:1;transform:translate(2px,-2px)}
 
-/* BOTTOM CTA */
+/* ═══════════════════════════════════════
+   OPENCLAW — MEGA FEATURED CARD
+═══════════════════════════════════════ */
+.card.openclaw-feat{
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #0d0b0f 0%, #1a0a1e 35%, #0f0a1a 60%, #1a0808 100%);
+  border: 1.5px solid rgba(255,255,255,.08);
+  box-shadow:
+    0 0 0 1px rgba(255,80,0,.15),
+    0 32px 80px rgba(0,0,0,.45),
+    0 0 120px rgba(255,61,0,.08),
+    inset 0 1px 0 rgba(255,255,255,.06);
+  overflow: visible;
+  border-radius: 28px;
+}
+/* animated top glow bar */
+.card.openclaw-feat::before{
+  content:'';position:absolute;top:-1px;left:0;right:0;height:3px;border-radius:28px 28px 0 0;
+  background:linear-gradient(90deg,#7c3aed,#ff3d00,#ff6b35,#ffaa50,#ff3d00,#7c3aed);
+  background-size:300% 100%;
+  animation:shimmer-bar 4s linear infinite;
+  z-index:10;
+}
+@keyframes shimmer-bar{
+  0%{background-position:0% 0%}
+  100%{background-position:300% 0%}
+}
+/* kill the old ::after since we use ::before now */
+.card.openclaw-feat::after{display:none}
+
+/* floating bg orbs inside card */
+.oc-orb1{position:absolute;width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(124,58,237,.25),transparent 65%);
+  top:-200px;right:-150px;filter:blur(70px);pointer-events:none;z-index:0;
+  animation:float 18s ease-in-out infinite alternate}
+.oc-orb2{position:absolute;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,61,0,.2),transparent 65%);
+  bottom:-150px;left:-100px;filter:blur(80px);pointer-events:none;z-index:0;
+  animation:float 22s ease-in-out infinite alternate-reverse}
+.oc-orb3{position:absolute;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,170,50,.15),transparent 65%);
+  top:40%;left:40%;filter:blur(60px);pointer-events:none;z-index:0;
+  animation:float 16s ease-in-out infinite alternate}
+
+.openclaw-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;position:relative;z-index:1}
+.openclaw-right{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+/* stat boxes */
+.oc-stat{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:14px;padding:16px;
+  backdrop-filter:blur(12px);
+  transition:all .2s;
+}
+.oc-stat:hover{background:rgba(255,255,255,.09);border-color:rgba(255,100,0,.3);transform:translateY(-2px)}
+.oc-stat-n{font-family:'Syne',sans-serif;font-size:24px;font-weight:700;letter-spacing:-1px;color:#fff;line-height:1}
+.oc-stat-n em{font-style:normal;background:linear-gradient(120deg,#ff6b35,#ffaa50);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.oc-stat-l{font-size:11px;color:rgba(255,255,255,.4);margin-top:4px}
+
+/* pulsing NEW ribbon */
+.new-ribbon{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,#7c3aed,#ff3d00,#ff6b35);
+  background-size:200% 100%;
+  animation:ribbon-shift 3s ease infinite, pulse-ribbon 2s ease-in-out infinite;
+  color:#fff;font-size:11px;font-weight:800;padding:6px 20px;
+  border-radius:100px;letter-spacing:1px;text-transform:uppercase;
+  box-shadow:0 4px 24px rgba(255,61,0,.5),0 0 40px rgba(124,58,237,.3);
+  white-space:nowrap;z-index:20;
+}
+@keyframes ribbon-shift{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
+@keyframes pulse-ribbon{
+  0%,100%{box-shadow:0 4px 24px rgba(255,61,0,.5),0 0 40px rgba(124,58,237,.3)}
+  50%{box-shadow:0 4px 40px rgba(255,61,0,.8),0 0 60px rgba(124,58,237,.5)}
+}
+
+/* card name & hook on dark bg */
+.openclaw-feat .cn{color:rgba(255,255,255,.35)}
+.openclaw-feat .cname{color:#fff}
+.openclaw-feat .chook{
+  font-size:15px;font-weight:700;
+  background:linear-gradient(120deg,#ff6b35,#ffaa50,#ff3d00);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.openclaw-feat .cdesc{color:rgba(255,255,255,.55)}
+.openclaw-feat .feats li{color:rgba(255,255,255,.65)}
+.openclaw-feat .fd{background:rgba(255,100,40,.6)}
+
+/* profile tags on dark */
+.openclaw-feat .pf{
+  background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);
+  color:rgba(255,255,255,.5);
+}
+
+/* price section */
+.openclaw-feat .cf{border-top:1px solid rgba(255,255,255,.08)}
+.launch-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,170,50,.12);border:1px solid rgba(255,170,50,.25);
+  color:#ffaa50;font-size:11px;font-weight:700;
+  padding:5px 13px;border-radius:100px;margin-bottom:10px;
+  animation:badge-glow 2s ease-in-out infinite;
+}
+@keyframes badge-glow{
+  0%,100%{box-shadow:none}
+  50%{box-shadow:0 0 16px rgba(255,170,50,.3)}
+}
+.price-launch{display:flex;align-items:baseline;gap:10px;margin-top:4px}
+.price-old{font-size:15px;color:rgba(255,255,255,.3);text-decoration:line-through}
+.price-new{
+  font-family:'Syne',sans-serif;font-size:38px;font-weight:700;letter-spacing:-2px;
+  background:linear-gradient(120deg,#fff 0%,#ffcba0 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;
+}
+.price-new sup{font-size:18px;vertical-align:super;font-weight:600}
+.price-going{font-size:11px;color:#ff8055;font-weight:600;margin-top:4px}
+
+/* buy button for openclaw */
+.btn-buy-oc{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,#ff3d00,#ff6b35,#ffaa50);
+  background-size:200% 100%;
+  color:#fff;font-family:'Figtree',sans-serif;font-size:14px;font-weight:700;
+  padding:14px 28px;border-radius:100px;text-decoration:none;
+  border:none;cursor:pointer;letter-spacing:-.2px;
+  box-shadow:0 6px 32px rgba(255,61,0,.45),0 0 0 1px rgba(255,255,255,.1) inset;
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);
+  animation:btn-shift 4s ease infinite;
+}
+@keyframes btn-shift{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
+.btn-buy-oc:hover{
+  transform:translateY(-3px) scale(1.04);
+  box-shadow:0 12px 48px rgba(255,61,0,.65),0 0 0 1px rgba(255,255,255,.15) inset;
+}
+.btn-buy-oc .arr{width:14px;height:14px;opacity:.8;transition:all .2s}
+.btn-buy-oc:hover .arr{opacity:1;transform:translate(2px,-2px)}
+
+/* powered-by section dark */
+.oc-powered{
+  margin-top:14px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;padding:18px;
+}
+.oc-powered-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,.3);margin-bottom:11px}
+.oc-chip{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.6);font-size:12px;padding:5px 13px;border-radius:9px;
+  transition:all .2s;
+}
+.oc-chip:hover{background:rgba(255,100,40,.15);border-color:rgba(255,100,40,.3);color:rgba(255,255,255,.9)}
+
+/* what-you-get section */
+.oc-includes{
+  margin-top:12px;
+  background:linear-gradient(135deg,rgba(22,163,74,.1),rgba(22,163,74,.05));
+  border:1px solid rgba(22,163,74,.2);
+  border-radius:16px;padding:16px;
+}
+.oc-includes-label{font-size:12px;color:#4ade80;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.oc-includes-text{font-size:12px;color:rgba(255,255,255,.45);line-height:1.75;font-weight:300}
+
+/* right col label */
+.oc-right-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,.3);margin-bottom:12px}
+
+/* icon on dark */
+.openclaw-feat .ci{background:rgba(255,80,0,.15)!important;border-color:rgba(255,80,0,.2)!important}
+
+
 .bcta{position:relative;z-index:2;max-width:1100px;margin:0 auto 80px;padding:0 44px}
 .bcta-in{
   background:var(--text);border-radius:28px;padding:36px 44px;
@@ -372,6 +548,8 @@ footer{position:relative;z-index:2;border-top:1px solid rgba(0,0,0,.07);padding:
   .grid{grid-template-columns:1fr}
   .b-body{padding:36px 24px}
   footer{padding:24px 20px;flex-direction:column;gap:8px;text-align:center}
+  .openclaw-inner{grid-template-columns:1fr}
+  .new-ribbon{font-size:9px;padding:5px 14px}
 }
 </style>
 </head>
@@ -391,7 +569,7 @@ footer{position:relative;z-index:2;border-top:1px solid rgba(0,0,0,.07);padding:
   <a class="logo" href="#"><span class="logo-pulse"></span>AgenDB</a>
   <div class="nav-pill">
     <b>n8n</b>
-    6 AI Automation Agents · Plug &amp; Play
+    7 AI Automation Agents · Plug &amp; Play
   </div>
   <a class="btn-nav" href="https://betanodeautomations.gumroad.com/l/znlbva" target="_blank">Bundle — $25 →</a>
 </nav>
@@ -400,19 +578,19 @@ footer{position:relative;z-index:2;border-top:1px solid rgba(0,0,0,.07);padding:
 <section class="hero rup">
   <div class="hero-badge">
     <span class="hero-badge-left">🔥 New</span>
-    <span class="hero-badge-right">AutoShorts AI just dropped</span>
+    <span class="hero-badge-right">OpenClaw Clone just dropped — $30 launch price</span>
   </div>
   <h1>Your Business,<span class="grad">On Autopilot.</span></h1>
-  <p class="hero-p">Six n8n agents that handle your content, marketing, and research — fully automated, every single day. No code. No grind.</p>
+  <p class="hero-p">Seven n8n agents that handle your content, marketing, research, and outbound sales — fully automated, every single day. No code. No grind.</p>
   <div class="hero-btns">
     <a class="btn-big" href="https://betanodeautomations.gumroad.com/l/znlbva" target="_blank">
-      Get All 6 Agents — $25
+      Get All 7 Agents — $25
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
     </a>
     <a class="btn-ghost" href="#agents">Browse Agents ↓</a>
   </div>
   <div class="stats rup">
-    <div class="sstat"><div class="sn">6</div><div class="sl">Automation Agents</div></div>
+    <div class="sstat"><div class="sn">7</div><div class="sl">Automation Agents</div></div>
     <div class="sstat"><div class="sn"><em>100</em>%</div><div class="sl">Autopilot Ready</div></div>
     <div class="sstat"><div class="sn"><em>0</em>hr</div><div class="sl">Manual Work Required</div></div>
     <div class="sstat"><div class="sn">$<em>25</em></div><div class="sl">For the Full Bundle</div></div>
@@ -427,8 +605,9 @@ footer{position:relative;z-index:2;border-top:1px solid rgba(0,0,0,.07);padding:
     <div class="b-body">
       <div class="b-tag">🔥 Best Value · Save 58%</div>
       <div class="b-h">The Full Automation<br>Stack Bundle</div>
-      <div class="b-p">All 6 agents. One purchase. Forever yours. The complete system to run a fully automated content and marketing engine — on autopilot.</div>
+      <div class="b-p">All 7 agents. One purchase. Forever yours. The complete system to run a fully automated content, marketing, and sales engine — on autopilot.</div>
       <div class="chips">
+        <span class="chip">OpenClaw Clone</span>
         <span class="chip">AutoShorts AI</span>
         <span class="chip">AutoMarket</span>
         <span class="chip">Youcord AI</span>
@@ -457,6 +636,122 @@ footer{position:relative;z-index:2;border-top:1px solid rgba(0,0,0,.07);padding:
   </div>
 
   <div class="grid">
+
+    <!-- OPENCLAW CLONE — MEGA FEATURED CARD -->
+    <div class="card openclaw-feat rup" style="transition-delay:.02s;padding:40px">
+      <div class="oc-orb1"></div>
+      <div class="oc-orb2"></div>
+      <div class="oc-orb3"></div>
+      <span class="new-ribbon">🔥 Just Launched — Limited $30 Price</span>
+
+      <div class="openclaw-inner" style="margin-top:16px">
+        <!-- LEFT COLUMN -->
+        <div>
+          <div class="ch" style="margin-bottom:16px">
+            <div class="ci" style="width:58px;height:58px;font-size:28px">🦾</div>
+            <div class="bgs">
+              <span class="bdg bh">🔥 Featured</span>
+              <span class="bdg" style="background:rgba(124,58,237,.15);color:#a78bfa;border-color:rgba(124,58,237,.25)">117 Nodes</span>
+              <span class="bdg" style="background:rgba(255,170,50,.12);color:#ffaa50;border-color:rgba(255,170,50,.22)">⚡ Launch</span>
+            </div>
+          </div>
+
+          <div class="cn">Agent · 06 · Your AI Chief of Staff</div>
+          <div class="cname" style="font-size:32px;letter-spacing:-1.5px;margin-bottom:10px">OpenClaw Clone</div>
+          <div class="chook" style="font-size:15px;margin-bottom:16px">Find leads. Write cold emails. Run your inbox.<br>Remember everything. All from Telegram.</div>
+          <div class="cdesc" style="font-size:14px;margin-bottom:20px">One n8n workflow with a full AI brain — finds companies matching your ICP, enriches decision-makers with emails, and auto-drafts personalized cold outreach every single day. The same agent manages Gmail, creates Google Docs, tracks tasks with a swarm of 3 worker agents, and remembers every conversation via vector memory. Powered by Claude, Gemini, and GPT-4o.</div>
+
+          <ul class="feats" style="display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;margin-bottom:22px">
+            <li><span class="fd" style="background:#ff6b35;opacity:.8"></span>Automated daily lead generation</li>
+            <li><span class="fd" style="background:#a78bfa;opacity:.8"></span>AI cold email drafts (20/day)</li>
+            <li><span class="fd" style="background:#34d399;opacity:.8"></span>Telegram + WhatsApp channels</li>
+            <li><span class="fd" style="background:#60a5fa;opacity:.8"></span>Voice, image & doc processing</li>
+            <li><span class="fd" style="background:#f472b6;opacity:.8"></span>Full Gmail inbox management</li>
+            <li><span class="fd" style="background:#fbbf24;opacity:.8"></span>Google Docs + Drive manager</li>
+            <li><span class="fd" style="background:#ff6b35;opacity:.8"></span>Task & subtask tracking DB</li>
+            <li><span class="fd" style="background:#a78bfa;opacity:.8"></span>Supabase long-term memory</li>
+          </ul>
+
+          <div class="pfrow" style="margin-bottom:24px">
+            <span class="pf">Solo founders</span>
+            <span class="pf">Sales teams</span>
+            <span class="pf">Agencies</span>
+            <span class="pf">n8n builders</span>
+          </div>
+
+          <div class="cf" style="margin-top:auto;padding-top:22px">
+            <div class="cp">
+              <div class="launch-badge">⚡ Launch Price — Rising to $45 soon</div>
+              <div class="price-launch">
+                <span class="price-old">$45</span>
+                <span class="price-new"><sup>$</sup>30</span>
+              </div>
+              <div class="price-going">🔺 Price goes up after first 20 sales</div>
+            </div>
+            <a class="btn-buy-oc" href="https://betanodeautomations.gumroad.com/l/open8n" target="_blank">
+              Get OpenClaw — $30
+              <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div>
+          <div class="oc-right-label">What's inside</div>
+          <div class="openclaw-right">
+            <div class="oc-stat">
+              <div class="oc-stat-n"><em>117</em></div>
+              <div class="oc-stat-l">Total Nodes</div>
+            </div>
+            <div class="oc-stat">
+              <div class="oc-stat-n"><em>3</em></div>
+              <div class="oc-stat-l">Worker Agents</div>
+            </div>
+            <div class="oc-stat">
+              <div class="oc-stat-n"><em>20</em><span style="font-size:14px;color:rgba(255,255,255,.4)">/day</span></div>
+              <div class="oc-stat-l">Cold Email Drafts</div>
+            </div>
+            <div class="oc-stat">
+              <div class="oc-stat-n"><em>2</em></div>
+              <div class="oc-stat-l">Chat Channels</div>
+            </div>
+            <div class="oc-stat">
+              <div class="oc-stat-n" style="font-size:28px"><em>∞</em></div>
+              <div class="oc-stat-l">Vector Memory</div>
+            </div>
+            <div class="oc-stat">
+              <div class="oc-stat-n"><em>5</em></div>
+              <div class="oc-stat-l">Sub-Agents</div>
+            </div>
+          </div>
+
+          <div class="oc-powered">
+            <div class="oc-powered-label">Powered by</div>
+            <div style="display:flex;flex-wrap:wrap;gap:7px">
+              <span class="oc-chip">Claude Sonnet</span>
+              <span class="oc-chip">Claude Opus</span>
+              <span class="oc-chip">Claude Haiku</span>
+              <span class="oc-chip">Gemini 2.5 Flash</span>
+              <span class="oc-chip">GPT-4o-mini</span>
+              <span class="oc-chip">Supabase</span>
+              <span class="oc-chip">PostgreSQL</span>
+              <span class="oc-chip">Google Workspace</span>
+              <span class="oc-chip">Tavily Search</span>
+              <span class="oc-chip">Telegram</span>
+              <span class="oc-chip">WhatsApp</span>
+            </div>
+          </div>
+
+          <div class="oc-includes">
+            <div class="oc-includes-label">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+              Everything included
+            </div>
+            <div class="oc-includes-text">Complete n8n workflow JSON &nbsp;·&nbsp; Full README setup guide &nbsp;·&nbsp; DataTable schemas &nbsp;·&nbsp; Supabase SQL &nbsp;·&nbsp; Google Sheet template &nbsp;·&nbsp; Placeholder reference guide</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- 00 AutoShorts -->
     <div class="card feat rup" style="transition-delay:.04s">
@@ -613,12 +908,12 @@ footer{position:relative;z-index:2;border-top:1px solid rgba(0,0,0,.07);padding:
     <div class="bc-o3"></div>
     <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">
       <div>
-        <div class="bc-h">Get all 6 agents.<br>Run everything on autopilot.</div>
+        <div class="bc-h">Get all 7 agents.<br>Run everything on autopilot.</div>
         <div class="bc-p">One purchase · Instant download · No subscriptions</div>
       </div>
       <div style="display:flex;align-items:center;gap:20px;flex-shrink:0;">
         <div style="text-align:right;">
-          <div style="font-size:11px;color:rgba(255,255,255,.3);text-decoration:line-through;">$54+ individually</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.3);text-decoration:line-through;">$84+ individually</div>
           <div style="font-family:'Syne',sans-serif;font-size:44px;font-weight:700;letter-spacing:-2px;color:#fff;line-height:1;"><sup style="font-size:18px;vertical-align:super;">$</sup>25</div>
           <div style="font-size:11px;color:#ff8055;font-weight:600;">Save 58%</div>
         </div>
